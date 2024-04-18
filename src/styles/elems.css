@@ -1,0 +1,57 @@
+.para {
+  @apply max-w-prose p-2 -m-2;
+
+  line-height: 1.75;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+
+  /* This is under assumption that `img` is full width image not just an icon. */
+  /* I can think of a reorganization using CSS Grid that would also work on Firefox,
+         but this seems sufficient for the time being. */
+  &:has(img) {
+    overflow-x: visible;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  & a {
+    white-space: nowrap;
+    max-width: var(--container-width);
+  }
+}
+
+.prose {
+  /* TODO: Get rid of thesse two and apply Tailwind styles */
+  --sans: 'Inter';
+  --serif: 'Brygada 1918';
+  --italic-serif: italic 444 1.15em var(--serif);
+
+  --block-mb: 1.5rem;
+
+  @apply max-w-container;
+
+  & > :not(:last-child) {
+    margin-bottom: var(--block-mb);
+  }
+
+  & em {
+    font: var(--italic-serif);
+  }
+
+  & strong,
+  & strong > em {
+    font-weight: 700;
+  }
+
+  & hr {
+    @apply border-gray-100 dark:border-gray-800 border-b-2;
+  }
+
+  & figcaption {
+    @apply px-6 text-gray-600 dark:text-gray-600;
+
+    font: italic 400 1em var(--serif);
+  }
+}

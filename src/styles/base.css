@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+
+  scroll-behavior: smooth;
+
+  font-size: 15px;
+
+  &.dark {
+    color-scheme: dark;
+  }
+}
+
+* {
+  @apply outline-black dark:outline-white
+selection:bg-gray-200 selection:text-black
+dark:selection:bg-gray-700 dark:selection:text-white;
+}
+
+body {
+  @apply text-gray-800 dark:text-gray-300 bg-white dark:bg-gray-900 px-0 md:px-4 p-4 relative min-h-svh;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
