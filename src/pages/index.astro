@@ -1,7 +1,37 @@
 ---
+import Paragraph from '@/components/Paragraph.astro'
+import Project from '@/components/Project.astro'
 import Base from '@/layouts/Base.astro'
+import { getProjects } from '@/lib/projects'
 
-const title = 'asnine ● home'
+const title = '߸'
+const projects = await getProjects()
 ---
 
-<Base {title}><h2>hi!</h2></Base>
+<Base {title}>
+  <main class='py-10 prose'>
+    <div class='mt-6'></div>
+    <Paragraph>
+      Hey, I'm Ashraf aka <strong>asnine</strong>. I'm a 21 y/o SE grad. I like
+      delving into the world of minimalism and building out <em
+        >elegant
+      </em>applications.
+    </Paragraph>
+    <div class='mt-6'></div>
+    <Paragraph>
+      My passion ties towards creating services that bring forward <em
+        >transformative</em
+      > changes to society.
+    </Paragraph>
+
+    <div class='mt-12'></div>
+    <small class='mx-1 text-gray-600 dark:text-gray-500'>Projects</small>
+    <ul class='mt-4'>
+      {
+        projects.map((p) => (
+          <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
+        ))
+      }
+    </ul>
+  </main>
+</Base>
