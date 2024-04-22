@@ -1,35 +1,51 @@
 ---
-import Paragraph from '@/components/Paragraph.astro'
+import Post from '@/components/Post.astro'
 import Project from '@/components/Project.astro'
 import Base from '@/layouts/Base.astro'
+import { sortPostsByDate } from '@/lib/date'
 import { getProjects } from '@/lib/projects'
+import { getCollection } from 'astro:content'
 
 const title = '߸'
 const projects = await getProjects()
+const posts = sortPostsByDate(await getCollection('blog'))
 ---
 
 <Base {title}>
-  <main class='py-10 prose'>
-    <div class='mt-6'></div>
-    <Paragraph>
+  <main class='grow py-10 prose'>
+    <p class='mt-6'>
       Hey, I'm Ashraf aka <strong>asnine</strong>. I'm a 21 y/o SE grad. I like
       delving into the world of minimalism and building out <em
         >elegant
       </em>applications.
-    </Paragraph>
-    <div class='mt-6'></div>
-    <Paragraph>
+    </p>
+    <p class='mt-6'>
       My passion ties towards creating services that bring forward <em
         >transformative</em
       > changes to society.
-    </Paragraph>
+    </p>
 
     <div class='mt-12'></div>
     <small class='mx-1 text-gray-600 dark:text-gray-500'>Projects</small>
-    <ul class='mt-4'>
+    <ul class='pl-0 mt-4'>
       {
-        projects.map((p) => (
+        projects.map(p => (
           <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
+        ))
+      }
+    </ul>
+
+    <div class='mt-12'></div>
+    <small class='mx-1 text-gray-600 dark:text-gray-500'>Posts</small>
+    <ul class='pl-0 mt-4'>
+      {
+        posts.map(p => (
+          <Post
+            slug={p.slug}
+            title={p.data.title}
+            desc={p.data.desc}
+            date={p.data.date}
+          />
         ))
       }
     </ul>
