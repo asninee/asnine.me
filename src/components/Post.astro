@@ -1,0 +1,22 @@
+---
+import Link from './Link.astro'
+
+const { slug, title, desc, date } = Astro.props
+---
+
+<Link
+  href={`/blog/${slug}`}
+  class='p-3 flex flex-row gap-4 justify-between items-center'
+  noUnderline
+>
+  <span class='text-gray-800 dark:text-gray-300 font-medium'>
+    {title}
+    <span class='text-gray-500 dark:text-gray-400 font-normal hidden md:flex'>
+      {desc}
+    </span>
+  </span>
+
+  <span class='text-gray-400 dark:text-gray-300'>
+    {date.toLocaleDateString()}
+  </span>
+</Link>
