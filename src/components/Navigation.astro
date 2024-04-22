@@ -3,11 +3,17 @@ import Link from './Link.astro'
 
 const links = [
   { href: '/blog', label: 'blog' },
-  { href: '/stuff', label: 'stuff' },
-  { href: '/rss.xml', label: 'rss' },
+  // { href: '/stuff', label: 'stuff' },
+  // { href: '/rss.xml', label: 'rss' },
 ]
 ---
 
 <div class='flex gap-x-4 text-gray-600 dark:text-gray-500'>
-  {links.map((l) => <Link href={l.href}>{l.label}</Link>)}
+  {
+    links.map(l => (
+      <Link lg href={l.href}>
+        {l.label}
+      </Link>
+    ))
+  }
 </div>
