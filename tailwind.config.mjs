@@ -30,9 +30,8 @@ export default {
         'serif',
       ],
       mono: [
-        'Fira Code',
-        'ui-monospace',
         'SFMono-Regular',
+        'ui-monospace',
         'Menlo',
         'Monaco',
         'Consolas',
