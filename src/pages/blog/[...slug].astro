@@ -1,0 +1,85 @@
+---
+import Link from '@/components/Link.astro'
+import Base from '@/layouts/Base.astro'
+import { getCollection } from 'astro:content'
+
+export const getStaticPaths = async () => {
+  const posts = await getCollection('blog')
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const {
+  post,
+  post: {
+    data: { title, desc, date },
+  },
+} = Astro.props
+const { Content } = await post.render()
+
+/**
+ * TODO: revamp getPrevPost and getNextPost - doesn't do it relative to date of post
+ */
+
+const getPrevPost = async () => {
+  const posts = await getCollection('blog')
+  return posts
+    .filter(p => p.data.date.getTime() < post.data.date.getTime())
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0]
+}
+
+const getNextPost = async () => {
+  const posts = await getCollection('blog')
+  return posts
+    .filter(p => p.data.date.getTime() > post.data.date.getTime())
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0]
+}
+
+const prevPost = await getPrevPost()
+const nextPost = await getNextPost()
+---
+
+<Base {title}>
+  <main class='grow py-10 prose md'>
+    <div class='flex flex-col'>
+      <h1 class='mb-1'>{title}</h1>
+      <small class='text-gray-600 dark:text-gray-500'
+        >{date.toLocaleDateString()}</small
+      >
+    </div>
+
+    <div class='flex flex-col gap-4'>
+      <Content />
+    </div>
+
+    <hr />
+
+    <div class='flex flex-nowrap items-stretch justify-between'>
+      <div class='self-start'>
+        {
+          prevPost && (
+            <Link href={prevPost.slug} class='flex flex-col' noUnderline>
+              <small class='text-gray-600 dark:text-gray-500'>Previous</small>
+              <small>{prevPost.data.title}</small>
+            </Link>
+          )
+        }
+      </div>
+
+      <div class='self-end'>
+        {
+          nextPost && (
+            <Link href={nextPost.slug} class='flex flex-col' noUnderline>
+              <small class='text-gray-600 dark:text-gray-500 self-end'>
+                Next
+              </small>
+              <small>{nextPost.data.title}</small>
+            </Link>
+          )
+        }
+      </div>
+    </div>
+  </main>
+</Base>
