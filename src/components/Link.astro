@@ -1,11 +1,14 @@
 ---
-const { href, noUnderline, class: className, ...rest } = Astro.props
+const { href, lg, noUnderline, class: className, ...rest } = Astro.props
 ---
 
 <a
   href={href}
   class:list={[
-    'p-2 -mx-2 rounded-sm before:rounded-sm transition-colors relative hover-before',
+    'p-1 -mx-1 rounded-full before:rounded-full transition-colors relative hover-before',
+    {
+      'p-2 -mx-2': lg,
+    },
     {
       'underline underline-offset-4 decoration-gray-200 dark:decoration-gray-700 hover:decoration-transparent dark:hover:decoration-transparent focus:decoration-transparent dark:focus:decoration-transparent':
         !noUnderline,
