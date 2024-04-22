@@ -60,7 +60,7 @@ const nextPost = await getNextPost()
       <div class='self-start'>
         {
           prevPost && (
-            <Link href={prevPost.slug} class='flex flex-col' noUnderline>
+            <Link lg href={prevPost.slug} class='flex flex-col' noUnderline>
               <small class='text-gray-600 dark:text-gray-500'>Previous</small>
               <small>{prevPost.data.title}</small>
             </Link>
@@ -71,7 +71,7 @@ const nextPost = await getNextPost()
       <div class='self-end'>
         {
           nextPost && (
-            <Link href={nextPost.slug} class='flex flex-col' noUnderline>
+            <Link lg href={nextPost.slug} class='flex flex-col' noUnderline>
               <small class='text-gray-600 dark:text-gray-500 self-end'>
                 Next
               </small>
