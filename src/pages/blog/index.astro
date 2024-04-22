@@ -1,0 +1,28 @@
+---
+import Post from '@/components/Post.astro'
+import Base from '@/layouts/Base.astro'
+import { sortPostsByDate } from '@/lib/date'
+import { getCollection } from 'astro:content'
+
+const title = 'blog'
+const posts = sortPostsByDate(await getCollection('blog'))
+---
+
+<Base {title}>
+  <main class='grow py-10 prose'>
+    <div class='mt-6'></div>
+    <h1 class='mx-1'>posts</h1>
+    <ul class='mt-4'>
+      {
+        posts.map(p => (
+          <Post
+            slug={p.slug}
+            title={p.data.title}
+            desc={p.data.desc}
+            date={p.data.date}
+          />
+        ))
+      }
+    </ul>
+  </main>
+</Base>
