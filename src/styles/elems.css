@@ -1,57 +1,77 @@
-.para {
-  @apply max-w-prose p-2 -m-2;
-
-  line-height: 1.75;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-
-  /* This is under assumption that `img` is full width image not just an icon. */
-  /* I can think of a reorganization using CSS Grid that would also work on Firefox,
-         but this seems sufficient for the time being. */
-  &:has(img) {
-    overflow-x: visible;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  & a {
-    white-space: nowrap;
-    max-width: var(--container-width);
-  }
+.hover-before {
+  @apply relative before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:rounded-md before:transition-colors before:bg-transparent hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60 selected:before:bg-gray-100 dark:selected:before:bg-gray-800/60;
 }
 
 .prose {
-  /* TODO: Get rid of thesse two and apply Tailwind styles */
-  --sans: 'Inter';
-  --serif: 'Brygada 1918';
-  --italic-serif: italic 444 1.15em var(--serif);
-
-  --block-mb: 1.5rem;
-
-  @apply max-w-container;
+  @apply max-w-container p-2;
 
   & > :not(:last-child) {
-    margin-bottom: var(--block-mb);
+    @apply mb-6;
+  }
+
+  & h1,
+  & h2,
+  & h3 {
+    @apply font-medium mt-6;
+  }
+
+  & h1 {
+    @apply text-2xl;
+  }
+
+  & h2 {
+    @apply text-lg;
+  }
+
+  & p {
+    @apply leading-relaxed;
+  }
+
+  & ul {
+    @apply list-disc list-outside;
+  }
+
+  & ol {
+    @apply list-decimal list-outside;
+  }
+
+  & :not(pre) > code {
+    @apply p-1 text-xs bg-gray-100 rounded;
+  }
+
+  & pre {
+    @apply p-4 text-xs md:text-sm;
+  }
+
+  & a {
+    @apply whitespace-nowrap max-w-container;
   }
 
   & em {
-    font: var(--italic-serif);
+    @apply font-serif;
   }
 
   & strong,
   & strong > em {
-    font-weight: 700;
+    @apply font-medium;
   }
 
   & hr {
-    @apply border-gray-100 dark:border-gray-800 border-b-2;
+    @apply border-gray-200 dark:border-gray-700 border-b-0 my-10;
+  }
+
+  & img {
+    @apply mx-auto rounded my-6;
   }
 
   & figcaption {
-    @apply px-6 text-gray-600 dark:text-gray-600;
+    @apply px-6 text-gray-600 dark:text-gray-600 font-serif;
+  }
+}
 
-    font: italic 400 1em var(--serif);
+.md {
+  & ul,
+  ol {
+    @apply pl-8 flex flex-col gap-2;
   }
 }
