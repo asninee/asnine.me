@@ -1,7 +1,6 @@
+import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
-
-import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +19,7 @@ export default defineConfig({
         dark: 'min-dark',
       },
       // https://shiki.style/languages
-      langs: ['js', 'rs'],
+      langs: ['js', 'ts', 'rs', 'go'],
       wrap: true,
       // Add custom transformers: https://shiki.style/guide/transformers
       // Find common transformers: https://shiki.style/packages/transformers
