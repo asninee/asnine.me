@@ -15,8 +15,8 @@ export default defineConfig({
     shikiConfig: {
       // https://shiki.style/guide/dual-themes
       themes: {
-        light: 'min-light',
-        dark: 'min-dark',
+        light: 'github-light',
+        dark: 'github-dark',
       },
       // https://shiki.style/languages
       langs: ['js', 'ts', 'rs', 'go'],
