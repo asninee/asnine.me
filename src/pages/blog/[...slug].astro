@@ -1,6 +1,7 @@
 ---
 import Link from '@/components/Link.astro'
 import Base from '@/layouts/Base.astro'
+import { sortPostsByDate } from '@/lib/date'
 import { getCollection } from 'astro:content'
 
 export const getStaticPaths = async () => {
@@ -19,26 +20,14 @@ const {
 } = Astro.props
 const { Content } = await post.render()
 
-/**
- * TODO: revamp getPrevPost and getNextPost - doesn't do it relative to date of post
- */
+const posts = sortPostsByDate(await getCollection('blog'))
+const currentIndex = posts.findIndex(p => p.data.title === title)
+const prevPost = posts[currentIndex + 1]
+const nextPost = posts[currentIndex - 1]
 
-const getPrevPost = async () => {
-  const posts = await getCollection('blog')
-  return posts
-    .filter(p => p.data.date.getTime() < post.data.date.getTime())
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0]
+export const components = {
+  a: Link,
 }
-
-const getNextPost = async () => {
-  const posts = await getCollection('blog')
-  return posts
-    .filter(p => p.data.date.getTime() > post.data.date.getTime())
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0]
-}
-
-const prevPost = await getPrevPost()
-const nextPost = await getNextPost()
 ---
 
 <Base {title}>
@@ -51,7 +40,7 @@ const nextPost = await getNextPost()
     </div>
 
     <div class='flex flex-col gap-4'>
-      <Content />
+      <Content components={components} />
     </div>
 
     <hr />
