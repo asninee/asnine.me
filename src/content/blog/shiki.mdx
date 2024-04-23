@@ -1,0 +1,26 @@
+---
+title: 'Shiki'
+date: 2024-04-22
+desc: 'A quick look at Shiki.'
+---
+
+We're using [Shiki](https://shiki.style/) to add syntax highlighting to code snippets.
+
+```ts
+// @filename: maths.ts
+export function absolute(num: number) {
+  if (num < 0) return num * -1
+  return num
+}
+
+// @filename: index.ts
+import { absolute } from './maths.js'
+const value = absolute(-1)
+```
+
+Pretty neat, isn't it?
+
+```ts
+const welcome = 'Cześć'
+const words = welcome.contains(' ')
+```
