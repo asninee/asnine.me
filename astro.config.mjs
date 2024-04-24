@@ -21,9 +21,6 @@ export default defineConfig({
       // https://shiki.style/languages
       langs: ['js', 'ts', 'rs', 'go'],
       wrap: true,
-      // Add custom transformers: https://shiki.style/guide/transformers
-      // Find common transformers: https://shiki.style/packages/transformers
-      transformers: [],
     },
   },
 })
