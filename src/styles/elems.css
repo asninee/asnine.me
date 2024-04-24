@@ -1,5 +1,13 @@
 .hover-before {
-  @apply relative before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:rounded-md before:transition-colors before:bg-transparent hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60 selected:before:bg-gray-100 dark:selected:before:bg-gray-800/60;
+  @apply relative before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:rounded-lg before:transition-colors before:bg-transparent hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60 selected:before:bg-gray-100 dark:selected:before:bg-gray-800/60;
+}
+
+.image-box.image-box {
+  @apply inline-block rounded-md;
+
+  &:is(a) {
+    @apply p-2 pb-0 -mx-2;
+  }
 }
 
 .prose {
@@ -32,7 +40,7 @@
   }
 
   & ol {
-    @apply list-decimal list-outside;
+    @apply list-decimal list-outside marker:font-medium;
   }
 
   & :not(pre) > code {
@@ -53,7 +61,7 @@
 
   & strong,
   & strong > em {
-    @apply font-medium;
+    @apply font-semibold;
   }
 
   & hr {
@@ -61,11 +69,73 @@
   }
 
   & img {
-    @apply mx-auto rounded my-6;
+    @apply mx-auto rounded border-none;
   }
 
   & figcaption {
     @apply px-6 text-gray-600 dark:text-gray-600 font-serif;
+  }
+
+  blockquote {
+    @apply font-serif relative bg-gray-100 dark:bg-gray-800 rounded-sm py-4 px-6;
+
+    quotes: '“' '”' '‘' '’';
+
+    &:after,
+    &:before {
+      @apply text-4xl leading-none text-gray-300 font-black;
+      position: absolute;
+
+      :global(.dark) & {
+        @apply text-gray-600;
+      }
+    }
+
+    &:before {
+      content: open-quote;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -0.5rem);
+    }
+
+    &:after {
+      content: close-quote;
+      bottom: 0;
+      right: 0;
+      transform: translate(50%, calc(50% + 0.25rem));
+    }
+  }
+
+  table {
+    @apply border-collapse table-fixed;
+
+    & thead {
+      @apply border-b;
+    }
+
+    & th {
+      @apply text-left;
+    }
+
+    & th,
+    & td {
+      @apply py-1 px-2 md:px-4;
+    }
+  }
+
+  .footnotes {
+    & .data-footnote-backref {
+      /* Without this, footnote back references will be rendered with an emoji. */
+      @apply font-serif;
+    }
+
+    & h2 {
+      @apply mb-2;
+    }
+
+    /* & ol > li > p {
+      @apply inline;
+    } */
   }
 }
 
