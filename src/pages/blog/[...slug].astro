@@ -1,4 +1,5 @@
 ---
+import Image from '@/components/Image.astro'
 import Link from '@/components/Link.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
@@ -27,6 +28,7 @@ const nextPost = posts[currentIndex - 1]
 
 export const components = {
   a: Link,
+  img: Image,
 }
 ---
 
