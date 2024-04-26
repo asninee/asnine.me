@@ -1,17 +1,37 @@
+.blur-top {
+  @apply backdrop-blur-sm w-full top-0 pointer-events-none fixed h-24;
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 25%, transparent);
+}
+
+.blur-top:after {
+  @apply content-[''] absolute inset-0;
+  background: linear-gradient(to bottom, hsl(0 0% 99%), transparent);
+}
+
+.blur-bottom {
+  @apply backdrop-blur-sm w-full bottom-0 pointer-events-none fixed h-24;
+  mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
+}
+
+.blur-bottom:before {
+  @apply content-[''] absolute inset-0;
+  background: linear-gradient(to top, hsl(0 0% 99%), transparent);
+}
+
 .hover-before {
-  @apply relative before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:rounded-lg before:transition-colors before:bg-transparent hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60 selected:before:bg-gray-100 dark:selected:before:bg-gray-800/60;
+  @apply before:content-[''] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all  hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60;
 }
 
 .image-box.image-box {
-  @apply inline-block rounded-md;
+  @apply rounded-md;
 
   &:is(a) {
-    @apply p-2 pb-0 -mx-2;
+    @apply p-2 -mx-2;
   }
 }
 
 .prose {
-  @apply max-w-container p-2;
+  @apply max-w-container;
 
   & > :not(:last-child) {
     @apply mb-6;
@@ -69,7 +89,7 @@
   }
 
   & img {
-    @apply mx-auto rounded border-none;
+    @apply mx-auto rounded;
   }
 
   & figcaption {
@@ -77,9 +97,7 @@
   }
 
   blockquote {
-    @apply font-serif relative bg-gray-100 dark:bg-gray-800 rounded-sm py-4 px-6;
-
-    quotes: '“' '”' '‘' '’';
+    @apply font-serif italic relative bg-gray-100 dark:bg-gray-800 rounded-sm py-4 px-6;
 
     &:after,
     &:before {
@@ -89,20 +107,6 @@
       :global(.dark) & {
         @apply text-gray-600;
       }
-    }
-
-    &:before {
-      content: open-quote;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -0.5rem);
-    }
-
-    &:after {
-      content: close-quote;
-      bottom: 0;
-      right: 0;
-      transform: translate(50%, calc(50% + 0.25rem));
     }
   }
 
