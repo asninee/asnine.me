@@ -5,8 +5,9 @@ const { slug, title, desc, date } = Astro.props
 ---
 
 <Link
+  xl
   href={`/blog/${slug}`}
-  class='p-3 flex flex-row gap-4 justify-between items-center'
+  class='flex flex-row gap-4 justify-between items-center'
   noUnderline
 >
   <span class='text-gray-800 dark:text-gray-300 font-medium'>
