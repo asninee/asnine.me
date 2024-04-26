@@ -20,7 +20,7 @@ export default defineConfig({
       },
       // https://shiki.style/languages
       langs: ['js', 'ts', 'rs', 'go'],
-      wrap: true,
+      wrap: false,
     },
   },
 })
