@@ -12,7 +12,7 @@ const posts = sortPostsByDate(await getCollection('blog'))
 ---
 
 <Base {title}>
-  <main class='grow py-10 prose'>
+  <main class='grow py-10 mb-10 prose'>
     <p class='mt-6'>
       Hey, I'm Ashraf aka <strong>asnine</strong>. I'm a 21 y/o SE grad. I like
       delving into the world of minimalism and building out <em
@@ -26,8 +26,8 @@ const posts = sortPostsByDate(await getCollection('blog'))
     </p>
 
     <div class='mt-12'></div>
-    <small class='mx-1 text-gray-600 dark:text-gray-500'>Projects</small>
-    <ul class='pl-0 mt-4'>
+    <small class='text-gray-600 dark:text-gray-500'>Projects</small>
+    <ul class='mt-4'>
       {
         projects.map(p => (
           <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
@@ -36,8 +36,8 @@ const posts = sortPostsByDate(await getCollection('blog'))
     </ul>
 
     <div class='mt-12'></div>
-    <small class='mx-1 text-gray-600 dark:text-gray-500'>Posts</small>
-    <ul class='pl-0 mt-4'>
+    <small class='text-gray-600 dark:text-gray-500'>Posts</small>
+    <ul class='mt-4'>
       {
         posts.map(p => (
           <Post
