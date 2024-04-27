@@ -7,7 +7,6 @@ export default defineConfig({
   integrations: [
     tailwind({
       applyBaseStyles: false,
-      nesting: true,
     }),
     mdx(),
   ],
