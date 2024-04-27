@@ -4,7 +4,6 @@
 
 html {
   @apply antialiased touch-manipulation scroll-smooth text-base;
-  text-rendering: optimizeLegibility;
 
   &.dark {
     color-scheme: dark;
