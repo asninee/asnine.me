@@ -1,4 +1,5 @@
 import tailwindColors from 'tailwindcss/colors'
+import defaultTheme from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
 
 /** @type {import('tailwindcss').Config} */
@@ -7,37 +8,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      sans: [
-        '"Helvetica Neue"',
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      serif: [
-        '"Brygada 1918"',
-        'ui-serif',
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'serif',
-      ],
-      mono: [
-        'SFMono-Regular',
-        'ui-monospace',
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        'monospace',
-      ],
+      sans: ['"Helvetica Neue"', ...defaultTheme.fontFamily.sans],
+      serif: ['Newsreader', ...defaultTheme.fontFamily.serif],
+      mono: ['Commit Mono', ...defaultTheme.fontFamily.mono],
     },
     colors: {
       inherit: tailwindColors.inherit,
@@ -63,6 +36,7 @@ export default {
       },
     },
   },
+
   plugins: [
     plugin(({ addVariant }) => {
       addVariant('selected', '&[aria-selected="true"]')
