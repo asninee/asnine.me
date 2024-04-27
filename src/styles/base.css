@@ -9,10 +9,25 @@ html {
   &.dark {
     color-scheme: dark;
   }
+
+  &:not(.dark) .astro-code {
+    @apply border border-gray-200 rounded-lg;
+  }
+
+  &.dark .astro-code {
+    @apply border border-gray-800 rounded-lg;
+  }
+
+  &.dark .astro-code,
+  &.dark .astro-code span {
+    --bg-dark: theme(colors.gray.900);
+    color: var(--shiki-dark) !important;
+    background-color: var(--bg-dark) !important;
+  }
 }
 
 * {
-  @apply outline-gray-300 dark:outline-white
+  @apply outline-gray-300 dark:outline-gray-600
 selection:bg-gray-200 selection:text-black
 dark:selection:bg-gray-700 dark:selection:text-white;
 }
