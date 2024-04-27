@@ -20,7 +20,11 @@
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.7.0",
+    "astro-font": "^0.0.80",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7"
   }
 }
