@@ -76,7 +76,7 @@
   }
 
   & em {
-    @apply font-serif;
+    @apply font-serif md:text-lg;
   }
 
   & strong,
@@ -114,7 +114,7 @@
     @apply border-collapse table-fixed;
 
     & thead {
-      @apply border-b;
+      @apply border-b dark:border-gray-700;
     }
 
     & th {
@@ -129,17 +129,12 @@
 
   .footnotes {
     & .data-footnote-backref {
-      /* Without this, footnote back references will be rendered with an emoji. */
       @apply font-serif;
     }
 
     & h2 {
       @apply mb-2;
     }
-
-    /* & ol > li > p {
-      @apply inline;
-    } */
   }
 }
 
