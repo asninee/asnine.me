@@ -64,7 +64,7 @@
   }
 
   & :not(pre) > code {
-    @apply p-1 text-xs bg-gray-100 rounded;
+    @apply p-1 text-xs bg-gray-100 dark:bg-gray-800 rounded;
   }
 
   & pre {
@@ -93,7 +93,7 @@
   }
 
   & figcaption {
-    @apply px-6 text-gray-600 dark:text-gray-600 font-serif;
+    @apply px-6 text-gray-600 dark:text-gray-400 font-serif;
   }
 
   blockquote {
