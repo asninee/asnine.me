@@ -8,16 +8,14 @@ import { getCollection } from 'astro:content'
 
 const title = '߸'
 const projects = await getProjects()
-const posts = sortPostsByDate(await getCollection('blog'))
+const posts = sortPostsByDate(await getCollection('blog')).slice(0, 4)
 ---
 
 <Base {title}>
   <main class='grow py-10 mb-10 prose'>
     <p class='mt-6'>
-      Hey, I'm Ashraf aka <strong>asnine</strong>. I'm a 21 y/o SE grad. I like
-      delving into the world of minimalism and building out <em
-        >elegant
-      </em>applications.
+      Hey, I'm Ashraf aka <strong>asnine</strong>. I'm a 22 y/o SE grad. I like
+      delving into the world of minimalism and building out <em>elegant</em> applications.
     </p>
     <p class='mt-6'>
       My passion ties towards creating services that bring forward <em
