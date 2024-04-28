@@ -1,23 +1,3 @@
-.blur-top {
-  @apply backdrop-blur-sm w-full top-0 pointer-events-none fixed h-24;
-  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 25%, transparent);
-}
-
-.blur-top:after {
-  @apply content-[''] absolute inset-0;
-  background: linear-gradient(to bottom, hsl(0 0% 99%), transparent);
-}
-
-.blur-bottom {
-  @apply backdrop-blur-sm w-full bottom-0 pointer-events-none fixed h-24;
-  mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
-}
-
-.blur-bottom:before {
-  @apply content-[''] absolute inset-0;
-  background: linear-gradient(to top, hsl(0 0% 99%), transparent);
-}
-
 .hover-before {
   @apply before:content-[''] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all  hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60;
 }
@@ -105,12 +85,7 @@
 
     &:after,
     &:before {
-      @apply text-4xl leading-none text-gray-300 font-black;
-      position: absolute;
-
-      :global(.dark) & {
-        @apply text-gray-600;
-      }
+      @apply absolute text-4xl leading-none text-gray-300 dark:text-gray-600 font-black;
     }
   }
 
