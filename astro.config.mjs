@@ -21,7 +21,7 @@ export default defineConfig({
         dark: 'github-dark',
       },
       // https://shiki.style/languages
-      langs: ['js', 'ts', 'rs', 'go'],
+      langs: ['rs', 'go'],
       wrap: false,
     },
   },
