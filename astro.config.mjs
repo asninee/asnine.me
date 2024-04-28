@@ -2,6 +2,8 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 
+import icon from 'astro-icon'
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -9,6 +11,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     mdx(),
+    icon(),
   ],
   markdown: {
     shikiConfig: {
