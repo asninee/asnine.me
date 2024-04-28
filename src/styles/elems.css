@@ -13,10 +13,6 @@
 .prose {
   @apply max-w-container;
 
-  & > :not(:last-child) {
-    @apply mb-6;
-  }
-
   & h1,
   & h2,
   & h3 {
