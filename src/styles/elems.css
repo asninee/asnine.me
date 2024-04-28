@@ -89,7 +89,11 @@
   }
 
   & img {
-    @apply mx-auto rounded;
+    @apply mx-auto rounded-md;
+  }
+
+  & a > p > span > img {
+    @apply my-0;
   }
 
   & figcaption {
