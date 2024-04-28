@@ -1,10 +1,8 @@
 ---
-import { AstroFont } from 'astro-font'
-import { ViewTransitions, fade } from 'astro:transitions'
-import { join } from 'node:path'
 const { title, description, image } = Astro.props
 
 import Footer from '@/components/Footer.astro'
+import Head from '@/components/Head.astro'
 import Header from '@/components/Header.astro'
 
 import '@/styles/base.css'
@@ -13,70 +11,13 @@ import '@/styles/elems.css'
 
 <html lang='en'>
   <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-
-    <title>{title}</title>
-    <meta name='title' content={title} />
-    <meta name='description' content={description} />
-
-    <AstroFont
-      config={[
-        {
-          name: 'Commit Mono',
-          src: [
-            {
-              style: 'normal',
-              weight: '400 450',
-              path: join(process.cwd(), 'public', 'fonts', 'CommitMono.woff2'),
-            },
-          ],
-          preload: true,
-          display: 'swap',
-          fallback: 'monospace',
-        },
-        {
-          name: 'Newsreader',
-          src: [
-            {
-              style: 'normal',
-              weight: '400',
-              path: join(
-                process.cwd(),
-                'public',
-                'fonts',
-                'Newsreader-Regular.woff2'
-              ),
-            },
-            {
-              style: 'italic',
-              weight: '400 600',
-              path: join(
-                process.cwd(),
-                'public',
-                'fonts',
-                'Newsreader-Italic.woff2'
-              ),
-            },
-          ],
-          preload: true,
-          display: 'swap',
-          fallback: 'serif',
-        },
-      ]}
-    />
-
-    <ViewTransitions transition:animate={fade({ duration: '0.2s' })} />
+    <Head title={title} description={description} image={image} />
   </head>
   <body class='mx-auto max-w-container flex flex-col px-6 lowercase'>
-    <!-- <div class='blur-top'></div> -->
     <Header />
 
     <slot />
 
     <Footer />
-    <!-- <div class='blur-bottom'></div> -->
   </body>
 </html>
