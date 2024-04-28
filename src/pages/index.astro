@@ -25,7 +25,7 @@ const posts = sortPostsByDate(await getCollection('blog')).slice(0, 4)
 
     <div class='mt-12'></div>
     <small class='text-gray-600 dark:text-gray-500'>Projects</small>
-    <ul class='mt-4'>
+    <ul class='mt-2'>
       {
         projects.map(p => (
           <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
@@ -35,7 +35,7 @@ const posts = sortPostsByDate(await getCollection('blog')).slice(0, 4)
 
     <div class='mt-12'></div>
     <small class='text-gray-600 dark:text-gray-500'>Posts</small>
-    <ul class='mt-4'>
+    <ul class='mt-2'>
       {
         posts.map(p => (
           <Post
