@@ -1,9 +1,9 @@
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="currentColor"/>
-<style>
-    path { fill: #000; }
-    @media (prefers-color-scheme: dark) {
-        path { fill: #FFF; }
-    }
-</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 2048 2048">
+	<path fill="currentColor" d="M1024 640q79 0 149 30t122 83t82 122t31 149q0 79-30 149t-83 122t-122 82t-149 31q-79 0-149-30t-122-83t-82-122t-31-149q0-79 30-149t83-122t122-82t149-31" />
+    <style>
+        path { fill: #000; }
+        @media (prefers-color-scheme: dark) {
+            path { fill: #FFF; }
+        }
+    </style>
 </svg>
