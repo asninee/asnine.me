@@ -1,16 +1,11 @@
 ---
+import { Icon } from 'astro-icon/components'
 import Button from './Button.astro'
 const props = Astro.props
 ---
 
 <Button id='themeToggle'>
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    width='2em'
-    height='2em'
-    viewBox='0 0 32 32'
-    {...props}><circle cx='16' cy='16' r='8' fill='currentColor'></circle></svg
-  >
+  <Icon name='carbon:dot-mark' class='w-8 h-8' />
 </Button>
 
 <style>
