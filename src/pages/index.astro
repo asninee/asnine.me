@@ -6,7 +6,7 @@ import { sortPostsByDate } from '@/lib/date'
 import { getProjects } from '@/lib/projects'
 import { getCollection } from 'astro:content'
 
-const title = 'asnine'
+const title = 'asnine • home'
 const projects = await getProjects()
 const posts = sortPostsByDate(await getCollection('blog')).slice(0, 4)
 ---
