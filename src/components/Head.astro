@@ -6,15 +6,13 @@ import { join } from 'node:path'
 const { title, description, image } = Astro.props
 ---
 
+<!-- global metadata -->
 <meta charset='utf-8' />
 <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 <meta name='viewport' content='width=device-width' />
 <meta name='generator' content={Astro.generator} />
 
-<title>{title}</title>
-<meta name='title' content={title} />
-<meta name='description' content={description} />
-
+<!-- font preloads -->
 <AstroFont
   config={[
     {
@@ -60,5 +58,27 @@ const { title, description, image } = Astro.props
     },
   ]}
 />
+
+<!-- primary meta tags -->
+<title>{title}</title>
+<meta name='title' content={title} />
+<meta name='description' content={description} />
+
+<!-- open graph -->
+<meta property='og:type' content='website' />
+<meta property='og:url' content={Astro.url} />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:image' content={image} />
+
+<!-- twitter -->
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={Astro.url} />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content={description} />
+<meta property='twitter:image' content={image} />
+
+<!-- link tags -->
+<link rel='sitemap' href='/sitemap-index.xml' />
 
 <ViewTransitions transition:animate={fade({ duration: '0.2s' })} />
