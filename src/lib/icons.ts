@@ -16,4 +16,8 @@ export const getIcons = async (): Promise<Icon[]> => [
     name: 'linkedin',
     icon: 'mdi:linkedin',
   },
+  {
+    name: 'email',
+    icon: 'mdi:email',
+  },
 ]
