@@ -19,15 +19,15 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/tailwind": "^5.1.0",
-    "@iconify-json/carbon": "^1.1.31",
+    "@iconify-json/carbon": "^1.1.32",
     "@iconify-json/mdi": "^1.1.66",
-    "astro": "^4.7.0",
+    "astro": "^4.7.1",
     "astro-font": "^0.0.80",
     "astro-icon": "^1.1.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.8"
   }
 }
