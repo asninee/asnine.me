@@ -1,15 +1,7 @@
 ---
-import Link from './Link.astro'
-import Navigation from './Navigation.astro'
 import ThemeToggle from './ThemeToggle.astro'
 ---
 
-<header class='flex items-center justify-between -mt-2'>
-  <Link slot='header-content' class='font-semibold' lg noUnderline href='/'
-    >asnine
-  </Link>
-  <div class='flex gap-6 items-center'>
-    <Navigation />
-    <ThemeToggle />
-  </div>
+<header class='flex justify-end -mt-2'>
+  <ThemeToggle />
 </header>
