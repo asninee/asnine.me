@@ -1,4 +1,5 @@
 ---
+import Link from '@/components/Link.astro'
 import Post from '@/components/Post.astro'
 import Project from '@/components/Project.astro'
 import Base from '@/layouts/Base.astro'
@@ -8,19 +9,32 @@ import { getCollection } from 'astro:content'
 
 const title = 'asnine • home'
 const projects = await getProjects()
-const posts = sortPostsByDate(await getCollection('blog')).slice(0, 4)
+const posts = sortPostsByDate(
+  await getCollection('blog', ({ data }) => data.isDraft !== true)
+).slice(0, 4)
 ---
 
 <Base {title}>
-  <main class='grow py-10 mb-10 prose'>
-    <p class='mt-6'>
-      Hey, I'm Ashraf aka <strong>asnine</strong>. I'm a 22 y/o SE grad. I like
-      delving into the world of minimalism and building out <em>elegant</em> applications.
+  <main class='grow py-4 md:py-8 mb-10 prose'>
+    <h1>asnine</h1>
+    <p class='mt-10'>
+      Hey, I'm Ashraf aka <strong>asnine</strong>. I'm an aspiring developer and
+      recent SE grad, continously looking to hone my craft by building out <em
+        >simple</em
+      >, <em>functional</em> and <em>elegant</em> applications.
     </p>
     <p class='mt-6'>
-      My passion ties towards creating services that bring forward <em
+      My passion ties towards creating services that can bring forward <em
         >transformative</em
-      > changes to society.
+      > changes to society, where the emergence of <Link
+        href='https://www.wired.com/story/guide-iphone/'
+        >touch-based devices</Link
+      > fascinated me as a kid.
+    </p>
+    <p class='mt-6'>
+      I love exploring the latest and greatest in the tech sphere, where I value
+      high-quality products that are <em>utilitarian</em> in nature, but also incorporate
+      a <em>sleek</em> aesthetic.
     </p>
 
     <div class='mt-12'></div>
@@ -34,8 +48,11 @@ const posts = sortPostsByDate(await getCollection('blog')).slice(0, 4)
     </ul>
 
     <div class='mt-12'></div>
-    <small class='text-gray-600 dark:text-gray-500'>Posts</small>
-    <ul class='mt-2'>
+    <div class='flex justify-between items-center'>
+      <small class='text-gray-600 dark:text-gray-500'>Posts</small>
+      <Link lg href='/blog'><small>View all</small></Link>
+    </div>
+    <ul>
       {
         posts.map(p => (
           <Post
