@@ -1,0 +1,109 @@
+---
+title: 'a new start'
+date: 2024-05-02
+desc: 'ramblings on the building of this site.'
+---
+
+Firstly, I'd like to voice my biggest thanks to **_you_**, the reader, for viewing my site, where I sincerely hope that you enjoy the experience as much as I did building it. Feel free to [let me know](mailto:asninee@pm.me) your thoughts!
+
+---
+
+I've always loved browsing through [curated lists](https://deadsimplesites.com/) of _simple, but elegant_ portfolio sites, thinking to myself:
+
+> Can't wait to join them! Let's do this~
+
+But in reality, a storm called procrastination started brewing. Exploring and delving deeper into what you discern as _perfection_ very much leads you into chasing just that. And so, for a good while, I put it off, continuing to explore where time allowed me to, thinking that future me would be more than capable enough to reach my own outlandish standards. But then, there came [Astro](https://astro.build/).
+
+## A Real Game-changer
+
+For context, I'd consider myself a React novice, where in recent projects I've been able to get a solid grasp of making full-stack web apps, navigating my way through managing state, handling persistent logins with token-based authentication using `localStorage`, and cookie-based authentication, using [React Router](https://reactrouter.com/en/main) to incorporate multi-page routing, and dealing with `useEffect()` hell (as I call it).
+
+While I love React and SPA's for the matter, nothing beats the elegance and _simplicity_ of a static website, where it didn't exactly make sense for me to build out my portfolio site using a SPA. After all, I sought to build out a site that had the _elegant simplicity_ of those which I've admired, but I also wanted it to be _blazingly fast_. But on the flip side, my thinking of a static website was that of plain old HTML + JS, where you couldn't incorporate [Component Driven Design (CDD)](https://www.componentdriven.org), and you would also lose out on the declarative approach used by React.
+
+So you couldn't believe my amazement when I discovered that Astro had addressed all my criticisms with their design principles:
+
+- [Leverages server-side-rendering](https://docs.astro.build/en/concepts/why-astro/#server-first)
+- [Speedy by default](https://docs.astro.build/en/concepts/why-astro/#fast-by-default)
+- [Ease of use](https://docs.astro.build/en/concepts/why-astro/#easy-to-use)
+
+I very much agreed with the sentiment that content-driven sites shouldn't need to be rendered on the client, where this was (literally) a breath of fresh air for me. Zero-JS sent to the client by default was another big win, where it should be _"nearly impossible to build a slow website with Astro"_. When I looked at [syntax examples](https://docs.astro.build/en/basics/astro-syntax/) in Astro's docs page, I was literally like this: 😯. If you only know HTML, CSS and some basic JS, you'll be able to quickly get to grips with Astro.
+
+Now, Astro's `.astro` language works as a superset of HTML, but the magic behind it lies in that you can create components with it that can be used to build out your layouts. Sounds familiar to CDD, right? But there's another point that I'd like to highlight with the below code snippet:
+
+```astro
+---
+// code fences
+const name = "Astro"
+---
+
+<!-- markup section -->
+<button id="button">click me, {name}</button>
+
+<!-- style section -->
+<style>
+    #button {
+        background-color: cadetblue;
+    }
+</style>
+
+<!-- script section -->
+<script>
+  function handleClick () {
+    console.log("button clicked!");
+  }
+  document.getElementById("button").addEventListener("click", handleClick);
+</script>
+```
+
+Within a `.astro` file, the different aspects of your component logic are separated into distinct sections in a [Svelte-like manner](https://svelte.dev/), giving devs the power to create components with all the necessary logic incorporated into them in a single file. The code fences allow for the defining of local JS vars, where they can be injected in a JSX-like manner, as seen in the markup section.
+
+You'd think this is all already impressive as-is, but there's something else I want to bring to your attention: [Astro Islands](https://docs.astro.build/en/concepts/islands/).
+
+## You Haven't Seen The Real Magic Yet: Islands
+
+The key to Astro's insane performance comes from it's server-first approach, where it looks to minimise sending client-side JS as much as possible, which makes sense. But what happens when you need to add some client-side interactivity? Islands.
+
+### The Core Idea
+
+The Island Architecture refers to treating interactive components as "Islands", where they are independent in their own functionality, and are isolated. I very much like how the Astro docs put it, where you can think of them as _"interactive widgets floating in a sea of otherwise static, lightweight, server-rendered HTML"_.
+
+Given how islands are isolated in nature, there is no need to wrap the whole site in a UI framework, where islands are selectively hydrated, ensuring performance. With this, Astro is able to be UI-agnostic, allowing you to create islands using React, Preact, Solid and Svelte to name a few.
+
+### Using Them In Practice
+
+[This section](https://docs.astro.build/en/concepts/islands/#creating-an-island) of the Astro docs does a stellar job explaining how islands work in practice, where by default Astro renders UI components to just HTML & CSS. It is only when `client:*` directives are used that interactivity is toggled on for a component, where it turns into an island.
+
+## Completing The Puzzle
+
+Apologies for the extended Astro shilling; but seriously, it's great. it's _blazingly fast_, has a minimal learning curve, allows you play around with different UI libraries in a familiar environment (something I'll be doing), but most importantly; it scales up according to the dev's needs. Want to create a blog? [Content Collections](https://docs.astro.build/en/guides/content-collections/). Want to add SPA-like transitions? [View Transitions](https://docs.astro.build/en/guides/view-transitions/). _Heck_, it's even got an integrated [DB](https://docs.astro.build/en/guides/astro-db/) now.
+
+The Astro team have absolutely smashed it out of the park with this framework, where my excitement to make use of Astro in practice helped me to overcome the storm of procrastination, where upon completing the [tutorial blog](https://astro-intro-asnine.vercel.app/), I quickly got to work on my portfolio site, filled with enthusiasm on how I could build on my initial stint using Astro.
+
+But more than anything, completing this site changed my mentality on completing projects as a whole.
+
+## A New Start...
+
+The whole journey of building this site was a real rollercoaster. Disregarding the procrastination factor entirely, when getting to work on the real thing, I inevitably ran into a myriad of issues that broke my momentum over and over: dealing with TailwindCSS config issues, the arduous process of troubleshooting and fixing style issues, and Shiki being a royal pain with [dual themes](https://github.com/shikijs/shiki/issues/33) just scratch the surface. But would I go through this whole experience again? Without a doubt, 100 times over. And the justification behind this is core to the premise of _"my new start"_:
+
+> Build what you love, with what you love.
+
+Being able to nurture the excitement I had when learning about Astro, and transforming it into a love by immersing myself in using it allowed me to push forward towards my goal of building a portfolio site, where my passion for using Astro intersected with my goal. Having a goal that deeply resonated with me, with a tool that I loved that was pretty much the perfect fit for realising said goal, meant that I had the resilience to follow through, no matter what came in my way.
+
+And so, when wanting to start out a project, you should ask yourself these two questions:
+
+1. _Am I building something that I love?_
+2. _Am I building said thing with tools that I love?_
+
+If you cannot answer both questions with a resounding _"yes"_, chances are you will probably shelve it at some point, adding it to the _not-completed-projects_ list.
+
+But by having that key underlying love, it will act as a key motivator towards the completion of your future projects. In addition, no love comes without it's justifications, where you will be able to convey yourself with confidence.
+
+_It's just a win-win tbh._
+
+> love is a key factor, but the extent as to which you are willing to challenge yourself is the _be-all_ and _end-all_, **_but that's a discussion for another time_**.
+
+## An Aside
+
+_Phew_. I hope you enjoyed my _first_ (of many) blog posts! I've always looked in admiration at others who speak so candidly in their blogs, where I've always wanted to emulate them, and better myself in terms of vocalising my thoughts. As an extroverted introvert, I have the habit of keeping to myself _a fair bit_ despite being sociable, where this blog can hopefully give you a glimpse into my (mostly uneventful) life and inner thoughts.
+
+_until next time~_ 🫡
