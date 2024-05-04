@@ -18,6 +18,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.3.1",
+    "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/carbon": "^1.1.32",
     "@iconify-json/mdi": "^1.1.66",
