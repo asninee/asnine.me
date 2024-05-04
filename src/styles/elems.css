@@ -1,5 +1,5 @@
 .hover-before {
-  @apply before:content-[''] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all  hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60;
+  @apply before:content-[''] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-gray-100 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-100 dark:focus:before:bg-gray-800/60;
 }
 
 .image-box.image-box {
@@ -40,11 +40,11 @@
   }
 
   & :not(pre) > code {
-    @apply p-1 text-xs bg-gray-100 dark:bg-gray-800 rounded;
+    @apply p-1 text-xs bg-gray-100 dark:bg-gray-800 rounded normal-case;
   }
 
   & pre {
-    @apply p-4 text-xs md:text-sm;
+    @apply p-4 text-xs md:text-sm normal-case;
   }
 
   & a {
@@ -77,7 +77,7 @@
   }
 
   blockquote {
-    @apply font-serif italic relative bg-gray-100 dark:bg-gray-800 rounded-sm py-4 px-6;
+    @apply font-serif italic relative bg-gray-100 dark:bg-gray-800 rounded-sm py-4 px-6 my-2;
 
     &:after,
     &:before {
