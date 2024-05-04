@@ -61,7 +61,7 @@
   }
 
   & hr {
-    @apply border-gray-200 dark:border-gray-700 border-b-0 my-10;
+    @apply border-gray-200 dark:border-gray-700 border-b-0 my-6 md:my-10;
   }
 
   & img {
@@ -116,6 +116,6 @@
 .md {
   & ul,
   ol {
-    @apply pl-8 flex flex-col gap-2;
+    @apply pl-7 flex flex-col gap-2;
   }
 }
