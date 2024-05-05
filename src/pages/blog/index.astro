@@ -27,7 +27,7 @@ const posts = sortPostsByDate(
 const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
 ---
 
-<Base {title}>
+<Base {title} description='A collection of all my thoughts and experiences'>
   <main class='grow py-4 md:py-8 mb-10 prose'>
     <BackLink href='/' page='home' />
 
