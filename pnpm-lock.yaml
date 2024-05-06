@@ -29,9 +29,6 @@ importers:
       astro:
         specifier: ^4.7.1
         version: 4.7.1(@types/node@20.12.8)(typescript@5.4.5)
-      astro-font:
-        specifier: ^0.0.80
-        version: 0.0.80
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
@@ -793,9 +790,6 @@ packages:
   astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
-
-  astro-font@0.0.80:
-    resolution: {integrity: sha512-RjUANXSNdt0Yp2Tpyn7woBg67hCX2Gy1OiiA7B0NX501LcrzvFHoX98CoBgJC5af3tj3fznfLqqBmMr7wu6+fQ==}
 
   astro-icon@1.1.0:
     resolution: {integrity: sha512-Nksc09p7UuHeMcPNS9w1pKqRw3+wEmmh0A3FJW+FNXvqaeWI4RLvD1MCWErpY3Z5Cvad317rvLdik/Hg8GEk8Q==}
@@ -3302,8 +3296,6 @@ snapshots:
   array-iterate@2.0.1: {}
 
   astring@1.8.6: {}
-
-  astro-font@0.0.80: {}
 
   astro-icon@1.1.0:
     dependencies:
