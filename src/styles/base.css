@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/fonts/Newsreader.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400 600;
+}
+
+@font-face {
+  font-family: 'Commit Mono';
+  src: url('/fonts/CommitMono.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 450;
+}
+
 html {
   @apply antialiased touch-manipulation scroll-smooth text-base;
 
