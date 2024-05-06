@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
 import Button from './Button.astro'
-const props = Astro.props
 ---
 
 <Button id='themeToggle'>
@@ -17,26 +16,29 @@ const props = Astro.props
 <script>
   document.addEventListener('astro:page-load', () => {
     const theme = (() => {
-      if (
-        typeof localStorage !== 'undefined' &&
-        localStorage.getItem('theme')
-      ) {
-        return localStorage.getItem('theme')
-      }
+      const storedTheme =
+        typeof localStorage !== 'undefined' && localStorage.getItem('theme')
 
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark'
-      }
-      return 'light'
+      return (
+        storedTheme ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches
+          ? 'light'
+          : 'dark')
+      )
     })()
 
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark')
-    } else {
-      document.documentElement.classList.add('dark')
+    const setTheme = (theme: string) => {
+      const html = document.documentElement
+      const isDark = theme === 'dark'
+
+      html.classList.toggle('dark', isDark)
+      html.classList.toggle('light', !isDark)
+
+      localStorage.setItem('theme', theme)
     }
 
-    window.localStorage.setItem('theme', theme)
+    setTheme(theme)
+    document.addEventListener('astro:after-swap', () => setTheme(theme))
 
     const themeToggle = document.getElementById('themeToggle')
     themeToggle?.addEventListener('click', () => {
@@ -46,12 +48,5 @@ const props = Astro.props
       const isDark = element.classList.contains('dark')
       localStorage.setItem('theme', isDark ? 'dark' : 'light')
     })
-  })
-</script>
-
-<script>
-  document.addEventListener('astro:after-swap', () => {
-    if (localStorage.theme === 'dark')
-      document.documentElement.classList.add('dark')
   })
 </script>
