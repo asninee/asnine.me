@@ -9,7 +9,7 @@ import cloudflare from '@astrojs/cloudflare'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asnine.me',
-  output: 'server',
+  output: 'hybrid',
   adapter: cloudflare(),
   integrations: [
     tailwind({
