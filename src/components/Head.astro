@@ -1,7 +1,5 @@
 ---
-import { AstroFont } from 'astro-font'
 import { ViewTransitions, fade } from 'astro:transitions'
-import { join } from 'node:path'
 
 const { title, description } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -17,50 +15,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <link rel='canonical' href={canonicalURL} />
 
 <!-- font preloads -->
-<AstroFont
-  config={[
-    {
-      name: 'Commit Mono',
-      src: [
-        {
-          style: 'normal',
-          weight: '450',
-          path: join(process.cwd(), 'public', 'fonts', 'CommitMono.woff2'),
-        },
-      ],
-      preload: true,
-      display: 'swap',
-      fallback: 'monospace',
-    },
-    {
-      name: 'Newsreader',
-      src: [
-        {
-          style: 'normal',
-          weight: '400',
-          path: join(
-            process.cwd(),
-            'public',
-            'fonts',
-            'Newsreader-Regular.woff2'
-          ),
-        },
-        {
-          style: 'italic',
-          weight: '400 600',
-          path: join(
-            process.cwd(),
-            'public',
-            'fonts',
-            'Newsreader-Italic.woff2'
-          ),
-        },
-      ],
-      preload: true,
-      display: 'swap',
-      fallback: 'serif',
-    },
-  ]}
+<link
+  rel='preload'
+  href='/fonts/Newsreader.woff2'
+  as='font'
+  type='font/woff2'
+  crossorigin='anonymous'
+/>
+<link
+  rel='preload'
+  href='/fonts/CommitMono.woff2'
+  as='font'
+  type='font/woff2'
+  crossorigin='anonymous'
 />
 
 <!-- primary meta tags -->
@@ -70,6 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 <!-- open graph -->
 <meta property='og:type' content='website' />
+<meta property='og:site_name' content='Ashraf Said' />
 <meta property='og:url' content={Astro.url} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
@@ -83,6 +51,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <!-- <meta property='twitter:image' content={image} /> -->
 
 <!-- sitemap -->
-<link rel='sitemap' href={new URL('/sitemap-index.xml', Astro.site)} />
+<link rel='sitemap' href='/sitemap-index.xml' />
 
 <ViewTransitions transition:animate={fade({ duration: '0.2s' })} />
