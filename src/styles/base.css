@@ -4,9 +4,16 @@
 
 @font-face {
   font-family: 'Newsreader';
-  src: url('/fonts/Newsreader.woff2') format('woff2');
+  src: url('/fonts/Newsreader400.woff2') format('woff2');
   font-display: swap;
-  font-weight: 400 600;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/fonts/Newsreader600.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
 }
 
 @font-face {
