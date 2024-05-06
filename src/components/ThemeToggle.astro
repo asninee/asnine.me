@@ -27,18 +27,13 @@ import Button from './Button.astro'
       )
     })()
 
-    const setTheme = (theme: string) => {
-      const html = document.documentElement
-      const isDark = theme === 'dark'
-
-      html.classList.toggle('dark', isDark)
-      html.classList.toggle('light', !isDark)
-
-      localStorage.setItem('theme', theme)
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
     }
 
-    setTheme(theme)
-    document.addEventListener('astro:after-swap', () => setTheme(theme))
+    window.localStorage.setItem('theme', theme)
 
     const themeToggle = document.getElementById('themeToggle')
     themeToggle?.addEventListener('click', () => {
@@ -48,5 +43,12 @@ import Button from './Button.astro'
       const isDark = element.classList.contains('dark')
       localStorage.setItem('theme', isDark ? 'dark' : 'light')
     })
+  })
+</script>
+
+<script>
+  document.addEventListener('astro:after-swap', () => {
+    if (localStorage.theme === 'dark')
+      document.documentElement.classList.add('dark')
   })
 </script>
