@@ -4,10 +4,11 @@ import Image from '@/components/Image.astro'
 import Link from '@/components/Link.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
+import { getBlogCollection } from '@/lib/image'
 import { getCollection } from 'astro:content'
 
 export const getStaticPaths = async () => {
-  const posts = await getCollection('blog')
+  const posts = await getBlogCollection()
   return posts.map(post => ({
     params: { slug: post.slug },
     props: { post },
