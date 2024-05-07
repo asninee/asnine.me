@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asnine.me/sitemap-index.xml
