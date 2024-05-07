@@ -40,11 +40,13 @@ const posts = sortPostsByDate(
     <div class='mt-12'></div>
     <small class='text-gray-600 dark:text-gray-500'>Projects</small>
     <ul class='mt-2'>
-      {
-        projects.map(p => (
-          <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
-        ))
-      }
+      <li class='list-none'>
+        {
+          projects.map(p => (
+            <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
+          ))
+        }
+      </li>
     </ul>
 
     <div class='mt-12'></div>
@@ -53,16 +55,18 @@ const posts = sortPostsByDate(
       <Link lg href='/blog'><small>View all</small></Link>
     </div>
     <ul>
-      {
-        posts.map(p => (
-          <Post
-            slug={p.slug}
-            title={p.data.title}
-            desc={p.data.desc}
-            date={p.data.date}
-          />
-        ))
-      }
+      <li class='list-none'>
+        {
+          posts.map(p => (
+            <Post
+              slug={p.slug}
+              title={p.data.title}
+              desc={p.data.desc}
+              date={p.data.date}
+            />
+          ))
+        }
+      </li>
     </ul>
   </main>
 </Base>
