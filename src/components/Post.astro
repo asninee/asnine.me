@@ -13,12 +13,12 @@ const { slug, title, desc, date } = Astro.props
 >
   <span class='text-gray-800 dark:text-gray-300 font-medium'>
     {title}
-    <span class='text-gray-500 dark:text-gray-400 font-normal hidden md:flex'>
+    <span class='text-gray-600 dark:text-gray-400 font-normal hidden md:flex'>
       {desc}
     </span>
   </span>
 
-  <span class='text-gray-400 dark:text-gray-300'>
+  <span class='text-gray-600 dark:text-gray-400'>
     {date.toLocaleDateString('en-GB')}
   </span>
 </Link>
