@@ -9,6 +9,7 @@ const { slug, title, desc, date } = Astro.props
   href={`/blog/${slug}`}
   class='flex flex-row gap-4 justify-between items-center'
   noUnderline
+  label={`Open ${title} blog post`}
 >
   <span class='text-gray-800 dark:text-gray-300 font-medium'>
     {title}

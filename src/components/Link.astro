@@ -5,13 +5,18 @@ const {
   xl,
   img,
   noUnderline,
+  label,
   class: className,
   ...rest
 } = Astro.props
+
+const isExternal = href.startsWith('http')
 ---
 
 <a
   href={href}
+  target={isExternal ? '_blank' : '_self'}
+  aria-label={label}
   class:list={[
     'p-1 -mx-1 rounded-lg before:rounded-lg relative hover-before',
     {

@@ -8,7 +8,15 @@ const socials = await getSocials()
 
 <footer class='mt-5 -mb-2 flex min-w-max items-center justify-between'>
   <ul class='flex gap-4'>
-    {socials.map(s => <SocialIcon name={s.name} link={s.link} />)}
+    {
+      socials.map(s => (
+        <SocialIcon
+          name={s.name}
+          link={s.link}
+          label={`Open ${s.name} social link`}
+        />
+      ))
+    }
   </ul>
   <Link lg href='https://www.unrwa.org/'>#freepalestine</Link>
 </footer>
