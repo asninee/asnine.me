@@ -44,7 +44,7 @@
   }
 
   & pre {
-    @apply p-4 text-xs md:text-sm normal-case;
+    @apply p-4 text-xs normal-case;
   }
 
   & a {
