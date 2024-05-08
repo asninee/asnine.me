@@ -26,9 +26,6 @@ importers:
       '@iconify-json/carbon':
         specifier: ^1.1.32
         version: 1.1.32
-      '@iconify-json/mdi':
-        specifier: ^1.1.66
-        version: 1.1.66
       astro:
         specifier: ^4.7.1
         version: 4.7.1(@types/node@20.12.8)(typescript@5.4.5)
@@ -703,9 +700,6 @@ packages:
 
   '@iconify-json/carbon@1.1.32':
     resolution: {integrity: sha512-9X8wVI7AmcnjTyOdDoCgyNwcFL9lb++nacDS2yLANTc27F4y9Q8pJIfUVsakR4KcGqSSBCyXwEmBDeopeTZFqA==}
-
-  '@iconify-json/mdi@1.1.66':
-    resolution: {integrity: sha512-7KPF2RVUUWav/hXCM8Ti/smqu3cmgePJpiX9CSkldiL+80+eBRBeKlc4vPOc9jhAItlqIU1vKsbKoPP0JIfgbg==}
 
   '@iconify/tools@3.0.7':
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
@@ -3539,10 +3533,6 @@ snapshots:
   '@fastify/busboy@2.1.1': {}
 
   '@iconify-json/carbon@1.1.32':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify-json/mdi@1.1.66':
     dependencies:
       '@iconify/types': 2.0.0
 
