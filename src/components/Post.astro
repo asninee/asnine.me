@@ -2,6 +2,8 @@
 import Link from './Link.astro'
 
 const { slug, title, desc, date } = Astro.props
+
+const isHome = Astro.url.pathname === '/'
 ---
 
 <Link
@@ -19,6 +21,13 @@ const { slug, title, desc, date } = Astro.props
   </span>
 
   <span class='text-gray-600 dark:text-gray-400'>
-    {date.toLocaleDateString('en-GB')}
+    {
+      isHome
+        ? new Intl.DateTimeFormat('en-GB').format(date)
+        : new Intl.DateTimeFormat('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+          }).format(date)
+    }
   </span>
 </Link>
