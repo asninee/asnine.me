@@ -2,12 +2,15 @@
 import Link from '@/components/Link.astro'
 import Post from '@/components/Post.astro'
 import Project from '@/components/Project.astro'
+import Social from '@/components/Social.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
 import { getProjects } from '@/lib/projects'
+import { getSocials } from '@/lib/socials'
 import { getCollection } from 'astro:content'
 
 const title = 'asnine • home'
+const socials = await getSocials()
 const projects = await getProjects()
 const posts = sortPostsByDate(
   await getCollection('blog', ({ data }) => data.isDraft !== true)
@@ -17,36 +20,51 @@ const posts = sortPostsByDate(
 <Base {title} description='My personal site and blog'>
   <main class='grow py-4 md:py-8 mb-10 prose'>
     <h1>asnine</h1>
-    <p class='mt-10'>
-      Hey, I'm Ashraf aka <strong>asnine</strong>. I'm an aspiring developer and
-      recent SE grad, continously looking to hone my craft by building out <em
-        >simple</em
-      >, <em>functional</em> and <em>elegant</em> applications.
-    </p>
-    <p class='mt-6'>
-      My passion ties towards creating services that can bring forward <em
-        >transformative</em
-      > changes to society, where the emergence of <Link
-        href='https://www.wired.com/story/guide-iphone/'
-        >touch-based devices</Link
-      > fascinated me as a kid.
-    </p>
-    <p class='mt-6'>
-      I love exploring the latest and greatest in the tech sphere, where I value
-      high-quality products that are <em>utilitarian</em> in nature, but also incorporate
-      a <em>sleek</em> aesthetic.
-    </p>
+    <div class='flex mt-10 gap-6'>
+      <div>
+        <p>
+          Hey, I'm Ashraf aka <strong>asnine</strong>. I'm an aspiring developer
+          and recent SE grad, continously looking to hone my craft by building
+          out <em>simple</em>, <em>functional</em> and <em>elegant</em> applications.
+        </p>
+        <p class='mt-6'>
+          My passion ties towards creating services that can bring forward <em
+            >transformative</em
+          > changes to society, where the emergence of <Link
+            href='https://www.wired.com/story/guide-iphone/'
+            >touch-based devices</Link
+          > fascinated me as a kid.
+        </p>
+        <p class='mt-6'>
+          I love exploring the latest and greatest in the tech sphere, where I
+          value high-quality products that are <em>utilitarian</em> in nature, but
+          also incorporate a <em>sleek</em> aesthetic.
+        </p>
+      </div>
+      <div class='self-auto'>
+        <small class='text-gray-600 dark:text-gray-500'>Links</small>
+        <ul class='flex flex-col gap-2 mt-2'>
+          {
+            socials.map(s => (
+              <li class='list-none'>
+                <Social name={s.name} link={s.link} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
 
     <div class='mt-12'></div>
     <small class='text-gray-600 dark:text-gray-500'>Projects</small>
     <ul class='mt-2'>
-      <li class='list-none'>
-        {
-          projects.map(p => (
+      {
+        projects.map(p => (
+          <li class='list-none'>
             <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
-          ))
-        }
-      </li>
+          </li>
+        ))
+      }
     </ul>
 
     <div class='mt-12'></div>
@@ -55,18 +73,18 @@ const posts = sortPostsByDate(
       <Link lg href='/blog'><small>View all</small></Link>
     </div>
     <ul>
-      <li class='list-none'>
-        {
-          posts.map(p => (
+      {
+        posts.map(p => (
+          <li class='list-none'>
             <Post
               slug={p.slug}
               title={p.data.title}
               desc={p.data.desc}
               date={p.data.date}
             />
-          ))
-        }
-      </li>
+          </li>
+        ))
+      }
     </ul>
   </main>
 </Base>
