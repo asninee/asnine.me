@@ -40,7 +40,7 @@
   }
 
   & :not(pre) > code {
-    @apply p-1 text-xs bg-gray-100 dark:bg-gray-800 rounded normal-case;
+    @apply p-1 text-xs bg-gray-200 dark:bg-gray-800 rounded normal-case;
   }
 
   & pre {
@@ -52,7 +52,7 @@
   }
 
   & em {
-    @apply font-serif md:text-lg;
+    @apply font-serif;
   }
 
   & strong,
