@@ -1,16 +1,8 @@
 ---
-import { getSocials } from '@/lib/socials'
 import Link from './Link.astro'
-import SocialIcon from './SocialIcon.astro'
-
-const socials = await getSocials()
 ---
 
-<footer class='mt-5 -mb-2 flex min-w-max items-center justify-between'>
-  <ul class='flex gap-4'>
-    <li class='list-none'>
-      {socials.map(s => <SocialIcon name={s.name} link={s.link} />)}
-    </li>
-  </ul>
+<footer class='flex min-w-max items-center justify-between'>
+  <span class='font-serif'>Re-invent yourself.</span>
   <Link lg href='https://www.unrwa.org/'>#freepalestine</Link>
 </footer>
