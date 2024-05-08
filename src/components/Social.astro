@@ -4,6 +4,9 @@ import Link from './Link.astro'
 const { name, link } = Astro.props
 ---
 
-<Link href={link} label={`Open ${name} social link`} class='text-xs md:text-sm'
-  >{name}</Link
+<Link
+  lg
+  href={link}
+  label={`Open ${name} social link`}
+  class='text-xs md:text-sm'>{name}</Link
 >
