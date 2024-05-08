@@ -24,7 +24,7 @@
 }
 
 html {
-  @apply antialiased touch-manipulation scroll-smooth text-base;
+  @apply scroll-smooth text-base;
 
   &.dark {
     color-scheme: dark;
@@ -59,10 +59,125 @@ dark:selection:bg-gray-700 dark:selection:text-white;
 }
 
 body {
-  @apply text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 p-4 md:py-8 relative min-h-svh text-sm md:text-base;
+  @apply text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 relative;
 }
 
-body,
-html {
-  overflow-x: hidden;
+@layer components {
+  .hover-before {
+    @apply before:content-[''] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-gray-200 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-200 dark:focus:before:bg-gray-800/60;
+  }
+
+  .image-box.image-box {
+    @apply rounded-md;
+
+    &:is(a) {
+      @apply p-2 -mx-2;
+    }
+  }
+
+  .prose {
+    @apply max-w-container;
+  }
+
+  .prose :where(h1, h2, h3) {
+    @apply font-medium mt-6;
+  }
+
+  .prose :where(h1) {
+    @apply text-2xl;
+  }
+
+  .prose :where(h2) {
+    @apply text-lg;
+  }
+
+  .prose :where(p) {
+    @apply leading-relaxed;
+  }
+
+  .prose :where(ul) {
+    @apply list-disc list-outside;
+  }
+
+  .prose :where(ol) {
+    @apply list-decimal list-outside marker:font-medium;
+  }
+
+  .prose :where(li.task-list-item) {
+    @apply list-none flex items-center gap-2;
+  }
+
+  .prose :where(:not(pre) > code) {
+    @apply p-1 text-xs bg-gray-200 dark:bg-gray-800 rounded normal-case;
+  }
+
+  .prose :where(pre) {
+    @apply p-4 text-xs normal-case;
+  }
+
+  .prose :where(a) {
+    @apply whitespace-nowrap max-w-container;
+  }
+
+  .prose :where(em) {
+    @apply font-serif;
+  }
+
+  .prose :where(strong, strong > em) {
+    @apply font-semibold;
+  }
+
+  .prose :where(hr) {
+    @apply border-gray-300 dark:border-gray-700 border-b-0 border-dashed my-6 md:my-10;
+  }
+
+  .prose :where(img) {
+    @apply mx-auto rounded-md;
+  }
+
+  .prose :where(a > p > span > img) {
+    @apply my-0;
+  }
+
+  .prose :where(figcaption) {
+    @apply px-6 text-gray-600 dark:text-gray-400 font-serif;
+  }
+
+  .prose :where(blockquote) {
+    @apply font-serif italic relative border-l-[0.1785rem] border-gray-300 dark:border-gray-600 py-4 px-4 my-2;
+  }
+
+  .prose :where(table) {
+    @apply border-collapse table-fixed;
+
+    & thead {
+      @apply border-b dark:border-gray-700;
+    }
+
+    & th {
+      @apply text-left;
+    }
+
+    & th,
+    & td {
+      @apply py-1 px-2 md:px-4;
+    }
+  }
+
+  .prose :where(.footnotes) {
+    & h2 {
+      @apply mb-2;
+    }
+  }
+
+  .md {
+    & ul:where(:not(.contains-task-list)),
+    & ol {
+      @apply pl-7 flex flex-col gap-2;
+    }
+
+    & ul:where(.contains-task-list) {
+      @apply pl-3;
+    }
+  }
 }
