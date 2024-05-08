@@ -58,7 +58,13 @@ export const components = {
       <div class='self-start'>
         {
           prevPost && (
-            <Link lg href={prevPost.slug} class='flex flex-col' noUnderline>
+            <Link
+              alternate
+              lg
+              href={prevPost.slug}
+              class='flex flex-col'
+              noUnderline
+            >
               <small class='text-gray-600 dark:text-gray-500'>Previous</small>
               <small>{prevPost.data.title}</small>
             </Link>
@@ -69,7 +75,13 @@ export const components = {
       <div class='self-end'>
         {
           nextPost && (
-            <Link lg href={nextPost.slug} class='flex flex-col' noUnderline>
+            <Link
+              alternate
+              lg
+              href={nextPost.slug}
+              class='flex flex-col'
+              noUnderline
+            >
               <small class='text-gray-600 dark:text-gray-500 self-end'>
                 Next
               </small>

@@ -5,7 +5,12 @@ import Link from './Link.astro'
 const { href, page } = Astro.props
 ---
 
-<Link href={href} lg noUnderline class='inline-flex items-center gap-2'
+<Link
+  alternate
+  href={href}
+  lg
+  noUnderline
+  class='inline-flex items-center gap-2'
   ><Icon
     name='carbon:arrow-left'
     class='text-gray-600 dark:text-gray-500'
