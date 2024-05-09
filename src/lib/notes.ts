@@ -5,12 +5,12 @@ export type Notes = {
   [date: string]: CollectionEntry<'notes'>[]
 }
 
-export const getNotes = async (limit: number) =>
-  limit === 5
+export const getNotes = async (isHome: boolean) =>
+  isHome
     ? sortNotesByDate(
         await getCollection('notes', ({ data }) => data.draft !== true)
       )
-        .slice(0, limit)
+        .slice(0, 5)
         .reduce((acc: Notes, n) => {
           const date = new Intl.DateTimeFormat('en-GB').format(n.data.date)
           if (!acc[date]) acc[date] = []
