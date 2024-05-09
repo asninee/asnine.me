@@ -1,8 +1,13 @@
 ---
+import { getNotes } from '@/lib/notes'
 import Image from './Image.astro'
 import Link from './Link.astro'
 
-const { notes, date } = Astro.props
+const isHome = Astro.url.pathname === '/'
+const notes = await getNotes(isHome)
+const dates = Object.keys(notes).sort((a, b) => parseInt(b) - parseInt(a))
+
+const { class: className, ...rest } = Astro.props
 
 export const components = {
   a: Link,
@@ -11,18 +16,25 @@ export const components = {
 ---
 
 <div
-  class='flex gap-6 md:gap-8 items-start mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700'
+  class:list={[
+    'border-t border-dotted border-gray-300 dark:border-gray-700',
+    className,
+  ]}
 >
-  <p class='text-gray-600 dark:text-gray-500'>{date}</p>
-  <ul class='mb-4 md:mb-6'>
-    {
-      notes[date].map(n =>
-        n.render().then(({ Content }) => (
-          <li class='list-none [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:pb-6 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700 md flex flex-col gap-4'>
-            <Content components={components} />
-          </li>
-        ))
-      )
-    }
-  </ul>
+  {
+    dates.map((d: string) => (
+      <div class='flex gap-6 md:gap-8 items-start mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700'>
+        <p class='text-gray-600 dark:text-gray-500'>{d}</p>
+        <ul class='mb-4 md:mb-6'>
+          {notes[d].map(n =>
+            n.render().then(({ Content }) => (
+              <li class='list-none [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:pb-6 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700 md flex flex-col gap-4'>
+                <Content components={components} />
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
+    ))
+  }
 </div>
