@@ -1,0 +1,23 @@
+---
+import BackLink from '@/components/BackLink.astro'
+import NoteList from '@/components/NoteList.astro'
+import Base from '@/layouts/Base.astro'
+import { getNotes } from '@/lib/notes'
+
+const title = 'asnine • notes'
+const notes = await getNotes(0)
+const dates = Object.keys(notes).sort((a, b) => parseInt(b) - parseInt(a))
+---
+
+<Base {title} description='A place for quick thoughts and updates'>
+  <main class='grow py-4 md:py-8 mb-10 prose'>
+    <BackLink href='/' page='home' />
+
+    <h1>notes</h1>
+    <div
+      class='mt-8 border-t border-dotted border-gray-300 dark:border-gray-700'
+    >
+      {dates.map(d => <NoteList notes={notes} date={d} />)}
+    </div>
+  </main>
+</Base>
