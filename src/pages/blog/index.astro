@@ -13,9 +13,7 @@ type Posts = {
 }
 
 const posts = sortPostsByDate(
-  sortPostsByDate(
-    await getCollection('blog', ({ data }) => data.isDraft !== true)
-  )
+  await getCollection('blog', ({ data }) => data.draft !== true)
 ).reduce((acc: Posts, p) => {
   const year = p.data.date.getFullYear().toString()
   if (!acc[year]) acc[year] = []
