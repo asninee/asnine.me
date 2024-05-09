@@ -6,7 +6,6 @@ import Project from '@/components/Project.astro'
 import Social from '@/components/Social.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
-import { getNotes } from '@/lib/notes'
 import { getProjects } from '@/lib/projects'
 import { getSocials } from '@/lib/socials'
 import { getCollection } from 'astro:content'
@@ -17,8 +16,6 @@ const projects = await getProjects()
 const posts = sortPostsByDate(
   await getCollection('blog', ({ data }) => data.draft !== true)
 ).slice(0, 4)
-const notes = await getNotes(5)
-const dates = Object.keys(notes).sort((a, b) => parseInt(b) - parseInt(a))
 ---
 
 <Base {title} description='My personal site and blog'>
@@ -96,10 +93,6 @@ const dates = Object.keys(notes).sort((a, b) => parseInt(b) - parseInt(a))
       <small class='text-gray-600 dark:text-gray-500'>Notes</small>
       <Link lg href='/notes'><small>View all</small></Link>
     </div>
-    <div
-      class='mt-2 border-t border-dotted border-gray-300 dark:border-gray-700'
-    >
-      {dates.map(d => <NoteList notes={notes} date={d} />)}
-    </div>
+    <NoteList class='mt-2' />
   </main>
 </Base>
