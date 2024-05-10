@@ -16,5 +16,5 @@ export const getSocials = async (): Promise<Social[]> => [
     name: 'linkedin',
     link: 'https://www.linkedin.com/in/asnine',
   },
-  { name: 'email', link: 'mailto:asninee@pm.me' },
+  { name: 'email', link: 'mailto:contact@asnine.me' },
 ]
