@@ -2,6 +2,8 @@ import { ImageResponse } from '@vercel/og'
 import { getCollection, type CollectionEntry } from 'astro:content'
 import { html } from 'satori-html'
 
+export const prerender = false
+
 interface Props {
   params: { slug: string }
   props: { post: CollectionEntry<'blog'> }
