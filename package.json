@@ -22,8 +22,10 @@
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/carbon": "^1.1.32",
+    "@vercel/og": "^0.6.2",
     "astro": "^4.8.0",
     "astro-icon": "^1.1.0",
+    "satori-html": "^0.3.2",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   }
