@@ -8,7 +8,9 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://asnine.me',
   output: 'hybrid',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    wasmModuleImports: true,
+  }),
   integrations: [
     tailwind({
       applyBaseStyles: false,
