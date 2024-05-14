@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'Nacelle';
+  src: url('/fonts/Nacelle400-subset.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nacelle';
+  src: url('/fonts/Nacelle600-subset.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
   font-family: 'Newsreader';
   src: url('/fonts/Newsreader400-subset.woff2') format('woff2');
   font-display: swap;
@@ -80,7 +94,7 @@ body {
   }
 
   .prose :where(h1, h2, h3) {
-    @apply font-medium mt-6;
+    @apply font-semibold mt-6;
   }
 
   .prose :where(h1) {

@@ -8,7 +8,7 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      sans: ['"Helvetica Neue"', ...defaultTheme.fontFamily.sans],
+      sans: ['Nacelle', ...defaultTheme.fontFamily.sans],
       serif: ['Newsreader', ...defaultTheme.fontFamily.serif],
       mono: ['Commit Mono', ...defaultTheme.fontFamily.mono],
     },
