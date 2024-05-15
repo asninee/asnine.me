@@ -136,11 +136,20 @@ export default defineConfig({
   }),
   vite: {
     ssr: {
-      external: ['node:fs'],
+      external: [
+        'node:buffer',
+        'node:path',
+        'node:fs',
+        'node:os',
+        'node:crypto',
+      ],
     },
     resolve: {
       alias: {
+        path: 'node:path',
         fs: 'node:fs',
+        os: 'node:os',
+        crypto: 'node:crypto',
       },
     },
   },
