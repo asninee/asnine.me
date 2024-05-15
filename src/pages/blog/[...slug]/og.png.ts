@@ -4,8 +4,6 @@ import fs from 'node:fs'
 import satori from 'satori'
 import { html } from 'satori-html'
 
-export const prerender = false
-
 interface Props {
   params: { slug: string }
   props: { post: CollectionEntry<'blog'> }
