@@ -121,7 +121,14 @@ import { defineConfig } from 'astro/config'
 
 //         let ogCount = 0
 //         for (const {pathname} of pages) {
-//           if (!pathna)
+//           if (!pathname.startsWith("blog/")) continue
+
+//           const file = await Promise.any([
+//             fs.readFile(`src/content/blog/${pathname.slice(2, -1)}.md`),
+//             fs.readFile(`src/content/blog/${pathname.slice(2, -1)}.mdx`),
+//           ]);
+
+//           const {title}
 //         }
 //       }
 //     }
@@ -134,6 +141,14 @@ export default defineConfig({
   adapter: cloudflare({
     wasmModuleImports: true,
   }),
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    mdx(),
+    icon(),
+    sitemap(),
+  ],
   vite: {
     ssr: {
       external: [
@@ -142,6 +157,7 @@ export default defineConfig({
         'node:fs',
         'node:os',
         'node:crypto',
+        '@resvg/resvg-js',
       ],
     },
     resolve: {
@@ -152,15 +168,15 @@ export default defineConfig({
         crypto: 'node:crypto',
       },
     },
+    build: {
+      rollupOptions: {
+        external: ['@resvg/resvg-js'],
+      },
+    },
+    optimizeDeps: {
+      exclude: ['@resvg/resvg-js'],
+    },
   },
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    mdx(),
-    icon(),
-    sitemap(),
-  ],
   markdown: {
     shikiConfig: {
       themes: {
