@@ -7,13 +7,21 @@ const isHome = Astro.url.pathname === '/'
 const notes = await getNotes(isHome)
 const dates = Object.keys(notes).sort((a, b) => parseInt(b) - parseInt(a))
 
+const { class: className, ...rest } = Astro.props
+
 export const components = {
   a: Link,
   img: Image,
 }
 ---
 
-<div class='border-t border-dotted border-gray-300 dark:border-gray-700'>
+<div
+  class:list={[
+    'border-t border-dotted border-gray-300 dark:border-gray-700',
+    className,
+  ]}
+  {...rest}
+>
   {
     dates.map((d: string) => (
       <div class='flex gap-6 md:gap-8 items-start mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700'>
