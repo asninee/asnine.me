@@ -1,5 +1,7 @@
-import { ImageResponse } from '@vercel/og'
+import { Resvg } from '@resvg/resvg-js'
 import { getCollection, type CollectionEntry } from 'astro:content'
+import fs from 'node:fs'
+import satori from 'satori'
 import { html } from 'satori-html'
 
 export const prerender = false
@@ -22,7 +24,7 @@ export const GET = async ({ props }: Props) => {
   text-transform: lowercase;
   padding: 55px 70px;
   color: #e0e0e0;
-  font-family: Helvetica Neue;
+  font-family: Nacelle;
   font-size: 72px;"
   >
     <div style="display: flex; align-items: center; gap: 40px">
@@ -113,9 +115,40 @@ export const GET = async ({ props }: Props) => {
     </div>
   </div>`
 
-  return new ImageResponse(markup, {
+  const nacelle400 = fs.readFileSync('public/fonts/Nacelle400.otf')
+  const nacelle600 = fs.readFileSync('public/fonts/Nacelle600.otf')
+
+  const svg = await satori(markup, {
     width: 1200,
-    height: 600,
+    height: 675,
+    fonts: [
+      {
+        name: 'Nacelle',
+        data: nacelle400,
+        weight: 400,
+        style: 'normal',
+      },
+      {
+        name: 'Nacelle',
+        data: nacelle600,
+        weight: 600,
+        style: 'normal',
+      },
+    ],
+  })
+
+  const png = new Resvg(svg, {
+    fitTo: {
+      mode: 'width',
+      value: 1200,
+    },
+  })
+    .render()
+    .asPng()
+
+  return new Response(png, {
+    status: 200,
+    headers: { 'Content-Type': 'image/png' },
   })
 }
 
