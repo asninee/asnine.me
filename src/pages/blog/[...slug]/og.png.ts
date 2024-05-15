@@ -1,8 +1,7 @@
-import { Resvg } from '@resvg/resvg-js'
 import { getCollection, type CollectionEntry } from 'astro:content'
 import fs from 'node:fs'
-import satori from 'satori'
 import { html } from 'satori-html'
+import { ImageResponse } from 'workers-og'
 
 interface Props {
   params: { slug: string }
@@ -116,9 +115,42 @@ export const GET = async ({ props }: Props) => {
   const nacelle400 = fs.readFileSync('public/fonts/Nacelle400.otf')
   const nacelle600 = fs.readFileSync('public/fonts/Nacelle600.otf')
 
-  const svg = await satori(markup, {
+  // const svg = await satori(markup, {
+  //   width: 1200,
+  //   height: 675,
+  //   fonts: [
+  //     {
+  //       name: 'Nacelle',
+  //       data: nacelle400,
+  //       weight: 400,
+  //       style: 'normal',
+  //     },
+  //     {
+  //       name: 'Nacelle',
+  //       data: nacelle600,
+  //       weight: 600,
+  //       style: 'normal',
+  //     },
+  //   ],
+  // })
+
+  // const png = new Resvg(svg, {
+  //   fitTo: {
+  //     mode: 'width',
+  //     value: 1200,
+  //   },
+  // })
+  //   .render()
+  //   .asPng()
+
+  // return new Response(png, {
+  //   status: 200,
+  //   headers: { 'Content-Type': 'image/png' },
+  // })
+
+  return new ImageResponse(markup, {
     width: 1200,
-    height: 675,
+    height: 630,
     fonts: [
       {
         name: 'Nacelle',
@@ -133,20 +165,6 @@ export const GET = async ({ props }: Props) => {
         style: 'normal',
       },
     ],
-  })
-
-  const png = new Resvg(svg, {
-    fitTo: {
-      mode: 'width',
-      value: 1200,
-    },
-  })
-    .render()
-    .asPng()
-
-  return new Response(png, {
-    status: 200,
-    headers: { 'Content-Type': 'image/png' },
   })
 }
 
