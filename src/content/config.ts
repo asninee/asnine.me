@@ -13,7 +13,7 @@ const blog = defineCollection({
 const notes = defineCollection({
   type: 'content',
   schema: z.object({
-    date: z.coerce.date(),
+    date: z.date(),
     draft: z.boolean().optional().default(false),
   }),
 })
