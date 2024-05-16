@@ -13,19 +13,9 @@ export const GET = async ({ props }: Props) => {
   const { post } = props
 
   const markup = html`<div
-    style="
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #212121;
-  text-transform: lowercase;
-  padding: 55px 70px;
-  color: #e0e0e0;
-  font-family: Nacelle;
-  font-size: 72px;"
+    tw="flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-gray-300 text-7xl"
   >
-    <div style="display: flex; align-items: center; gap: 40px">
+    <div tw="flex items-center" style="gap: 40px">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -98,18 +88,11 @@ export const GET = async ({ props }: Props) => {
           </clipPath>
         </defs>
       </svg>
-      <div style="fontWeight: 600">asnine.me</div>
+      <div tw="font-semibold">asnine.me</div>
     </div>
-    <div
-      style="
-  display: flex; 
-  flex-direction: column; 
-  gap: 20px;
-  font-size: 64px;
-  margin-top: 96px;"
-    >
-      <span style="font-weight: 600;">${post.data.title}</span>
-      <span style="color: #bdbdbd">${post.data.desc}</span>
+    <div tw="flex flex-col mt-24 text-6xl" style="gap: 40px">
+      <span tw="font-semibold">${post.data.title}</span>
+      <span tw="text-neutral-400">${post.data.desc}</span>
     </div>
   </div>`
 
