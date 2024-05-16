@@ -118,7 +118,7 @@ export const GET = async ({ props }: Props) => {
 
   const svg = await satori(markup, {
     width: 1200,
-    height: 675,
+    height: 600,
     fonts: [
       {
         name: 'Nacelle',
