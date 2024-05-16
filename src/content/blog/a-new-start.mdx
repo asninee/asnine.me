@@ -4,7 +4,7 @@ date: 2024-05-02
 desc: 'ramblings on the journey of building this site.'
 ---
 
-Firstly, I'd like to voice my biggest thanks to **_you_**, the reader, for viewing my site, where I sincerely hope that you enjoy the experience as much as I did building it. Feel free to [let me know](mailto:asninee@pm.me) your thoughts!
+Firstly, I'd like to voice my biggest thanks to **_you_**, the reader, for viewing my site, where I sincerely hope that you enjoy the experience as much as I did building it. Feel free to [let me know](mailto:hey@asnine.me) your thoughts!
 
 ---
 
@@ -12,7 +12,7 @@ I've always loved browsing through [curated lists](https://deadsimplesites.com/)
 
 > Can't wait to join them! Let's do this~
 
-I may have not been aware of it from the outset, but in reality, a storm called procrastination started brewing. Exploring and delving deeper into what you discern as _perfection_ very much leads you into chasing just that. Now, I'm already a perfectionist _as-is_, so you can imagine how things progressed from here; absolutely nothing done, where I was unable to formulate an action plan that I could fully get behind.
+I may have not been aware of it initially, but a storm called procrastination started brewing. Exploring and delving deeper into what you discern as _perfection_ very much leads you into chasing just that. Now, I'm already a perfectionist _as-is_, so you can imagine how things progressed from here; absolutely nothing done, where I was unable to formulate an action plan that I could fully get behind.
 
 And so, for a good while, I put it off, continuing to explore where time allowed me to, thinking that future me would be more than capable enough to reach my own outlandish standards. But then, there came [Astro](https://astro.build/).
 
@@ -20,9 +20,13 @@ And so, for a good while, I put it off, continuing to explore where time allowed
 
 For context, I'd consider myself a React novice, where in recent projects I've been able to get a solid grasp of making full-stack web apps, navigating my way through managing state, handling persistent logins with token-based authentication using `localStorage`, and cookie-based authentication, using [React Router](https://reactrouter.com/en/main) to incorporate multi-page routing, and dealing with `useEffect()` hell (as I call it).
 
-While I love React and SPA's for the matter, nothing beats the elegance and _simplicity_ of a static website, where it didn't exactly make sense for me to build out my portfolio site using a SPA. After all, I sought to build out a site that had the _elegant simplicity_ of those which I've admired, but I also wanted it to be _blazingly fast_. But on the flip side, my thinking of a static website was that of plain old HTML + JS, where you couldn't incorporate [Component Driven Design (CDD)](https://www.componentdriven.org), and you would also lose out on the declarative approach used by React.
+While I love React and SPA's for the matter, nothing beats the elegance and _simplicity_ of a static website. After all, I sought to build out a site that had the _elegant simplicity_ of those which I've admired, but I also wanted it to be _blazingly fast_. With these points considered, I came to the conclusion that it didn't exactly make sense for me to build out my portfolio site using a SPA, where sending heaps of JS to the client for what would be a content-driven website would hurt performance. The [2023 Web Framework Performance Report](https://astro.build/blog/2023-web-framework-performance-report) goes into a great level of detail about how framework choice affects end-user performance, where I'd very much recommend that you give it a quick read. The key takeaway of the article (for me at least) is that:
 
-So you couldn't believe my amazement when I discovered that Astro had addressed all my criticisms with their design principles:
+> Using a SPA framework gives you less performance out of the box (chasing performance becomes a **real** task)
+
+And so, with that, my mind tilted towards static-site generators. At first, I had some doubts, where my thinking of a static website was that of plain old HTML + JS, where you couldn't incorporate [Component Driven Design (CDD)](https://www.componentdriven.org), and you would also lose out on the declarative approach used by React.
+
+So you couldn't believe my amazement when I discovered that Astro had (basically) ticked all my boxes with their design principles:
 
 - [Leverages server-side-rendering](https://docs.astro.build/en/concepts/why-astro/#server-first)
 - [Speedy by default](https://docs.astro.build/en/concepts/why-astro/#fast-by-default)
