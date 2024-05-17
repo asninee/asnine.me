@@ -1,15 +1,8 @@
 ---
-const {
-  href,
-  lg,
-  xl,
-  img,
-  alternate,
-  noUnderline,
-  label,
-  class: className,
-  ...rest
-} = Astro.props
+import { twMerge } from 'tailwind-merge'
+
+const { href, lg, xl, img, alternate, noUnderline, label, ...props } =
+  Astro.props
 
 const isExternal = href.startsWith('http')
 ---
@@ -18,25 +11,15 @@ const isExternal = href.startsWith('http')
   href={href}
   target={isExternal ? '_blank' : '_self'}
   aria-label={label}
-  class:list={[
+  class={twMerge(
     'p-1 -mx-1 rounded-lg before:rounded-lg relative',
-    {
-      'hover-before': alternate,
-    },
-    {
-      'p-2 -mx-2': lg,
-    },
-    {
-      'p-3 -mx-3': xl,
-    },
-    {
-      'hover-before image-box': img,
-    },
-    {
-      'underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-gray-400 dark:hover:decoration-gray-500 focus:decoration-transparent dark:focus:decoration-transparent':
-        !noUnderline,
-    },
-    className,
-  ]}
-  {...rest}><slot /></a
+    alternate && 'hover-before',
+    lg && 'p-2 -mx-2',
+    xl && 'p-3 -mx-3',
+    img && 'hover-before image-box',
+    !noUnderline &&
+      'underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-gray-400 dark:hover:decoration-gray-500 focus:decoration-transparent dark:focus:decoration-transparent',
+    Astro.props.class
+  )}
+  {...props}><slot /></a
 >
