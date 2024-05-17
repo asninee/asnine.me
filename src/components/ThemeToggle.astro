@@ -15,26 +15,6 @@ import Button from './Button.astro'
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    const theme = (() => {
-      const storedTheme =
-        typeof localStorage !== 'undefined' && localStorage.getItem('theme')
-
-      return (
-        storedTheme ||
-        (window.matchMedia('(prefers-color-scheme: light)').matches
-          ? 'light'
-          : 'dark')
-      )
-    })()
-
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark')
-    } else {
-      document.documentElement.classList.add('dark')
-    }
-
-    window.localStorage.setItem('theme', theme)
-
     const themeToggle = document.getElementById('themeToggle')
     themeToggle?.addEventListener('click', () => {
       const element = document.documentElement
@@ -43,12 +23,5 @@ import Button from './Button.astro'
       const isDark = element.classList.contains('dark')
       localStorage.setItem('theme', isDark ? 'dark' : 'light')
     })
-  })
-</script>
-
-<script>
-  document.addEventListener('astro:after-swap', () => {
-    if (localStorage.theme === 'dark')
-      document.documentElement.classList.add('dark')
   })
 </script>
