@@ -1,43 +1,35 @@
 # asnine.me
 
-```sh
-npm create astro@latest -- --template minimal
-```
+> [!NOTE]
+> My personal site, built using Astro, TypeScript and TailwindCSS.
+> View [_here_](https://asnine.me/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Home page screenshot](/public/images/screenshot.jpeg)
 
-## 🚀 Project Structure
+## Table of Contents
 
-Inside of your Astro project, you'll see the following folders and files:
+- [asnine.me](#asnineme)
+  - [Table of Contents](#table-of-contents)
+  - [Motivation](#motivation)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Motivation
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-new-start), but I've always had an appreciation for minimal portfolio sites, where individuals such as [Paco Coursey](https://paco.me), [Rauno Freiberg](https://raunofreiberg.com) and [Fabian Schultz](https://www.fabianschultz.com) have done an exceptional job in bringing out their personalities through a simplistic, yet elegant manner with their websites. It was their sites that acted as the inspiration towards me building out a minimal portfolio site.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Technologies Used
 
-Any static assets, like images, can be placed in the `public/` directory.
+- [Astro](https://astro.build)
+- [TailwindCSS](https://tailwindcss.com)
+- [TypeScript](https://www.typescriptlang.org)
+- [Cloudflare Pages](https://pages.cloudflare.com)
+- [Satori](https://github.com/vercel/satori)
+- [MDX](https://mdxjs.com)
 
-## 🧞 Commands
+## Features
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Dynamic OG image generation using [Satori](https://github.com/vercel/satori)
+- "Blog" and "Notes" collections using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
+- SPA-like transitions using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
+- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-www-asnine-me/3ys6ta6gua?form_factor=mobile) on Google's PageSpeed Insights
