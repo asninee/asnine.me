@@ -50,3 +50,4 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
   - [Alexander Sandberg](https://alexandersandberg.com)
   - [Alex Carpenter](https://alexcarpenter.me)
   - [Onur Şuyalçınkaya](https://onur.dev)
+  - [Siddhant](https://dietcode.io)
