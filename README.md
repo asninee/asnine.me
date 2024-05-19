@@ -32,7 +32,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 ## Features
 
 - Dynamic OG image generation using [Satori](https://github.com/vercel/satori)
-- "Blog" content collection for extended writings, and "Notes" content collection for quick thoughts, using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
+- "Blog" content collection for extended writings, and "Notepad" content collection for quick thoughts, using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
 - SPA-like transitions using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
 - [Perfect 100 score](https://pagespeed.web.dev/analysis/https-www-asnine-me/3ys6ta6gua?form_factor=mobile) on Google's PageSpeed Insights
 - [98% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally
