@@ -10,7 +10,7 @@ const blog = defineCollection({
   }),
 })
 
-const notes = defineCollection({
+const notepad = defineCollection({
   type: 'content',
   schema: z.object({
     date: z.date(),
@@ -18,4 +18,4 @@ const notes = defineCollection({
   }),
 })
 
-export const collections = { blog, notes }
+export const collections = { blog, notepad }

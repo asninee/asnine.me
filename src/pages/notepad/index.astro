@@ -3,14 +3,14 @@ import BackLink from '@/components/BackLink.astro'
 import NoteList from '@/components/NoteList.astro'
 import Base from '@/layouts/Base.astro'
 
-const title = 'asnine • notes'
+const title = 'asnine • notepad'
 ---
 
 <Base {title} description='A place for quick thoughts and updates'>
   <main class='grow py-4 md:py-8 mb-10 prose'>
     <BackLink href='/' page='home' />
 
-    <h1>notes</h1>
+    <h1>notepad</h1>
     <NoteList class='mt-8' />
   </main>
 </Base>
