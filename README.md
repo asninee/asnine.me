@@ -44,6 +44,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 ## Acknowledgements
 
 - I'd firstly like to especially thank [hasparus](https://github.com/hasparus) with his work on [zaduma](https://zaduma.vercel.app), and [nexxeln](https://github.com/nexxeln) with his work on [nexxel.dev](https://github.com/nexxeln/nexxel.dev), where the initial concepts of the site was very much inspired by both of these sites.
+- The favicon and logo used on the site was sourced from [Vijay Verma's](https://vjy.me) [CoolShapes](https://coolshap.es) SVG library.
 - I'd also like to thank (in no particular order):
   - [Eryc](https://eryc.cc)
   - [Rauno Freiberg](https://rauno.me)
