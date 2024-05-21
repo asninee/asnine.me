@@ -28,6 +28,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [Satori](https://github.com/vercel/satori)
 - [MDX](https://mdxjs.com)
 - [Shiki](https://shiki.style)
+- [GoatCounter](https://www.goatcounter.com)
 
 ## Features
 
@@ -38,6 +39,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [98% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
+- Privacy-friendly analytics using [GoatCounter](https://www.goatcounter.com)
 
 ## Acknowledgements
 
@@ -51,3 +53,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
   - [Alex Carpenter](https://alexcarpenter.me)
   - [Onur Şuyalçınkaya](https://onur.dev)
   - [Siddhant](https://dietcode.io)
+  - [Glenn Hitchcock](https://glenn.me)
+  - [Siddharth Arun](https://sdrn.co)
+  - [Badrul Farooqi](https://farooqib.com)
+  - [Denis Moulin](https://www.denismoulin.com)
