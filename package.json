@@ -22,7 +22,6 @@
     "@astrojs/sitemap": "^3.1.5",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/carbon": "^1.1.34",
-    "@playform/compress": "^0.0.10",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^4.9.2",
     "astro-icon": "^1.1.0",
