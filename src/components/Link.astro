@@ -12,13 +12,13 @@ const isExternal = href.startsWith('http')
   target={isExternal ? '_blank' : '_self'}
   aria-label={label}
   class={twMerge(
-    'p-1 -mx-1 rounded-lg before:rounded-lg relative',
-    alternate && 'hover-before',
+    'p-1 -mx-1 rounded-lg before:rounded-lg',
+    alternate && 'hover-before relative',
     lg && 'p-2 -mx-2',
     xl && 'p-3 -mx-3',
     img && 'hover-before image-box',
     !noUnderline &&
-      'underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-gray-400 dark:hover:decoration-gray-500 focus:decoration-transparent dark:focus:decoration-transparent',
+      'underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-gray-400 dark:hover:decoration-gray-500',
     Astro.props.class
   )}
   {...props}><slot /></a
