@@ -13,12 +13,14 @@ import '@/styles/base.css'
     <Head title={title} description={description} />
   </head>
   <body
-    class='antialiased mx-auto max-w-container flex flex-col px-6 py-4 md:py-8 overflow-x-hidden lowercase min-h-svh text-sm md:text-base'
+    class='antialiased m-[5vw] mx-auto flex justify-center px-6 overflow-x-hidden lowercase min-h-svh text-sm md:text-base'
   >
-    <Header />
+    <div class='max-w-prose flex flex-col flex-1 min-w-0'>
+      <Header />
 
-    <slot />
+      <slot />
 
-    <Footer />
+      <Footer />
+    </div>
   </body>
 </html>

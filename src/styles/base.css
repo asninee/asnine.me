@@ -38,7 +38,7 @@
 }
 
 html {
-  @apply scroll-smooth text-base;
+  @apply scroll-smooth;
 
   &.dark {
     color-scheme: dark;
