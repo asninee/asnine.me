@@ -1,7 +1,7 @@
 ---
 import { twMerge } from 'tailwind-merge'
 
-const { href, lg, xl, img, alternate, noUnderline, label, ...props } =
+const { href, lg, xl, img, alternate, filled, noUnderline, label, ...props } =
   Astro.props
 
 const isExternal = href.startsWith('http')
@@ -13,7 +13,10 @@ const isExternal = href.startsWith('http')
   aria-label={label}
   class={twMerge(
     'p-1 -mx-1 rounded-lg before:rounded-lg',
-    alternate && 'hover-before relative',
+    alternate &&
+      'relative before:content-[""] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-gray-200 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-200 dark:focus:before:bg-gray-800/60',
+    filled &&
+      'relative before:content-[""] before:absolute before:inset-0 before:-z-20 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 bg-gray-200 dark:bg-gray-800/60 hover:before:opacity-100 hover:before:scale-100 before:bg-gray-200 dark:before:bg-gray-800/60 hover:before:bg-gray-300 dark:hover:before:bg-gray-700/60 focus:before:bg-gray-300 dark:focus:before:bg-gray-700/60 backdrop-blur-sm',
     lg && 'p-2 -mx-2',
     xl && 'p-3 -mx-3',
     img && 'hover-before image-box',

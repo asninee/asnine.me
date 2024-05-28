@@ -101,10 +101,6 @@ body {
     background: linear-gradient(to bottom, theme(colors.gray.900), transparent);
   }
 
-  .hover-before {
-    @apply before:content-[''] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-gray-200 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-200 dark:focus:before:bg-gray-800/60;
-  }
-
   .image-box.image-box {
     @apply rounded-md;
 
