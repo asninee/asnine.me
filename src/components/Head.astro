@@ -100,6 +100,14 @@ const image = new URL(
   document.addEventListener('astro:before-swap', e => setTheme(e.newDocument))
 </script>
 
+<script>
+  import { loglib } from '@loglib/tracker'
+
+  loglib.record({
+    id: 'asnine',
+  })
+</script>
+
 <script
   is:inline
   data-goatcounter='https://stats.asnine.me/count'
