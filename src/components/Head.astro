@@ -101,7 +101,7 @@ const image = new URL(
 
   window.goatcounter = { no_onload: true }
 
-  window.addEventListener('hashchange', e => {
+  window.addEventListener('astro:page-load', e => {
     window.goatcounter.count({
       path: location.pathname + location.search + location.hash,
     })
