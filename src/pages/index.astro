@@ -19,7 +19,7 @@ const posts = sortPostsByDate(
 ---
 
 <Base {title} description='My personal site and blog'>
-  <main class='grow py-4 md:py-8 mb-10 prose'>
+  <main class='py-4 mb-10 grow md:py-8 prose'>
     <h1>asnine</h1>
     <div class='flex mt-10 gap-8'>
       <div>
@@ -42,7 +42,7 @@ const posts = sortPostsByDate(
       </div>
       <div>
         <small class='text-gray-600 dark:text-gray-400'>Links</small>
-        <ul class='flex flex-col gap-3 mt-2'>
+        <ul class='flex flex-col mt-2 gap-3'>
           {
             socials.map(s => (
               <li class='list-none'>
@@ -67,7 +67,7 @@ const posts = sortPostsByDate(
     </ul>
 
     <div class='mt-12'></div>
-    <div class='flex justify-between items-center'>
+    <div class='flex items-center justify-between'>
       <small class='text-gray-600 dark:text-gray-400'>Blog</small>
       <Link lg href='/blog'><small>View all</small></Link>
     </div>
@@ -87,7 +87,7 @@ const posts = sortPostsByDate(
     </ul>
 
     <div class='mt-12'></div>
-    <div class='flex justify-between items-center'>
+    <div class='flex items-center justify-between'>
       <small class='text-gray-600 dark:text-gray-400'>Notepad</small>
       <Link lg href='/notepad'><small>View all</small></Link>
     </div>

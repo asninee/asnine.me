@@ -8,17 +8,17 @@ const { link, repo, desc, year } = Astro.props
   alternate
   xl
   href={link}
-  class='flex flex-row gap-4 justify-between items-center'
+  class='flex flex-row items-center justify-between gap-4'
   noUnderline
   label={`Open ${repo} project link`}
 >
-  <span class='text-gray-800 dark:text-gray-300 font-semibold'>
+  <span class='font-semibold text-gray-800 dark:text-gray-300'>
     {repo}
     <span
-      class='text-gray-600 dark:text-gray-400 font-normal hidden md:inline-block'
+      class='hidden font-normal text-gray-600 dark:text-gray-400 md:inline-block'
       >{desc}</span
     >
   </span>
-  <div class='grow border-b border-gray-300 dark:border-gray-700'></div>
+  <div class='border-b border-gray-300 grow dark:border-gray-700'></div>
   <span class='text-gray-600 dark:text-gray-400'>{year}</span>
 </Link>

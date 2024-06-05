@@ -10,13 +10,13 @@ const isHome = Astro.url.pathname === '/'
   alternate
   xl
   href={`/blog/${slug}`}
-  class='flex flex-row gap-4 justify-between items-center'
+  class='flex flex-row items-center justify-between gap-4'
   noUnderline
   label={`Open ${title} blog post`}
 >
-  <span class='text-gray-800 dark:text-gray-300 font-semibold'>
+  <span class='font-semibold text-gray-800 dark:text-gray-300'>
     {title}
-    <span class='text-gray-600 dark:text-gray-400 font-normal hidden md:flex'>
+    <span class='hidden font-normal text-gray-600 dark:text-gray-400 md:flex'>
       {desc}
     </span>
   </span>
