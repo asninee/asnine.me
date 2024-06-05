@@ -14,6 +14,7 @@
   - [Technologies Used](#technologies-used)
   - [Features](#features)
   - [Acknowledgements](#acknowledgements)
+  - [License](#license)
 
 ## Motivation
 
@@ -58,3 +59,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
   - [Siddharth Arun](https://sdrn.co)
   - [Badrul Farooqi](https://farooqib.com)
   - [Denis Moulin](https://www.denismoulin.com)
+
+## License
+
+This project is open source and available under the [MIT License](https://choosealicense.com/licenses/mit). Attribution isn't required, but I'd highly appreciate it.
