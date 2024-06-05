@@ -5,7 +5,7 @@ import Link from './Link.astro'
 
 const isHome = Astro.url.pathname === '/'
 const notes = await getNotes(isHome)
-const dates = Object.keys(notes).sort((a, b) => parseInt(b) - parseInt(a))
+const dates = Object.keys(notes)
 
 const { class: className, ...rest } = Astro.props
 
@@ -39,3 +39,10 @@ export const components = {
     ))
   }
 </div>
+
+<script>
+  import { getNotes } from '@/lib/notes'
+
+  const notes = await getNotes(true)
+  console.log(notes)
+</script>
