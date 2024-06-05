@@ -1,5 +1,6 @@
 ---
 import { getNotes } from '@/lib/notes'
+import { twMerge } from 'tailwind-merge'
 import Image from './Image.astro'
 import Link from './Link.astro'
 
@@ -7,7 +8,7 @@ const isHome = Astro.url.pathname === '/'
 const notes = await getNotes(isHome)
 const dates = Object.keys(notes)
 
-const { class: className, ...rest } = Astro.props
+const { class: className, ...props } = Astro.props
 
 export const components = {
   a: Link,
@@ -16,11 +17,11 @@ export const components = {
 ---
 
 <div
-  class:list={[
+  class={twMerge(
     'border-t border-dotted border-gray-300 dark:border-gray-700',
-    className,
-  ]}
-  {...rest}
+    Astro.props.class
+  )}
+  {...props}
 >
   {
     dates.map((d: string) => (
