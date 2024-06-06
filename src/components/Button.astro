@@ -1,7 +1,7 @@
 ---
 import { twMerge } from 'tailwind-merge'
 
-const { lg, xl, img, noUnderline, label, ...props } = Astro.props
+const { sm, lg, xl, img, noUnderline, label, ...props } = Astro.props
 ---
 
 <button
@@ -9,6 +9,7 @@ const { lg, xl, img, noUnderline, label, ...props } = Astro.props
   aria-label={label}
   class={twMerge(
     'p-1 -mx-1 rounded-lg relative before:content-[""] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 before:rounded-lg before:transition-all before:duration-200 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-gray-200 dark:hover:before:bg-gray-800/60 focus:before:bg-gray-200 dark:focus:before:bg-gray-800/60',
+    sm && 'p-0',
     lg && 'p-2 -mx-2',
     xl && 'p-3 -mx-3',
     Astro.props.class

@@ -77,30 +77,6 @@ body {
 }
 
 @layer components {
-  .blur-top {
-    @apply backdrop-blur-sm w-full top-0 left-0 pointer-events-none fixed h-36;
-  }
-
-  .blur-top:after {
-    @apply content-[''] absolute inset-0;
-  }
-
-  &:not(.dark) .blur-top {
-    mask-image: linear-gradient(to bottom, theme(colors.gray.800), transparent);
-  }
-
-  &:not(.dark) .blur-top:after {
-    background: linear-gradient(to bottom, theme(colors.gray.100), transparent);
-  }
-
-  &.dark .blur-top {
-    mask-image: linear-gradient(to bottom, theme(colors.gray.100), transparent);
-  }
-
-  &.dark .blur-top:after {
-    background: linear-gradient(to bottom, theme(colors.gray.900), transparent);
-  }
-
   .image-box.image-box {
     @apply rounded-md;
 
