@@ -1,5 +1,4 @@
 ---
-import BackLink from '@/components/BackLink.astro'
 import Post from '@/components/Post.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
@@ -26,9 +25,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
 ---
 
 <Base {title} description='A collection of all my thoughts and experiences'>
-  <main class='py-4 mb-10 prose grow md:py-8'>
-    <BackLink href='/' page='home' />
-
+  <main class='py-4 mt-4 mb-10 prose md:mt-0 grow md:py-8'>
     <h1>blog</h1>
     {
       years.map(y => (

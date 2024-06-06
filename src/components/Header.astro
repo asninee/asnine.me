@@ -1,7 +1,41 @@
 ---
+import BackLink from './BackLink.astro'
 import ThemeToggle from './ThemeToggle.astro'
+
+const pathname = Astro.url.pathname
 ---
 
-<header class='flex justify-end -mt-2'>
-  <ThemeToggle />
+<header
+  data-header
+  class='z-50 py-4 px-[5vw] [--progressive-blur-height:16px] fixed inset-x-0 top-0 after:absolute after:bg-gray-300 dark:after:bg-gray-700 after:opacity-0 after:duration-300 after:inset-x-0 after:bottom-0 after:h-[0.5px] before:z-[-1] before:absolute before:inset-x-0 before:top-0 before:-bottom-[--progressive-blur-height] before:pointer-events-none before:backdrop-blur-[10px] before:bg-[linear-gradient(to_bottom,var(--background-header),var(--background-header)_calc(100%-var(--progressive-blur-height)),transparent_calc(100%-var(--progressive-blur-height)))] before:[mask-image:linear-gradient(to_bottom,black_calc(100%-var(--progressive-blur-height)),transparent)]'
+>
+  <div
+    class='flex items-center justify-between w-full h-5 mx-auto max-w-prose flex-nowrap'
+  >
+    <div class='flex items-center gap-[22px]'>
+      {
+        pathname === '/' ? (
+          <span class='leading-none pt-1 md:pt-0.5 transition-[opacity,transform] ease-out duration-300 font-serif italic  opacity-100 text-ellipsis whitespace-nowrap overflow-clip'>
+            asnine
+          </span>
+        ) : pathname.endsWith('/blog') || pathname.endsWith('/notepad') ? (
+          <>
+            <BackLink href='/' page='home' />
+            <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
+          </>
+        ) : pathname.includes('/blog/') ? (
+          <>
+            <BackLink href='/blog' page='blog' />
+            <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
+          </>
+        ) : (
+          <>
+            <BackLink href='/' page='blog' />
+            <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
+          </>
+        )
+      }
+    </div>
+    <ThemeToggle />
+  </div>
 </header>

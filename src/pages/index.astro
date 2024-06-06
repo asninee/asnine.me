@@ -19,9 +19,8 @@ const posts = sortPostsByDate(
 ---
 
 <Base {title} description='My personal site and blog'>
-  <main class='py-4 mb-10 grow md:py-8 prose'>
-    <h1>asnine</h1>
-    <div class='flex mt-10 gap-8'>
+  <main class='py-4 mt-4 mb-10 prose md:mt-0 grow md:py-8'>
+    <div class='flex gap-8 mt-10'>
       <div>
         <p>
           Hey, I'm Ashraf aka <strong>asnine</strong>. I'm an aspiring developer
@@ -40,9 +39,9 @@ const posts = sortPostsByDate(
           also incorporate a <em>sleek</em> aesthetic.
         </p>
       </div>
-      <div>
+      <div class='text-end'>
         <small class='text-gray-600 dark:text-gray-400'>Links</small>
-        <ul class='flex flex-col mt-2 gap-3'>
+        <ul class='flex flex-col gap-3 mt-2'>
           {
             socials.map(s => (
               <li class='list-none'>
