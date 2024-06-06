@@ -40,7 +40,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [98% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
-- Privacy-friendly analytics using [GoatCounter](https://www.goatcounter.com)
+- Privacy-friendly analytics using [Loglib](https://www.loglib.io)
 
 ## Acknowledgements
 
@@ -59,6 +59,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
   - [Siddharth Arun](https://sdrn.co)
   - [Badrul Farooqi](https://farooqib.com)
   - [Denis Moulin](https://www.denismoulin.com)
+  - [Edgar Lopéz](https://edgarlr.com)
 
 ## License
 
