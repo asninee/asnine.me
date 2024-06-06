@@ -18,7 +18,9 @@ const pathname = Astro.url.pathname
           <span class='leading-none pt-1 md:pt-0.5 transition-[opacity,transform] ease-out duration-300 font-serif italic  opacity-100 text-ellipsis whitespace-nowrap overflow-clip'>
             asnine
           </span>
-        ) : pathname.endsWith('/blog') || pathname.endsWith('/notepad') ? (
+        ) : pathname.endsWith('/blog') ||
+          pathname.endsWith('/blog/') ||
+          pathname.endsWith('/notepad/') ? (
           <>
             <BackLink href='/' page='home' />
             <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
