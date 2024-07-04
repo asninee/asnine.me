@@ -14,7 +14,7 @@ type Posts = {
 const posts = sortPostsByDate(
   await getCollection('blog', ({ data }) => data.draft !== true)
 ).reduce((acc: Posts, p) => {
-  const year = p.data.date.getFullYear().toString()
+  const year = p.data.published.getFullYear().toString()
   if (!acc[year]) acc[year] = []
   acc[year].push(p)
 
@@ -38,7 +38,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
                   slug={p.slug}
                   title={p.data.title}
                   desc={p.data.desc}
-                  date={p.data.date}
+                  date={p.data.updated ?? p.data.published}
                 />
               </li>
             ))}

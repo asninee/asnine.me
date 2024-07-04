@@ -18,10 +18,11 @@ export const getStaticPaths = async () => {
 const {
   post,
   post: {
-    data: { title, desc, date },
+    data: { title, desc },
   },
 } = Astro.props
 const { Content } = await post.render()
+const date = post.data.updated ?? post.data.published
 
 const posts = sortPostsByDate(
   await getCollection('blog', ({ data }) => data.draft !== true)
