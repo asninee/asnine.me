@@ -5,7 +5,8 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     desc: z.string(),
-    date: z.date(),
+    published: z.date(),
+    updated: z.date().optional(),
     draft: z.boolean().optional().default(false),
   }),
 })
@@ -13,7 +14,7 @@ const blog = defineCollection({
 const notepad = defineCollection({
   type: 'content',
   schema: z.object({
-    date: z.date(),
+    published: z.date(),
     draft: z.boolean().optional().default(false),
   }),
 })
