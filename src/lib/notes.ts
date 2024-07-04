@@ -12,7 +12,7 @@ export const getNotes = async (isHome: boolean) =>
       )
         .slice(0, 3)
         .reduce((acc: Notes, n) => {
-          const date = new Intl.DateTimeFormat('en-GB').format(n.data.date)
+          const date = new Intl.DateTimeFormat('en-GB').format(n.data.published)
           if (!acc[date]) acc[date] = []
           acc[date].push(n)
 
@@ -21,7 +21,7 @@ export const getNotes = async (isHome: boolean) =>
     : sortNotesByDate(
         await getCollection('notepad', ({ data }) => data.draft !== true)
       ).reduce((acc: Notes, n) => {
-        const date = new Intl.DateTimeFormat('en-GB').format(n.data.date)
+        const date = new Intl.DateTimeFormat('en-GB').format(n.data.published)
         if (!acc[date]) acc[date] = []
         acc[date].push(n)
 
