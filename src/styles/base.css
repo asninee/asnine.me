@@ -85,10 +85,6 @@ body {
     }
   }
 
-  .prose {
-    @apply max-w-container;
-  }
-
   .prose :where(h1, h2, h3) {
     @apply font-semibold mt-6;
   }
@@ -126,7 +122,7 @@ body {
   }
 
   .prose :where(a) {
-    @apply whitespace-nowrap max-w-container;
+    @apply whitespace-nowrap;
   }
 
   .prose :where(em) {

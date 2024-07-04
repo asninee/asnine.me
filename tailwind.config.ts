@@ -20,11 +20,6 @@ export default {
       white: tailwindColors.white,
       gray: tailwindColors.neutral,
     },
-    extend: {
-      maxWidth: {
-        container: '43rem',
-      },
-    },
   },
 
   plugins: [
