@@ -3,17 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Nacelle';
-  src: url('/fonts/Nacelle400-subset.woff2') format('woff2');
+  font-family: 'AG57';
+  src: url('/fonts/AG57-subset.woff2') format('woff2');
   font-display: swap;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Nacelle';
-  src: url('/fonts/Nacelle600-subset.woff2') format('woff2');
-  font-display: swap;
-  font-weight: 600;
 }
 
 @font-face {
