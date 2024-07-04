@@ -31,10 +31,10 @@
 }
 
 @font-face {
-  font-family: 'Commit Mono';
-  src: url('/fonts/CommitMono450-subset.woff2') format('woff2');
+  font-family: 'Iosevka';
+  src: url('/fonts/Iosevka500-subset.woff2') format('woff2');
   font-display: swap;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 html {

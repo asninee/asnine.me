@@ -10,7 +10,7 @@ export default {
     fontFamily: {
       sans: ['Nacelle', ...defaultTheme.fontFamily.sans],
       serif: ['Newsreader', ...defaultTheme.fontFamily.serif],
-      mono: ['Commit Mono', ...defaultTheme.fontFamily.mono],
+      mono: ['Iosevka', ...defaultTheme.fontFamily.mono],
     },
     colors: {
       inherit: tailwindColors.inherit,
