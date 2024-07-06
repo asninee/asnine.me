@@ -1,7 +1,8 @@
 ---
+import { Image as AstroImage } from 'astro:assets'
 const { src, alt } = Astro.props
 ---
 
 <span class='image-box'>
-  <img src={src} alt={alt} loading='lazy' decoding='async' /></span
->
+  <AstroImage inferSize src={src} alt={alt} />
+</span>
