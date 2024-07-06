@@ -173,9 +173,5 @@ body {
     & ol {
       @apply pl-7 flex flex-col gap-2;
     }
-
-    & ul:where(.contains-task-list) {
-      @apply pl-3;
-    }
   }
 }
