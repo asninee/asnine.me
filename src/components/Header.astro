@@ -22,17 +22,17 @@ const pathname = Astro.url.pathname
           pathname.endsWith('/blog/') ||
           pathname.endsWith('/notepad/') ? (
           <>
-            <BackLink href='/' page='home' />
+            <BackLink href='/' />
             <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
           </>
         ) : pathname.includes('/blog/') ? (
           <>
-            <BackLink href='/blog' page='blog' />
+            <BackLink href='/blog' />
             <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
           </>
         ) : (
           <>
-            <BackLink href='/' page='blog' />
+            <BackLink href='/' />
             <div class='transition-opacity border-l border-gray-300 dark:border-gray-700 opacity-60 hover:opacity-100 focus-visible:opacity-100' />
           </>
         )
