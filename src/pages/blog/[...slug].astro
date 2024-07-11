@@ -18,11 +18,10 @@ export const getStaticPaths = async () => {
 const {
   post,
   post: {
-    data: { title, desc },
+    data: { title, desc, published, updated },
   },
 } = Astro.props
 const { Content } = await post.render()
-const date = post.data.updated ?? post.data.published
 
 const posts = sortPostsByDate(
   await getCollection('blog', ({ data }) => data.draft !== true)
@@ -41,9 +40,29 @@ export const components = {
   <main class='py-4 mt-4 mb-10 prose md:mt-0 grow md:py-8 md'>
     <div class='flex flex-col'>
       <h1 class='mb-1'>{title}</h1>
-      <small class='text-gray-600 dark:text-gray-400'
-        >{new Intl.DateTimeFormat('en-GB').format(date)}</small
-      >
+      <div class='flex items-center gap-1'>
+        <div class='flex items-center gap-1'>
+          <small class='px-1 -my-2 rounded-lg bg-gray-200 dark:bg-gray-800'>
+            published
+          </small>
+          <small class='text-gray-600 dark:text-gray-400'
+            >{new Intl.DateTimeFormat('en-GB').format(published)}</small
+          >
+        </div>
+        {
+          updated && (
+            <div class='flex items-center gap-1'>
+              <small class='text-gray-600 dark:text-gray-400'>•</small>
+              <small class='px-1 -my-2 rounded-lg bg-gray-200 dark:bg-gray-800'>
+                updated
+              </small>
+              <small class='text-gray-600 dark:text-gray-400'>
+                {new Intl.DateTimeFormat('en-GB').format(updated)}
+              </small>
+            </div>
+          )
+        }
+      </div>
     </div>
 
     <div class='flex flex-col gap-4 mt-6 md:gap-5'>
