@@ -29,35 +29,6 @@
   font-weight: 500;
 }
 
-html {
-  @apply scroll-smooth;
-
-  &.dark {
-    color-scheme: dark;
-  }
-
-  &:not(.dark) .astro-code {
-    @apply border border-gray-200 rounded-lg;
-  }
-
-  &.dark .astro-code {
-    @apply border border-gray-800 rounded-lg;
-  }
-
-  &:not(.dark) .astro-code,
-  &:not(.dark) .astro-code span {
-    --bg-light: theme(colors.gray.50);
-    background-color: var(--bg-light) !important;
-  }
-
-  &.dark .astro-code,
-  &.dark .astro-code span {
-    --bg-dark: hsl(0 0% 11%);
-    color: var(--shiki-dark) !important;
-    background-color: var(--bg-dark) !important;
-  }
-}
-
 * {
   @apply outline-gray-300 dark:outline-gray-600
 selection:bg-gray-200 selection:text-black
@@ -66,6 +37,35 @@ dark:selection:bg-gray-700 dark:selection:text-white;
 
 body {
   @apply text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 relative;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+:not(.dark) .astro-code {
+  @apply border border-gray-200 rounded-lg;
+}
+
+.dark .astro-code {
+  @apply border border-gray-800 rounded-lg;
+}
+
+:not(.dark) .astro-code,
+:not(.dark) .astro-code span {
+  --bg-light: theme(colors.gray.50);
+  background-color: var(--bg-light) !important;
+}
+
+.dark .astro-code,
+.dark .astro-code span {
+  --bg-dark: hsl(0 0% 11%);
+  color: var(--shiki-dark) !important;
+  background-color: var(--bg-dark) !important;
 }
 
 @layer components {
@@ -94,11 +94,11 @@ body {
   }
 
   .prose :where(ul) {
-    @apply list-disc list-outside;
+    @apply list-disc list-outside marker:mr-2 marker:text-gray-500 marker:dark:text-gray-400;
   }
 
   .prose :where(ol) {
-    @apply list-decimal list-outside marker:font-medium;
+    @apply list-decimal list-outside marker:mr-2 marker:text-gray-500 marker:dark:text-gray-400;
   }
 
   .prose :where(li.task-list-item) {
@@ -148,30 +148,40 @@ body {
   .prose :where(table) {
     @apply border-collapse table-fixed;
 
-    & thead {
+    thead {
       @apply border-b dark:border-gray-700;
     }
 
-    & th {
+    th {
       @apply text-left;
     }
 
-    & th,
-    & td {
+    :is(th, td) {
       @apply py-1 px-2 md:px-4;
     }
   }
 
   .prose :where(.footnotes) {
-    & h2 {
+    h2 {
       @apply mb-2;
     }
   }
 
   .md {
-    & ul:where(:not(.contains-task-list)),
-    & ol {
+    :is(ul:where(:not(.contains-task-list)), ol) {
       @apply pl-7 flex flex-col gap-2;
+    }
+
+    ul:where(.contains-task-list) {
+      @apply pl-3 flex flex-col gap-1;
+    }
+
+    :is(ul:where(:not(.contains-task-list)) > li, ol > li) {
+      @apply pl-1;
+    }
+
+    .data-footnote-backref {
+      @apply font-serif;
     }
   }
 }
