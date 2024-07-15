@@ -10,13 +10,21 @@
 
 @font-face {
   font-family: 'Newsreader';
-  src: url('/fonts/Newsreader-subset.woff2') format('woff2');
+  src: url('/fonts/Newsreader400-subset.woff2') format('woff2');
   font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/fonts/Newsreader600-subset.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('/fonts/Iosevka-subset.woff2') format('woff2');
+  src: url('/fonts/Iosevka500-subset.woff2') format('woff2');
   font-display: swap;
   font-weight: 500;
 }
