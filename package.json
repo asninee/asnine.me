@@ -23,7 +23,6 @@
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/carbon": "^1.1.36",
     "@loglib/tracker": "^0.8.0",
-    "@resvg/resvg-js": "^2.6.2",
     "astro": "^4.11.5",
     "astro-icon": "^1.1.0",
     "satori": "^0.10.14",

@@ -18,25 +18,17 @@ export default defineConfig({
     icon(),
     sitemap(),
   ],
-  vite: {
-    ssr: {
-      external: ['node:path', 'node:fs', '@resvg/resvg-js'],
-    },
-    resolve: {
-      alias: {
-        path: 'node:path',
-        fs: 'node:fs',
-      },
-    },
-    build: {
-      rollupOptions: {
-        external: ['@resvg/resvg-js'],
-      },
-    },
-    optimizeDeps: {
-      exclude: ['@resvg/resvg-js'],
-    },
-  },
+  // vite: {
+  //   ssr: {
+  //     external: ['node:path', 'node:fs'],
+  //   },
+  //   resolve: {
+  //     alias: {
+  //       path: 'node:path',
+  //       fs: 'node:fs',
+  //     },
+  //   },
+  // },
   markdown: {
     shikiConfig: {
       themes: {
