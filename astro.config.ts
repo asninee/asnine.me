@@ -1,4 +1,3 @@
-import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -8,8 +7,6 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asnine.me',
-  output: 'hybrid',
-  adapter: cloudflare(),
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -18,17 +15,6 @@ export default defineConfig({
     icon(),
     sitemap(),
   ],
-  // vite: {
-  //   ssr: {
-  //     external: ['node:path', 'node:fs'],
-  //   },
-  //   resolve: {
-  //     alias: {
-  //       path: 'node:path',
-  //       fs: 'node:fs',
-  //     },
-  //   },
-  // },
   markdown: {
     shikiConfig: {
       themes: {
