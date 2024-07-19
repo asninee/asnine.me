@@ -1,14 +1,12 @@
 import type { CollectionEntry } from 'astro:content'
-import { readFileSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
 import { html } from 'satori-html'
 
 interface Props {
   post: CollectionEntry<'blog'>
 }
 
-const favicon = readFileSync('./public/favicon.png')
-
-export const getMarkup = ({ post }: Props) =>
+export const getMarkup = async ({ post }: Props) =>
   html`<div
     style="font-family: AG57"
     tw="flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-gray-300 text-7xl"
@@ -17,7 +15,9 @@ export const getMarkup = ({ post }: Props) =>
       <img
         width="100"
         height="100"
-        src="data:image/png;base64,${favicon.toString('base64')}"
+        src="data:image/png;base64,${(
+          await readFile('./public/favicon.png')
+        ).toString('base64')}"
       />
       <div style="font-family: Newsreader">asnine.me</div>
     </div>

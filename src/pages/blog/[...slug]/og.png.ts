@@ -1,6 +1,6 @@
 import { getMarkup } from '@/lib/og'
 import { getCollection, type CollectionEntry } from 'astro:content'
-import { readFileSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
 import satori from 'satori'
 import sharp from 'sharp'
 
@@ -10,19 +10,19 @@ interface Props {
 }
 
 export const GET = async ({ props }: Props) => {
-  const svg = await satori(getMarkup(props), {
+  const svg = await satori(await getMarkup(props), {
     width: 1200,
     height: 630,
     fonts: [
       {
         name: 'Newsreader',
-        data: readFileSync('public/fonts/Newsreader400.ttf'),
+        data: await readFile('public/fonts/Newsreader400.ttf'),
         weight: 400,
         style: 'italic',
       },
       {
         name: 'AG57',
-        data: readFileSync('public/fonts/AG57.ttf'),
+        data: await readFile('public/fonts/AG57.ttf'),
         weight: 400,
         style: 'normal',
       },
