@@ -11,15 +11,6 @@ const image = new URL(
 ---
 
 <head>
-  <!-- global metadata -->
-  <meta charset='utf-8' />
-  <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-  <meta name='viewport' content='width=device-width, initial-scale=1' />
-  <meta name='generator' content={Astro.generator} />
-
-  <!-- canonical url -->
-  <link rel='canonical' href={canonicalURL} />
-
   <!-- font preloads -->
   <link
     rel='preload'
@@ -49,6 +40,15 @@ const image = new URL(
     type='font/woff2'
     crossorigin='anonymous'
   />
+
+  <!-- global metadata -->
+  <meta charset='utf-8' />
+  <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='generator' content={Astro.generator} />
+
+  <!-- canonical url -->
+  <link rel='canonical' href={canonicalURL} />
 
   <!-- primary meta tags -->
   <title>{title}</title>
