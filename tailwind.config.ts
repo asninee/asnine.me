@@ -1,6 +1,5 @@
 import tailwindColors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
-import plugin from 'tailwindcss/plugin'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -22,10 +21,5 @@ export default {
     },
   },
 
-  plugins: [
-    plugin(({ addVariant }) => {
-      addVariant('selected', '&[aria-selected="true"]')
-      addVariant('current', '&[aria-current="true"]')
-    }),
-  ],
+  plugins: [],
 }
