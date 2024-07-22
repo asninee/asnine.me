@@ -21,6 +21,10 @@ import Header from '@/components/Header.astro'
       <Footer />
     </div>
     <style is:global>
+      @view-transition {
+        navigation: auto;
+      }
+
       @font-face {
         font-family: 'BDOGrotesk';
         src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
