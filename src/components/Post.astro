@@ -7,10 +7,9 @@ const isHome = Astro.url.pathname === '/'
 ---
 
 <Link
-  alternate
   xl
   href={`/blog/${slug}`}
-  class='flex flex-row items-center justify-between gap-4'
+  class='flex flex-row items-center justify-between gap-4 hover:opacity-45 transition-all duration-300'
   noUnderline
   label={`Open ${title} blog post`}
 >
@@ -21,7 +20,7 @@ const isHome = Astro.url.pathname === '/'
     </span>
   </span>
 
-  <span class='text-gray-600 dark:text-gray-400'>
+  <time class='text-xs text-gray-600 dark:text-gray-400'>
     {
       isHome
         ? new Intl.DateTimeFormat('en-GB').format(date)
@@ -30,5 +29,5 @@ const isHome = Astro.url.pathname === '/'
             month: '2-digit',
           }).format(date)
     }
-  </span>
+  </time>
 </Link>
