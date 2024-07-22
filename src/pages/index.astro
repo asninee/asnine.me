@@ -19,82 +19,78 @@ const posts = sortPostsByDate(
 ---
 
 <Base {title} description='My personal site and blog'>
-  <main class='py-4 mt-4 mb-4 prose md:mt-0 grow md:py-8'>
-    <div class='flex gap-10 mt-10'>
-      <div>
-        <p>
-          Hey! I'm <strong>Ashraf</strong>, a full-stack developer based in the
-          UK. Currently working at <Link href='https://www.evelyn.com'
-            >Evelyn Partners</Link
-          >. Continously looking to hone my craft by building out <em
-            >simple,</em
-          >
-          <em>functional</em> and <em>elegant</em>
-          applications.
-        </p>
-        <p class='mt-6'>
-          My passion ties towards creating services that can bring forward <em
-            >transformative</em
-          > changes to society, where the emergence of touch-based devices fascinated
-          me as a kid.
-        </p>
-        <p class='mt-6'>
-          I love exploring the latest and greatest in the tech sphere, where I
-          value high-quality products that are <em>utilitarian</em> in nature, but
-          also incorporate a <em>sleek</em> aesthetic.
-        </p>
-      </div>
-      <div class='text-end'>
-        <small class='text-gray-600 dark:text-gray-400'>Links</small>
-        <ul class='flex flex-col gap-3 mt-2'>
-          {
-            socials.map(s => (
-              <li class='list-none'>
-                <Social name={s.name} link={s.link} />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+  <div class='flex gap-10 mt-10'>
+    <div>
+      <p>
+        Hey! I'm <strong>Ashraf</strong>, a full-stack developer based in the
+        UK. Currently working at <Link href='https://www.evelyn.com'
+          >Evelyn Partners</Link
+        >. Continously looking to hone my craft by building out <em>simple,</em>
+        <em>functional</em> and <em>elegant</em>
+        applications.
+      </p>
+      <p class='mt-6'>
+        My passion ties towards creating services that can bring forward <em
+          >transformative</em
+        > changes to society, where the emergence of touch-based devices fascinated
+        me as a kid.
+      </p>
+      <p class='mt-6'>
+        I love exploring the latest and greatest in the tech sphere, where I
+        value high-quality products that are <em>utilitarian</em> in nature, but
+        also incorporate a <em>sleek</em> aesthetic.
+      </p>
     </div>
-
-    <div class='mt-12'></div>
-    <small class='text-gray-600 dark:text-gray-400'>Projects</small>
-    <ul class='mt-2'>
-      {
-        projects.map(p => (
-          <li class='list-none'>
-            <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
-          </li>
-        ))
-      }
-    </ul>
-
-    <div class='mt-12'></div>
-    <div class='flex items-center justify-between'>
-      <small class='text-gray-600 dark:text-gray-400'>Blog</small>
-      <Link lg href='/blog'><small>View all</small></Link>
+    <div class='text-end'>
+      <small class='text-gray-600 dark:text-gray-400'>Links</small>
+      <ul class='flex flex-col gap-3 mt-2'>
+        {
+          socials.map(s => (
+            <li class='list-none'>
+              <Social name={s.name} link={s.link} />
+            </li>
+          ))
+        }
+      </ul>
     </div>
-    <ul>
-      {
-        posts.map(p => (
-          <li class='list-none'>
-            <Post
-              slug={p.slug}
-              title={p.data.title}
-              desc={p.data.desc}
-              date={p.data.published}
-            />
-          </li>
-        ))
-      }
-    </ul>
+  </div>
 
-    <div class='mt-12'></div>
-    <div class='flex items-center justify-between'>
-      <small class='text-gray-600 dark:text-gray-400'>Notepad</small>
-      <Link lg href='/notepad'><small>View all</small></Link>
-    </div>
-    <NoteList class='mt-2' />
-  </main>
+  <div class='mt-12'></div>
+  <small class='text-gray-600 dark:text-gray-400'>Projects</small>
+  <ul class='mt-2'>
+    {
+      projects.map(p => (
+        <li class='list-none'>
+          <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class='mt-12'></div>
+  <div class='flex items-center justify-between'>
+    <small class='text-gray-600 dark:text-gray-400'>Blog</small>
+    <Link lg href='/blog'><small>View all</small></Link>
+  </div>
+  <ul>
+    {
+      posts.map(p => (
+        <li class='list-none'>
+          <Post
+            slug={p.slug}
+            title={p.data.title}
+            desc={p.data.desc}
+            date={p.data.published}
+          />
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class='mt-12'></div>
+  <div class='flex items-center justify-between'>
+    <small class='text-gray-600 dark:text-gray-400'>Notepad</small>
+    <Link lg href='/notepad'><small>View all</small></Link>
+  </div>
+  <NoteList class='mt-2' />
 </Base>

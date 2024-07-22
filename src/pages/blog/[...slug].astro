@@ -36,81 +36,79 @@ export const components = {
 }
 ---
 
-<Base {title} description={desc}>
-  <main class='py-4 mt-4 mb-4 prose md:mt-0 grow md:py-8 md'>
-    <div class='flex flex-col'>
-      <h1 class='mb-2'>{title}</h1>
+<Base class='md' {title} description={desc}>
+  <div class='flex flex-col'>
+    <h1 class='mb-2'>{title}</h1>
+    <div class='flex items-center gap-1'>
       <div class='flex items-center gap-1'>
-        <div class='flex items-center gap-1'>
-          <small
-            class='px-1 -my-2 rounded-md font-semibold bg-gray-200 dark:bg-gray-800'
+        <small
+          class='px-1 -my-2 rounded-md font-semibold bg-gray-200 dark:bg-gray-800'
+        >
+          published
+        </small>
+        <small class='text-gray-600 dark:text-gray-400'
+          >{new Intl.DateTimeFormat('en-GB').format(published)}</small
+        >
+      </div>
+      {
+        updated && (
+          <div class='flex items-center gap-1'>
+            <small class='text-gray-600 dark:text-gray-400'>•</small>
+            <small class='px-1 -my-2 rounded-md font-semibold bg-gray-200 dark:bg-gray-800'>
+              updated
+            </small>
+            <small class='text-gray-600 dark:text-gray-400'>
+              {new Intl.DateTimeFormat('en-GB').format(updated)}
+            </small>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <div class='flex flex-col gap-4 mt-6 md:gap-5'>
+    <Content components={components} />
+  </div>
+
+  <hr />
+
+  <div class='flex items-center justify-between flex-nowrap'>
+    <div class='self-start'>
+      {
+        prevPost && (
+          <Link
+            alternate
+            lg
+            href={`/blog/${prevPost.slug}`}
+            class='flex flex-col gap-1'
+            noUnderline
           >
-            published
-          </small>
-          <small class='text-gray-600 dark:text-gray-400'
-            >{new Intl.DateTimeFormat('en-GB').format(published)}</small
+            <small class='font-semibold text-gray-600 dark:text-gray-500'>
+              Previous
+            </small>
+            <small>{prevPost.data.title}</small>
+          </Link>
+        )
+      }
+    </div>
+
+    <div class='self-end'>
+      {
+        nextPost && (
+          <Link
+            alternate
+            lg
+            href={`/blog/${nextPost.slug}`}
+            class='flex flex-col gap-1'
+            noUnderline
           >
-        </div>
-        {
-          updated && (
-            <div class='flex items-center gap-1'>
-              <small class='text-gray-600 dark:text-gray-400'>•</small>
-              <small class='px-1 -my-2 rounded-md font-semibold bg-gray-200 dark:bg-gray-800'>
-                updated
-              </small>
-              <small class='text-gray-600 dark:text-gray-400'>
-                {new Intl.DateTimeFormat('en-GB').format(updated)}
-              </small>
-            </div>
-          )
-        }
-      </div>
+            <small class='self-end font-semibold text-gray-600 dark:text-gray-500'>
+              Next
+            </small>
+            <small>{nextPost.data.title}</small>
+          </Link>
+        )
+      }
     </div>
-
-    <div class='flex flex-col gap-4 mt-6 md:gap-5'>
-      <Content components={components} />
-    </div>
-
-    <hr />
-
-    <div class='flex items-center justify-between flex-nowrap'>
-      <div class='self-start'>
-        {
-          prevPost && (
-            <Link
-              alternate
-              lg
-              href={`/blog/${prevPost.slug}`}
-              class='flex flex-col gap-1'
-              noUnderline
-            >
-              <small class='font-semibold text-gray-600 dark:text-gray-500'>
-                Previous
-              </small>
-              <small>{prevPost.data.title}</small>
-            </Link>
-          )
-        }
-      </div>
-
-      <div class='self-end'>
-        {
-          nextPost && (
-            <Link
-              alternate
-              lg
-              href={`/blog/${nextPost.slug}`}
-              class='flex flex-col gap-1'
-              noUnderline
-            >
-              <small class='self-end font-semibold text-gray-600 dark:text-gray-500'>
-                Next
-              </small>
-              <small>{nextPost.data.title}</small>
-            </Link>
-          )
-        }
-      </div>
-    </div>
-  </main>
+  </div>
 </Base>
