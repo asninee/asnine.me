@@ -1,12 +1,11 @@
 ---
-const { title, description, ...props } = Astro.props
-
-import '@/styles/base.css'
-
 import Footer from '@/components/Footer.astro'
 import Head from '@/components/Head.astro'
 import Header from '@/components/Header.astro'
+import '@/styles/base.css'
 import { twMerge } from 'tailwind-merge'
+
+const { title, description, ...props } = Astro.props
 ---
 
 <html lang='en'>
@@ -22,6 +21,7 @@ import { twMerge } from 'tailwind-merge'
           'py-4 mt-4 mb-4 prose md:mt-0 grow md:py-8',
           Astro.props.class
         )}
+        {...props}
       >
         <slot />
       </main>
