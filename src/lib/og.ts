@@ -8,7 +8,7 @@ interface Props {
 
 export const getMarkup = async ({ post }: Props) =>
   html`<div
-    style="font-family: AG57"
+    style="font-family: BDOGrotesk"
     tw="flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-gray-300 text-7xl"
   >
     <div tw="flex items-center" style="gap: 40px">

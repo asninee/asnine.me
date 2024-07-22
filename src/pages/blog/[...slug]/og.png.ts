@@ -21,9 +21,15 @@ export const GET = async ({ props }: Props) => {
         style: 'italic',
       },
       {
-        name: 'AG57',
-        data: await readFile('public/fonts/AG57.ttf'),
+        name: 'BDOGrotesk',
+        data: await readFile('public/fonts/BDOGrotesk400.ttf'),
         weight: 400,
+        style: 'normal',
+      },
+      {
+        name: 'BDOGrotesk',
+        data: await readFile('public/fonts/BDOGrotesk600.ttf'),
+        weight: 600,
         style: 'normal',
       },
     ],
