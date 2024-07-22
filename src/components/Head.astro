@@ -10,95 +10,88 @@ const image = new URL(
 )
 ---
 
-<!-- global metadata -->
-<meta charset='utf-8' />
-<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-<meta name='viewport' content='width=device-width, initial-scale=1' />
-<meta name='generator' content={Astro.generator} />
+<head>
+  <!-- global metadata -->
+  <meta charset='utf-8' />
+  <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <meta name='generator' content={Astro.generator} />
 
-<!-- canonical url -->
-<link rel='canonical' href={canonicalURL} />
+  <!-- canonical url -->
+  <link rel='canonical' href={canonicalURL} />
 
-<!-- font preloads -->
-<link
-  rel='preload'
-  href='/fonts/BDOGrotesk-subset.woff2'
-  as='font'
-  type='font/woff2'
-  crossorigin='anonymous'
-/>
-<link
-  rel='preload'
-  href='/fonts/Newsreader400-subset.woff2'
-  as='font'
-  type='font/woff2'
-  crossorigin='anonymous'
-/>
-<link
-  rel='preload'
-  href='/fonts/Newsreader600-subset.woff2'
-  as='font'
-  type='font/woff2'
-  crossorigin='anonymous'
-/>
-<link
-  rel='preload'
-  href='/fonts/Iosevka500-subset.woff2'
-  as='font'
-  type='font/woff2'
-  crossorigin='anonymous'
-/>
+  <!-- font preloads -->
+  <link
+    rel='preload'
+    href='/fonts/BDOGrotesk-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
+  <link
+    rel='preload'
+    href='/fonts/Newsreader400-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
+  <link
+    rel='preload'
+    href='/fonts/Newsreader600-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
+  <link
+    rel='preload'
+    href='/fonts/Iosevka500-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
 
-<!-- primary meta tags -->
-<title>{title}</title>
-<meta name='title' content={title} />
-<meta name='description' content={description} />
+  <!-- primary meta tags -->
+  <title>{title}</title>
+  <meta name='title' content={title} />
+  <meta name='description' content={description} />
 
-<!-- open graph -->
-<meta property='og:type' content='website' />
-<meta property='og:url' content={Astro.url} />
-<meta property='og:title' content={title} />
-<meta property='og:description' content={description} />
-<meta property='og:image' content={image} />
+  <!-- open graph -->
+  <meta property='og:type' content='website' />
+  <meta property='og:url' content={Astro.url} />
+  <meta property='og:title' content={title} />
+  <meta property='og:description' content={description} />
+  <meta property='og:image' content={image} />
 
-<!-- twitter -->
-<meta property='twitter:card' content='summary_large_image' />
-<meta property='twitter:url' content={Astro.url} />
-<meta property='twitter:title' content={title} />
-<meta property='twitter:description' content={description} />
-<meta property='twitter:image' content={image} />
+  <!-- twitter -->
+  <meta property='twitter:card' content='summary_large_image' />
+  <meta property='twitter:url' content={Astro.url} />
+  <meta property='twitter:title' content={title} />
+  <meta property='twitter:description' content={description} />
+  <meta property='twitter:image' content={image} />
 
-<!-- sitemap -->
-<link rel='sitemap' href='/sitemap-index.xml' />
+  <!-- sitemap -->
+  <link rel='sitemap' href='/sitemap-index.xml' />
 
-<!-- scripts -->
-<script is:inline>
-  const setTheme = doc => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!localStorage.getItem('theme') &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      doc.documentElement.classList.add('dark')
-    } else {
-      doc.documentElement.classList.remove('dark')
-    }
-  }
-  setTheme(document)
-  document.addEventListener('astro:before-swap', e => setTheme(e.newDocument))
-</script>
+  <!-- scripts -->
+  <script>
+    import { loglib } from '@loglib/tracker'
 
-<script>
-  import { loglib } from '@loglib/tracker'
+    loglib.record({
+      id: 'asnine',
+    })
+  </script>
 
-  loglib.record({
-    id: 'asnine',
-  })
-</script>
-
-<!-- <script
+  <!-- <script
   is:inline
   data-goatcounter='https://stats.asnine.me/count'
   data-astro-rerun
   async
   src='//gc.zgo.at/count.js'></script> -->
+
+  <!-- transitions -->
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
+</head>
