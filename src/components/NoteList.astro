@@ -18,19 +18,19 @@ export const components = {
 
 <div
   class={twMerge(
-    'border-t border-dotted border-gray-300 dark:border-gray-700',
+    'border-t border-dotted border-neutral-300 dark:border-neutral-700',
     Astro.props.class
   )}
   {...props}
 >
   {
     dates.map((d: string) => (
-      <div class='flex gap-6 md:gap-8 items-start mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700'>
-        <p class='text-xs text-gray-600 dark:text-gray-400'>{d}</p>
+      <div class='flex gap-6 md:gap-8 items-start mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-neutral-300 [&:not(:last-of-type)]:dark:border-neutral-700'>
+        <p class='text-xs text-neutral-600 dark:text-neutral-400'>{d}</p>
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
             n.render().then(({ Content }) => (
-              <li class='list-none [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:pb-6 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-gray-300 [&:not(:last-of-type)]:dark:border-gray-700 md flex flex-col gap-4'>
+              <li class='list-none [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:pb-6 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-neutral-300 [&:not(:last-of-type)]:dark:border-neutral-700 md flex flex-col gap-4'>
                 <Content components={components} />
               </li>
             ))

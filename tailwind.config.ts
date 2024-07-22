@@ -1,4 +1,3 @@
-import tailwindColors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
@@ -11,15 +10,6 @@ export default {
       serif: ['Newsreader', ...defaultTheme.fontFamily.serif],
       mono: ['Iosevka', ...defaultTheme.fontFamily.mono],
     },
-    colors: {
-      inherit: tailwindColors.inherit,
-      current: tailwindColors.current,
-      transparent: tailwindColors.transparent,
-      black: tailwindColors.black,
-      white: tailwindColors.white,
-      gray: tailwindColors.neutral,
-    },
   },
-
   plugins: [],
 }

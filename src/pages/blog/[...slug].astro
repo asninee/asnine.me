@@ -42,22 +42,22 @@ export const components = {
     <div class='flex items-center gap-1'>
       <div class='flex items-center gap-1'>
         <small
-          class='px-1 -my-2 rounded-md font-semibold bg-gray-200 dark:bg-gray-800'
+          class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'
         >
           published
         </small>
-        <small class='text-gray-600 dark:text-gray-400'
+        <small class='text-neutral-600 dark:text-neutral-400'
           >{new Intl.DateTimeFormat('en-GB').format(published)}</small
         >
       </div>
       {
         updated && (
           <div class='flex items-center gap-1'>
-            <small class='text-gray-600 dark:text-gray-400'>•</small>
-            <small class='px-1 -my-2 rounded-md font-semibold bg-gray-200 dark:bg-gray-800'>
+            <small class='text-neutral-600 dark:text-neutral-400'>•</small>
+            <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
               updated
             </small>
-            <small class='text-gray-600 dark:text-gray-400'>
+            <small class='text-neutral-600 dark:text-neutral-400'>
               {new Intl.DateTimeFormat('en-GB').format(updated)}
             </small>
           </div>
@@ -83,7 +83,7 @@ export const components = {
             class='flex flex-col gap-1'
             noUnderline
           >
-            <small class='font-semibold text-gray-600 dark:text-gray-500'>
+            <small class='font-semibold text-neutral-600 dark:text-neutral-500'>
               Previous
             </small>
             <small>{prevPost.data.title}</small>
@@ -102,7 +102,7 @@ export const components = {
             class='flex flex-col gap-1'
             noUnderline
           >
-            <small class='self-end font-semibold text-gray-600 dark:text-gray-500'>
+            <small class='self-end font-semibold text-neutral-600 dark:text-neutral-500'>
               Next
             </small>
             <small>{nextPost.data.title}</small>
