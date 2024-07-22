@@ -11,8 +11,7 @@ import { getSocials } from '@/lib/socials'
 import { getCollection } from 'astro:content'
 
 const title = 'asnine • home'
-const socials = await getSocials()
-const projects = await getProjects()
+const [socials, projects] = await Promise.all([getSocials(), getProjects()])
 const posts = sortPostsByDate(
   await getCollection('blog', ({ data }) => data.draft !== true)
 ).slice(0, 4)
