@@ -5,10 +5,9 @@ const { link, repo, desc, year } = Astro.props
 ---
 
 <Link
-  alternate
   xl
   href={link}
-  class='flex items-center justify-between gap-3'
+  class='flex items-center justify-between gap-3 hover:opacity-45 transition-all duration-300'
   noUnderline
   label={`Open ${repo} project link`}
 >
@@ -20,5 +19,5 @@ const { link, repo, desc, year } = Astro.props
     >{desc}</span
   >
   <div class='border-b border-gray-300 grow dark:border-gray-700'></div>
-  <span class='text-gray-600 dark:text-gray-400'>{year}</span>
+  <time class='text-xs text-gray-600 dark:text-gray-400'>{year}</time>
 </Link>

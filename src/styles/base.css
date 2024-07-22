@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'AG57';
-  src: url('/fonts/AG57-subset.woff2') format('woff2');
+  font-family: 'BDOGrotesk';
+  src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
   font-display: swap;
+  font-weight: 400 600;
 }
 
 @font-face {
@@ -47,12 +48,8 @@ html.dark {
   color-scheme: dark;
 }
 
-:not(.dark) .astro-code {
-  @apply border border-gray-200 rounded-lg;
-}
-
-.dark .astro-code {
-  @apply border border-gray-800 rounded-lg;
+.astro-code {
+  @apply border border-gray-200 dark:border-gray-800 rounded-lg;
 }
 
 :not(.dark) .astro-code,
@@ -68,120 +65,118 @@ html.dark {
   background-color: var(--bg-dark) !important;
 }
 
-@layer components {
-  .image-box.image-box {
-    @apply rounded-md;
+.image-box.image-box {
+  @apply rounded-md;
 
-    &:is(a) {
-      @apply p-2 -mx-2;
-    }
+  &:is(a) {
+    @apply p-2 -mx-2;
+  }
+}
+
+.prose :where(h1, h2, h3) {
+  @apply font-semibold mt-6;
+}
+
+.prose :where(h1) {
+  @apply text-2xl;
+}
+
+.prose :where(h2) {
+  @apply text-lg;
+}
+
+.prose :where(p) {
+  @apply leading-7;
+}
+
+.prose :where(ul, ol) {
+  @apply leading-6 list-outside marker:text-gray-400 marker:dark:text-gray-500;
+}
+
+.prose :where(ul) {
+  @apply list-disc;
+}
+
+.prose :where(ol) {
+  @apply list-decimal;
+}
+
+.prose :where(li.task-list-item) {
+  @apply list-none flex items-center gap-2;
+}
+
+.prose :where(:not(pre) > code) {
+  @apply p-1 text-xs bg-gray-200 dark:bg-gray-800 rounded normal-case;
+}
+
+.prose :where(pre) {
+  @apply p-4 text-xs sm:text-sm normal-case;
+}
+
+.prose :where(a) {
+  @apply whitespace-nowrap;
+}
+
+.prose :where(em) {
+  @apply font-serif text-base leading-none;
+}
+
+.prose :where(strong, strong > em) {
+  @apply font-semibold;
+}
+
+.prose :where(hr) {
+  @apply border-gray-300 dark:border-gray-700 border-b-0 border-dashed my-6 md:my-10;
+}
+
+.prose :where(img) {
+  @apply mx-auto rounded-md;
+}
+
+.prose :where(a > p > span > img) {
+  @apply my-0;
+}
+
+.prose :where(figcaption) {
+  @apply px-6 text-gray-600 dark:text-gray-400 font-serif;
+}
+
+.prose :where(blockquote) {
+  @apply font-serif italic relative border-l-[0.1785rem] border-gray-300 dark:border-gray-600 py-4 px-4 my-2 text-base;
+}
+
+.prose :where(table) {
+  @apply border-collapse table-fixed;
+
+  :where(thead) {
+    @apply border-b dark:border-gray-700;
   }
 
-  .prose :where(h1, h2, h3) {
-    @apply font-semibold mt-6;
+  :where(th) {
+    @apply text-left;
   }
 
-  .prose :where(h1) {
-    @apply text-2xl;
+  :where(th, td) {
+    @apply py-1 px-2 md:px-4;
   }
+}
 
-  .prose :where(h2) {
-    @apply text-lg;
-  }
+.prose :where(.footnotes > h2) {
+  @apply mb-2;
+}
 
-  .prose :where(p) {
-    @apply leading-relaxed;
-  }
+.md :where(ul:where(:not(.contains-task-list)), ol) {
+  @apply pl-7 flex flex-col gap-2;
+}
 
-  .prose :where(ul) {
-    @apply list-disc list-outside marker:mr-2 marker:text-gray-500 marker:dark:text-gray-400;
-  }
+.md :where(ul:where(.contains-task-list)) {
+  @apply pl-3 flex flex-col gap-1;
+}
 
-  .prose :where(ol) {
-    @apply list-decimal list-outside marker:mr-2 marker:text-gray-500 marker:dark:text-gray-400;
-  }
+.md :where(ul:where(:not(.contains-task-list)) > li, ol > li) {
+  @apply pl-1;
+}
 
-  .prose :where(li.task-list-item) {
-    @apply list-none flex items-center gap-2;
-  }
-
-  .prose :where(:not(pre) > code) {
-    @apply p-1 text-xs bg-gray-200 dark:bg-gray-800 rounded normal-case;
-  }
-
-  .prose :where(pre) {
-    @apply p-4 text-xs sm:text-sm normal-case;
-  }
-
-  .prose :where(a) {
-    @apply whitespace-nowrap;
-  }
-
-  .prose :where(em) {
-    @apply font-serif;
-  }
-
-  .prose :where(strong, strong > em) {
-    @apply font-semibold;
-  }
-
-  .prose :where(hr) {
-    @apply border-gray-300 dark:border-gray-700 border-b-0 border-dashed my-6 md:my-10;
-  }
-
-  .prose :where(img) {
-    @apply mx-auto rounded-md;
-  }
-
-  .prose :where(a > p > span > img) {
-    @apply my-0;
-  }
-
-  .prose :where(figcaption) {
-    @apply px-6 text-gray-600 dark:text-gray-400 font-serif;
-  }
-
-  .prose :where(blockquote) {
-    @apply font-serif italic relative border-l-[0.1785rem] border-gray-300 dark:border-gray-600 py-4 px-4 my-2;
-  }
-
-  .prose :where(table) {
-    @apply border-collapse table-fixed;
-
-    thead {
-      @apply border-b dark:border-gray-700;
-    }
-
-    th {
-      @apply text-left;
-    }
-
-    :is(th, td) {
-      @apply py-1 px-2 md:px-4;
-    }
-  }
-
-  .prose :where(.footnotes) {
-    h2 {
-      @apply mb-2;
-    }
-  }
-
-  .md {
-    :is(ul:where(:not(.contains-task-list)), ol) {
-      @apply pl-7 flex flex-col gap-2;
-    }
-
-    ul:where(.contains-task-list) {
-      @apply pl-3 flex flex-col gap-1;
-    }
-
-    :is(ul:where(:not(.contains-task-list)) > li, ol > li) {
-      @apply pl-1;
-    }
-
-    .data-footnote-backref {
-      @apply font-serif;
-    }
-  }
+.md :where(.data-footnote-backref) {
+  @apply font-serif;
 }
