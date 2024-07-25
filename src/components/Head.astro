@@ -72,18 +72,10 @@ const image = new URL(
   <!-- sitemap -->
   <link rel='sitemap' href='/sitemap-index.xml' />
 
-  <!-- scripts -->
-  <!-- <script>
-    import { loglib } from '@loglib/tracker'
-
-    loglib.record({
-      id: 'asnine',
-    })
-  </script> -->
-
-  <script
-    is:inline
-    data-goatcounter='https://stats.asnine.me/count'
-    async
-    src='//gc.zgo.at/count.js'></script>
+  <!-- transitions -->
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
 </head>
