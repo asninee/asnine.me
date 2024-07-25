@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
+@font-face {
   font-family: 'BDOGrotesk';
   src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
   font-display: swap;
@@ -28,7 +28,7 @@
   src: url('/fonts/Iosevka500-subset.woff2') format('woff2');
   font-display: swap;
   font-weight: 500;
-} */
+}
 
 * {
   @apply outline-neutral-300 dark:outline-neutral-600 selection:bg-neutral-200 selection:text-black dark:selection:bg-neutral-700 dark:selection:text-white;
