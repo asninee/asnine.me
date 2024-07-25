@@ -18,12 +18,6 @@ const pathname = Astro.url.pathname
           <span class='leading-none md:pt-0.5 transition-[opacity,transform] ease-out duration-300 font-serif text-base opacity-100 text-ellipsis whitespace-nowrap overflow-clip'>
             asnine
           </span>
-        ) : pathname.endsWith('/blog') ||
-          pathname.endsWith('/blog/') ||
-          pathname.endsWith('/notepad/') ? (
-          <>
-            <BackLink href='/' />
-          </>
         ) : pathname.includes('/blog/') ? (
           <>
             <BackLink href='/blog' />
