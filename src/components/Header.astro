@@ -4,15 +4,9 @@ import ThemeToggle from './ThemeToggle.astro'
 
 const pathname = Astro.url.pathname
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 
-const image = new URL(
-  canonicalURL.pathname.includes('/blog') &&
-  !canonicalURL.pathname.endsWith('/blog')
-    ? canonicalURL.pathname + '.og'
-    : 'og.png',
-  Astro.site
-)
+const image = new URL('og.png', Astro.url.origin).href
 ---
 
 <header
