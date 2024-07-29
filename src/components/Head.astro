@@ -1,8 +1,8 @@
 ---
-const { title, description } = Astro.props
+const { title, description, image = './og.png' } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 
-const image = new URL('og.png', Astro.url.origin).href
+// const image = new URL('og.png', Astro.url.origin).href
 ---
 
 <head>
@@ -45,17 +45,17 @@ const image = new URL('og.png', Astro.url.origin).href
 
   <!-- open graph -->
   <meta property='og:type' content='website' />
-  <meta property='og:url' content={canonicalURL} />
+  <meta property='og:url' content={Astro.url} />
   <meta property='og:title' content={title} />
   <meta property='og:description' content={description} />
-  <meta property='og:image' content={image} />
+  <meta property='og:image' content={new URL(image, Astro.url)} />
 
   <!-- twitter -->
   <meta property='twitter:card' content='summary_large_image' />
-  <meta property='twitter:url' content={canonicalURL} />
+  <meta property='twitter:url' content={Astro.url} />
   <meta property='twitter:title' content={title} />
   <meta property='twitter:description' content={description} />
-  <meta property='twitter:image' content={image} />
+  <meta property='twitter:image' content={new URL(image, Astro.url)} />
 
   <!-- sitemap -->
   <link rel='sitemap' href='/sitemap-index.xml' />
