@@ -3,10 +3,10 @@ const { title, description } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const image = new URL(
-  canonicalURL.pathname.includes('/blog') &&
+  canonicalURL.pathname.includes('/blog/') &&
   !canonicalURL.pathname.endsWith('/blog/')
-    ? canonicalURL.pathname + 'hotlink-ok/og.png'
-    : '~/og.png',
+    ? '/hotlink-ok/og.png'
+    : Astro.site?.pathname + '/hotlink-ok/og.png',
   Astro.site
 )
 ---
@@ -30,6 +30,13 @@ const image = new URL(
   <link
     rel='preload'
     href='/fonts/Newsreader600-subset.woff2'
+    as='font'
+    type='font/woff2'
+    crossorigin='anonymous'
+  />
+  <link
+    rel='preload'
+    href='/fonts/Iosevka500-subset.woff2'
     as='font'
     type='font/woff2'
     crossorigin='anonymous'
