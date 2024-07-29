@@ -2,7 +2,7 @@
 const { title, description } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const image = new URL('/hotlink-ok/og.png', Astro.url)
+const image = new URL('/hotlink-ok/og.png', Astro.request.url)
 ---
 
 <head>
