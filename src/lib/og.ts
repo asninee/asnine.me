@@ -53,5 +53,5 @@ export const generateOg = async (
     ],
   })
 
-  return await sharp(Buffer.from(svg)).toBuffer()
+  return await sharp(Buffer.from(svg)).png().toBuffer()
 }
