@@ -3,13 +3,6 @@ import BackLink from './BackLink.astro'
 import ThemeToggle from './ThemeToggle.astro'
 
 const pathname = Astro.url.pathname
-
-// const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
-
-const image = './og.png'
-const url = new URL(image, Astro.url)
-
-// const image = new URL('og.png', Astro.url.origin).href
 ---
 
 <header
@@ -20,8 +13,6 @@ const url = new URL(image, Astro.url)
     class='flex items-center justify-between w-full h-5 mx-auto max-w-[44rem] flex-nowrap'
   >
     <div class='flex items-center gap-[22px]'>
-      <p>{url}</p>
-      <p>{image}</p>
       {
         pathname === '/' ? (
           <span class='leading-none md:pt-0.5 transition-[opacity,transform] ease-out duration-300 font-serif text-base opacity-100 text-ellipsis whitespace-nowrap overflow-clip'>
