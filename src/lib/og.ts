@@ -7,21 +7,22 @@ import sharp from 'sharp'
 export const getMarkup = async (post: CollectionEntry<'blog'>) =>
   html`<div
     style="font-family: BDOGrotesk"
-    tw="flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-neutral-300 text-7xl"
+    tw="relative flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-neutral-300 text-6xl"
   >
-    <div tw="flex items-center" style="gap: 40px">
+    <div tw="flex flex-col absolute border-l-2 border"></div>
+    <div tw="flex items-center" style="gap: 20px">
       <img
-        width="100"
-        height="100"
+        width="50"
+        height="50"
         src="data:image/png;base64,${(
           await readFile('./public/favicon.png')
         ).toString('base64')}"
       />
-      <div style="font-family: Newsreader">asnine.me</div>
+      <span tw="text-4xl font-semibold">asnine.me</span>
     </div>
-    <div tw="flex flex-col mt-24 text-6xl" style="gap: 40px">
+    <div tw="flex flex-col mt-24" style="gap: 40px">
       <span tw="font-bold">${post.data.title}</span>
-      <span tw="text-neutral-400 text-5xl">${post.data.desc}</span>
+      <span tw="text-neutral-400 text-4xl">${post.data.desc}</span>
     </div>
   </div>`
 
@@ -32,12 +33,6 @@ export const generateOg = async (
     width: 1200,
     height: 630,
     fonts: [
-      {
-        name: 'Newsreader',
-        data: await readFile('public/fonts/Newsreader400.ttf'),
-        weight: 400,
-        style: 'italic',
-      },
       {
         name: 'BDOGrotesk',
         data: await readFile('public/fonts/BDOGrotesk400.ttf'),
