@@ -8,10 +8,6 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://asnine.me',
   integrations: [tailwind(), mdx(), icon(), sitemap()],
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'hover',
-  },
   markdown: {
     shikiConfig: {
       themes: {
