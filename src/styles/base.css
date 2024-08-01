@@ -10,22 +10,15 @@
 }
 
 @font-face {
-  font-family: 'Newsreader';
-  src: url('/fonts/Newsreader400-subset.woff2') format('woff2');
+  font-family: 'CrimsonPro';
+  src: url('/fonts/CrimsonPro-subset.woff2') format('woff2');
   font-display: swap;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Newsreader';
-  src: url('/fonts/Newsreader600-subset.woff2') format('woff2');
-  font-display: swap;
-  font-weight: 600;
+  font-weight: 400 600;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('/fonts/Iosevka500-subset.woff2') format('woff2');
+  src: url('/fonts/Iosevka-subset.woff2') format('woff2');
   font-display: swap;
   font-weight: 500;
 }
@@ -36,10 +29,6 @@
 
 body {
   @apply text-neutral-800 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 relative;
-}
-
-html {
-  @apply scroll-smooth;
 }
 
 html.dark {
@@ -116,7 +105,7 @@ html.dark {
 }
 
 .prose :where(em) {
-  @apply font-serif text-base leading-none;
+  @apply font-serif text-lg leading-none;
 }
 
 .prose :where(strong, strong > em) {
@@ -140,7 +129,7 @@ html.dark {
 }
 
 .prose :where(blockquote) {
-  @apply font-serif italic relative border-l-[0.1785rem] border-neutral-300 dark:border-neutral-600 py-4 px-4 my-2 text-base;
+  @apply font-serif italic relative border-l-[0.1785rem] border-neutral-300 dark:border-neutral-600 py-4 px-4 my-2 text-lg;
 }
 
 .prose :where(table) {
