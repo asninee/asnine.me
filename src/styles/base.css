@@ -24,32 +24,26 @@
 }
 
 * {
-  @apply outline-neutral-300 dark:outline-neutral-600 selection:bg-neutral-200 selection:text-black dark:selection:bg-neutral-700 dark:selection:text-white;
-}
-
-body {
-  @apply text-neutral-800 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 relative;
-}
-
-html.dark {
-  color-scheme: dark;
+  @apply outline-l/out dark:outline-d/out dark:selection:bg-d/sel;
 }
 
 .astro-code {
   @apply border border-neutral-200 dark:border-neutral-800 rounded-lg;
 }
 
-:not(.dark) .astro-code,
-:not(.dark) .astro-code span {
+.astro-code,
+.astro-code span {
   --bg-light: theme(colors.neutral.50);
   background-color: var(--bg-light) !important;
 }
 
-.dark .astro-code,
-.dark .astro-code span {
-  --bg-dark: hsl(0 0% 11%);
-  color: var(--shiki-dark) !important;
-  background-color: var(--bg-dark) !important;
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    --bg-dark: hsl(0 0% 11%);
+    color: var(--shiki-dark) !important;
+    background-color: var(--bg-dark) !important;
+  }
 }
 
 .image-box:is(a) {
@@ -73,7 +67,7 @@ html.dark {
 }
 
 .prose :where(ul, ol) {
-  @apply leading-6 list-outside marker:text-neutral-400 marker:dark:text-neutral-500;
+  @apply leading-6 list-outside marker:text-neutral-500;
 }
 
 .prose :where(ul) {
@@ -109,7 +103,7 @@ html.dark {
 }
 
 .prose :where(hr) {
-  @apply border-neutral-300 dark:border-neutral-700 border-b-0 border-dashed my-6 md:my-10;
+  @apply border-l/bor dark:border-d/bor border-b-0 border-dashed my-6 md:my-10;
 }
 
 .prose :where(img) {
@@ -125,14 +119,14 @@ html.dark {
 }
 
 .prose :where(blockquote) {
-  @apply font-serif italic relative border-l-[0.1785rem] border-neutral-300 dark:border-neutral-600 py-4 px-4 my-2 text-lg;
+  @apply font-serif italic relative border-l-[0.1785rem] border-l/bor dark:border-d/bor py-4 px-4 my-2 text-lg;
 }
 
 .prose :where(table) {
   @apply border-collapse table-fixed;
 
   :where(thead) {
-    @apply border-b dark:border-neutral-700;
+    @apply border-b border-l/bor dark:border-d/bor;
   }
 
   :where(th) {
@@ -161,5 +155,5 @@ html.dark {
 }
 
 .md :where(.data-footnote-backref) {
-  @apply font-serif;
+  @apply font-mono;
 }

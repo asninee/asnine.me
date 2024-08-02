@@ -41,7 +41,7 @@ const posts = sortPostsByDate(
       </p>
     </div>
     <div class='text-end'>
-      <small class='text-neutral-600 dark:text-neutral-400'>Links</small>
+      <small class='text-l/sec dark:text-d/sec'>Links</small>
       <ul class='flex flex-col gap-3 mt-2'>
         {
           socials.map(s => (
@@ -55,7 +55,7 @@ const posts = sortPostsByDate(
   </div>
 
   <div class='mt-12'></div>
-  <small class='text-neutral-600 dark:text-neutral-400'>Projects</small>
+  <small class='text-l/sec dark:text-d/sec'>Projects</small>
   <ul class='mt-2'>
     {
       projects.map(p => (
@@ -67,7 +67,7 @@ const posts = sortPostsByDate(
   </ul>
 
   <div class='mt-12 flex items-center justify-between'>
-    <small class='text-neutral-600 dark:text-neutral-400'>Blog</small>
+    <small class='text-l/sec dark:text-d/sec'>Blog</small>
     <Link lg href='/blog'><small>View all</small></Link>
   </div>
   <ul>
@@ -86,7 +86,7 @@ const posts = sortPostsByDate(
   </ul>
 
   <div class='mt-12 flex items-center justify-between'>
-    <small class='text-neutral-600 dark:text-neutral-400'>Notepad</small>
+    <small class='text-l/sec dark:text-d/sec'>Notepad</small>
     <Link lg href='/notepad'><small>View all</small></Link>
   </div>
   <NoteList class='mt-2' />
