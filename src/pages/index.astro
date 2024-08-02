@@ -78,7 +78,7 @@ const posts = sortPostsByDate(
             slug={p.slug}
             title={p.data.title}
             desc={p.data.desc}
-            date={p.data.published}
+            date={p.data.updated ?? p.data.published}
           />
         </li>
       ))
