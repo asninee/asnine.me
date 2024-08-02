@@ -32,7 +32,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
   {
     years.map(y => (
       <div class='mt-8'>
-        <small class='text-neutral-600 dark:text-neutral-500'>{y}</small>
+        <small class='text-l/sec dark:text-d/sec'>{y}</small>
         <ul class='mt-2'>
           {posts[y].map(p => (
             <li class='list-none'>
