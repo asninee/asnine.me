@@ -29,7 +29,6 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [Satori](https://github.com/vercel/satori)
 - [MDX](https://mdxjs.com)
 - [Shiki](https://shiki.style)
-- [GoatCounter](https://www.goatcounter.com)
 
 ## Features
 
@@ -40,7 +39,6 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - Carbon footprint of 0.02g/visit, being [98% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally, and achieving a [A+ DigitalBeacon score](https://digitalbeacon.co/report/asnine-me)
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
-- Privacy-friendly analytics using [Loglib](https://www.loglib.io)
 
 ## Acknowledgements
 
