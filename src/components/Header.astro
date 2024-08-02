@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets'
+import logo from '../../public/favicon.png'
 import BackLink from './BackLink.astro'
+
 import ThemeToggle from './ThemeToggle.astro'
 
 const pathname = Astro.url.pathname
@@ -15,9 +18,10 @@ const pathname = Astro.url.pathname
     <div class='flex items-center gap-[22px]'>
       {
         pathname === '/' ? (
-          <span class='leading-none md:pt-0.5 transition-[opacity,transform] ease-out duration-300 font-serif text-lg opacity-100 text-ellipsis whitespace-nowrap overflow-clip'>
-            asnine
-          </span>
+          <div class='flex md:pt-0.5 items-center gap-2'>
+            <Image class='w-4 h-4' src={logo} alt='Logo image' />
+            <span class='leading-none font-semibold text-sm'>asnine</span>
+          </div>
         ) : pathname.includes('/blog/') && !pathname.endsWith('/blog/') ? (
           <>
             <BackLink href='/blog' />
