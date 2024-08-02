@@ -36,7 +36,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - Dynamic OG image generation using [Satori](https://github.com/vercel/satori)
 - "Blog" content collection for extended writings, and "Notepad" content collection for quick thoughts, using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
 - SPA-like transitions using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
-- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-www-asnine-me/0p96ymuc2x?form_factor=mobile) on Google's PageSpeed Insights
+- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-asnine-me/54t69tg4me?form_factor=mobile) on Google's PageSpeed Insights
 - Carbon footprint of 0.03g/visit, being [98% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally, and achieving a [A+ DigitalBeacon score](https://digitalbeacon.co/report/asnine-me)
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
