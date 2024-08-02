@@ -19,7 +19,7 @@ const pathname = Astro.url.pathname
       {
         pathname === '/' ? (
           <div class='flex md:pt-0.5 items-center gap-2'>
-            <Image width='16' height='16' src={logo} alt='Logo image' />
+            <Image width='16' height='16' src={logo} alt='Site logo' />
             <span class='leading-none font-semibold text-sm'>asnine</span>
           </div>
         ) : pathname.includes('/blog/') && !pathname.endsWith('/blog/') ? (
