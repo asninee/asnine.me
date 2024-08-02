@@ -52,12 +52,8 @@ html.dark {
   background-color: var(--bg-dark) !important;
 }
 
-.image-box.image-box {
-  @apply rounded-md;
-
-  &:is(a) {
-    @apply p-2 -mx-2;
-  }
+.image-box:is(a) {
+  @apply p-2 -mx-2;
 }
 
 .prose :where(h1, h2, h3) {
