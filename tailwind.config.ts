@@ -7,7 +7,6 @@ export default {
   theme: {
     fontFamily: {
       sans: ['BDOGrotesk', ...defaultTheme.fontFamily.sans],
-      serif: ['CrimsonPro', ...defaultTheme.fontFamily.serif],
       mono: ['Iosevka', ...defaultTheme.fontFamily.mono],
     },
     extend: {

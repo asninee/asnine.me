@@ -1,10 +1,22 @@
 ---
+import { getSocials } from '@/lib/socials'
 import Link from './Link.astro'
+import Social from './Social.astro'
+
+const socials = await getSocials()
 ---
 
-<footer class='flex flex-wrap min-w-max items-center justify-between mt-[5vw]'>
-  <span class='font-serif text-lg'>Re-invent yourself.</span>
-  <Link alternate lg noUnderline href='https://ceasefiretoday.com/'
-    >#freepalestine</Link
-  >
+<footer
+  class='flex flex-wrap font-medium min-w-max items-center justify-between mt-[5vw]'
+>
+  <ul class='flex items-center gap-2'>
+    {
+      socials.map(s => (
+        <li class='list-none'>
+          <Social name={s.name} link={s.link} />
+        </li>
+      ))
+    }
+  </ul>
+  <Link class='text-xs' href='https://ceasefiretoday.com/'>#freepalestine</Link>
 </footer>

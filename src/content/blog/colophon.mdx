@@ -1,29 +1,31 @@
 ---
 title: 'colophon'
 published: 2024-05-21
-updated: 2024-07-04
-desc: 'motivations and technology choices when building this site.'
+updated: 2024-08-04
+desc: 'motivations and technology choices for the site.'
 ---
 
-So, the first thing you may be asking...what's a colophon? To be frank, I didn't know what a colophon was until I ended up reading [Eryc's](https://eryc.cc/colophon), where it essentially acts as a neat explainer of the different technology choices related to a website, be it: philosophy, typography, inspirations, framework choice and use of libraries. When making reference to the [IndieWeb's](https://indieweb.org/colophon) definition, many colophons are concise in nature, in appreciation to how they are used in [publications](<https://en.wikipedia.org/wiki/Colophon_(publishing)>).
+So, the first thing you may be asking, what's a colophon? To be frank, I didn't know what a colophon was until I ended up reading [Eryc's](https://eryc.cc/colophon), where it essentially acts as a neat explainer of the different technology choices related to a website, be it: philosophy, typography, inspirations, framework choice and use of libraries. When making reference to the [IndieWeb's](https://indieweb.org/colophon) definition, many colophons are concise in nature, in appreciation to how they are used in [publications](<https://en.wikipedia.org/wiki/Colophon_(publishing)>).
 
 Now that we've got the definitions out of the way, let's actually get into the colophon in itself.
 
 ## Philosophy
 
-As mentioned in my [first blog post](https://asnine.me/blog/a-new-start), I've always had an appreciation for minimal sites, where it forced me to be deliberate with what I wanted to display on my site, with simplistic styles that just felt _perfect_. My goal with this site is to hopefully _**wow**_ you, the end user, in the same way that I was wowed when I first caught sight of these _simple, but elegant_ sites.
+As mentioned in my [first blog post](https://asnine.me/blog/a-new-start), I've always had an appreciation for minimal sites, where it forced me to be deliberate with what I wanted to display on my site, with simplistic styles that just felt perfect. My goal with this site is to hopefully **wow** you, the end user, in the same way that I was wowed when I first caught sight of these **simple**, but **elegant** sites.
 
 Additional focuses include:
 
 - **Simplicity**. Not only in the aesthetic of the site, but also in the file structure, the used technologies, essentially all aspects of the website. Everything should have it's own specific purpose, with any unnecessary bloat being removed.
-- **Performance**. Quality content should be delivered to the end-user _quickly_, where this means very minimal usage of JS, and prioritising HTML & CSS.
+- **Performance**. Quality content should be delivered to the end-user quickly, where this means very minimal usage of JS, and prioritising HTML & CSS.
 - **Scalability**. Creating a personal site is a _serious_ undertaking, where making use of integrations and libraries that _e.g._ allowing for the easy management of blog posts means that there is minimal friction when it comes to adding content to the site. Ensuring **simplicity** often goes hand in hand with guaranteeing this.
 
 ## Typography
 
-The site originally used [Helvetica Neue](https://www.myfonts.com/collections/neue-helvetica-font-linotype) as the sans-serif font, where I opted to change this to the beautiful (and open-source) [Nacelle](https://dotcolon.net/font/nacelle). I believe that typography is a critical component towards giving sites "character", with me having the desire to convey this "character" across all operating systems (_even if it increases the network payload of the site_). I very much believe that Nacelle does an excellent job in capturing the beauty of swiss typefaces, with it also being a great match for the selected serif font: [Newsreader](https://fonts.google.com/specimen/Newsreader). I fell in love with this font upon immediately seeing it in [Glenn Hitchcock's](https://glenn.me) site, and the rest is history.
+For me at least, the typography acts as a crucial element towards establishing the "character" of a website. In my quest to incorporate a minimal aesthetic
 
-[Commit Mono](https://commitmono.com) was the originally selected monospace font, where I used this for a good while in my code editor ([VS Code](https://code.visualstudio.com)). The legibility was a key factor that initially drew me to the font, but after a while, the _"vanilla"_ nature of the font was something that left me wanting more (_i'm **extremely** picky if that hasn't come across already_). And so, I began browsing around as one does, and ended up finding myself using [Iosevka](https://typeof.net/Iosevka). At first, I was at-odds with the condensed nature of the font, where I switched back a couple of times before finally making it stick. But upon realising how I could take my space efficiency to new levels, along with playing around with the extensive customisation options, I was able to dial-in on what I exactly wanted. This will probably be my _end-game_ font, but we'll see if I do a good job at sticking towards that.
+The site originally used [Helvetica Neue](https://www.myfonts.com/collections/neue-helvetica-font-linotype) as the sans-serif font, where I opted to change this to the beautiful (and open-source) [Nacelle](https://dotcolon.net/font/nacelle). I believe that typography is a critical component towards giving sites "character", with me having the desire to convey this "character" across all operating systems (even if it increases the network payload of the site). I very much believe that Nacelle does an excellent job in capturing the beauty of swiss typefaces, with it also being a great match for the selected serif font: [Newsreader](https://fonts.google.com/specimen/Newsreader). I fell in love with this font upon immediately seeing it in [Glenn Hitchcock's](https://glenn.me) site, and the rest is history.
+
+[Commit Mono](https://commitmono.com) was the originally selected monospace font, where I used this for a good while in my code editor ([VS Code](https://code.visualstudio.com)). The legibility was a key factor that initially drew me to the font, but after a while, the "vanilla" nature of the font was something that left me wanting more (i'm **extremely** picky if that hasn't come across already). And so, I began browsing around as one does, and ended up finding myself using [Iosevka](https://typeof.net/Iosevka). At first, I was at-odds with the condensed nature of the font, where I switched back a couple of times before finally making it stick. But upon realising how I could take my space efficiency to new levels, along with playing around with the extensive customisation options, I was able to dial-in on what I exactly wanted. This will probably be my end-game font, but we'll see if I do a good job at sticking towards that.
 
 ## Technology
 
@@ -33,15 +35,13 @@ This site was deployed using [Cloudflare Pages](https://pages.cloudflare.com), w
 
 The dynamic OG generation for blog posts is powered by [Satori](https://github.com/vercel/satori).
 
-This site uses [Loglib](https://www.loglib.io) for cookie-free, privacy-friendly analytics.
-
 ## Inspiration
 
-This site wouldn't be what it is without the exceptional work of individuals such as [Paco Coursey](https://paco.me) and [Rauno Freiberg](https://raunofreiberg.com), where I was gobsmacked by the _simplistic beauty_ of their sites, causing me to re-think how I wanted to approach the task of nailing down the design of the site. It was their work that led me to the path of wanting to chase simplicity at all costs, where I've had a great amount of fun realising the renewed vision sparked by these individuals.
+This site wouldn't be what it is without the exceptional work of individuals such as [Paco Coursey](https://paco.me) and [Rauno Freiberg](https://raunofreiberg.com), where I was gobsmacked by the **simplistic beauty** of their sites, causing me to re-think how I wanted to approach the task of nailing down the design of the site. It was their work that led me to the path of wanting to chase simplicity at all costs, where I've had a great amount of fun realising the renewed vision sparked by these individuals.
 
 I'd like to especially thank [hasparus](https://github.com/hasparus) with his work on [zaduma](https://zaduma.vercel.app), and [nexxeln](https://github.com/nexxeln) with his work on [nexxel.dev](https://www.nexxel.dev), where the initial concepts of the site was very much inspired by both of these sites.
 
-I'd also like to give praise to (_in no particular order_):
+I'd also like to give praise to (in no particular order):
 
 - [Dead Simple Sites](https://deadsimplesites.com)
 - [Eryc](https://eryc.cc)
@@ -57,8 +57,8 @@ I'd also like to give praise to (_in no particular order_):
 
 ## an(other) aside
 
-Again, I'd like to thank **_you_** for reading the entirety of this post, where it means a lot to me. I sincerely hope that you have found joy in reading my writings.
+Again, I'd like to thank **you** for reading the entirety of this post, where it means a lot to me. I sincerely hope that you have found joy in reading my writings.
 
 I was planning on publishing a post on my development experience ahead of this if I'm being honest with myself, but having an understanding of the different pieces that made this site what it is, and getting that out there ended up being the greater priority.
 
-The dev experience post will come in good time though, _I promise_.
+The dev experience post will come in good time though, **I promise**.

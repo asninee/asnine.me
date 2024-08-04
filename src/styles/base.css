@@ -10,13 +10,6 @@
 }
 
 @font-face {
-  font-family: 'CrimsonPro';
-  src: url('/fonts/CrimsonPro-subset.woff2') format('woff2');
-  font-display: swap;
-  font-weight: 400 600;
-}
-
-@font-face {
   font-family: 'Iosevka';
   src: url('/fonts/Iosevka-subset.woff2') format('woff2');
   font-display: swap;
@@ -47,7 +40,7 @@
 }
 
 .image-box:is(a) {
-  @apply p-2 -mx-2;
+  @apply p-1.5 -mx-1.5;
 }
 
 .prose :where(h1, h2, h3) {
@@ -63,7 +56,7 @@
 }
 
 .prose :where(p) {
-  @apply leading-7;
+  @apply leading-6;
 }
 
 .prose :where(ul, ol) {
@@ -83,7 +76,7 @@
 }
 
 .prose :where(:not(pre) > code) {
-  @apply p-1 text-xs bg-neutral-200 dark:bg-neutral-800 rounded normal-case;
+  @apply p-[3px] text-xs bg-neutral-200 dark:bg-neutral-800 rounded normal-case;
 }
 
 .prose :where(pre) {
@@ -92,10 +85,6 @@
 
 .prose :where(a) {
   @apply whitespace-nowrap;
-}
-
-.prose :where(em) {
-  @apply font-serif text-lg leading-none;
 }
 
 .prose :where(strong, strong > em) {
@@ -115,11 +104,11 @@
 }
 
 .prose :where(figcaption) {
-  @apply px-6 text-neutral-600 dark:text-neutral-400 font-serif;
+  @apply px-3 text-l/sec dark:text-d/sec;
 }
 
 .prose :where(blockquote) {
-  @apply font-serif italic relative border-l-[0.1785rem] border-l/bor dark:border-d/bor py-4 px-4 my-2 text-lg;
+  @apply relative border-l-[1px] border-l/bor dark:border-d/bor p-3 my-2;
 }
 
 .prose :where(table) {

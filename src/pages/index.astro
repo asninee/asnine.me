@@ -3,7 +3,6 @@ import Link from '@/components/Link.astro'
 import NoteList from '@/components/NoteList.astro'
 import Post from '@/components/Post.astro'
 import Project from '@/components/Project.astro'
-import Social from '@/components/Social.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
 import { getProjects } from '@/lib/projects'
@@ -19,38 +18,24 @@ const posts = sortPostsByDate(
 
 <Base {title} description='my personal site and blog'>
   <div class='flex gap-10 mt-10'>
-    <div class='flex flex-col gap-6'>
+    <div class='flex flex-col gap-4 md:gap-5'>
       <p>
         Hey! I'm <strong>Ashraf</strong>, a full-stack developer based in the
         UK. Currently working at <Link href='https://www.evelyn.com'
           >Evelyn Partners</Link
-        >. Continously looking to hone my craft by building out <em>simple,</em>
-        <em>functional</em> and <em>elegant</em>
-        applications.
+        >. Continously looking to hone my craft by building out simple,
+        functional and elegant applications.
       </p>
       <p>
-        My passion ties towards creating services that can bring forward <em
-          >transformative</em
-        > changes to society, where the emergence of touch-based devices fascinated
-        me as a kid.
+        My passion ties towards creating services that can bring forward
+        transformative changes to society, where the emergence of touch-based
+        devices fascinated me as a kid.
       </p>
       <p>
         I love exploring the latest and greatest in the tech sphere, where I
-        value high-quality products that are <em>utilitarian</em> in nature, but
-        also incorporate a <em>sleek</em> aesthetic.
+        value high-quality products that are utilitarian in nature, but also
+        incorporate a sleek aesthetic.
       </p>
-    </div>
-    <div class='text-end'>
-      <small class='text-l/sec dark:text-d/sec'>Links</small>
-      <ul class='flex flex-col gap-3 mt-2'>
-        {
-          socials.map(s => (
-            <li class='list-none'>
-              <Social name={s.name} link={s.link} />
-            </li>
-          ))
-        }
-      </ul>
     </div>
   </div>
 
