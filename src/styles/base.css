@@ -108,7 +108,7 @@
 }
 
 .prose :where(blockquote) {
-  @apply relative border-l-[1px] border-l/bor dark:border-d/bor p-3 my-2;
+  @apply relative border-l-[1px] border-l/bor dark:border-d/bor px-3 py-2 my-2;
 }
 
 .prose :where(table) {
