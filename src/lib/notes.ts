@@ -7,8 +7,10 @@ export type Notes = {
 
 export const getNotes = async (isHome: boolean) =>
   isHome
-    ? sortNotesByDate(
-        await getCollection('notepad', ({ data }) => data.draft !== true)
+    ? (
+        await sortNotesByDate(
+          await getCollection('notepad', ({ data }) => data.draft !== true)
+        )
       )
         .slice(0, 3)
         .reduce((acc: Notes, n) => {
@@ -18,8 +20,10 @@ export const getNotes = async (isHome: boolean) =>
 
           return acc
         }, {})
-    : sortNotesByDate(
-        await getCollection('notepad', ({ data }) => data.draft !== true)
+    : (
+        await sortNotesByDate(
+          await getCollection('notepad', ({ data }) => data.draft !== true)
+        )
       ).reduce((acc: Notes, n) => {
         const date = new Intl.DateTimeFormat('en-GB').format(n.data.published)
         if (!acc[date]) acc[date] = []

@@ -6,14 +6,17 @@ import Project from '@/components/Project.astro'
 import Base from '@/layouts/Base.astro'
 import { sortPostsByDate } from '@/lib/date'
 import { getProjects } from '@/lib/projects'
-import { getSocials } from '@/lib/socials'
 import { getCollection } from 'astro:content'
 
 const title = 'asnine • home'
-const [socials, projects] = await Promise.all([getSocials(), getProjects()])
-const posts = sortPostsByDate(
-  await getCollection('blog', ({ data }) => data.draft !== true)
-).slice(0, 4)
+const [projects, posts] = await Promise.all([
+  getProjects(),
+  (
+    await sortPostsByDate(
+      await getCollection('blog', ({ data }) => data.draft !== true)
+    )
+  ).slice(0, 4),
+])
 ---
 
 <Base {title} description='my personal site and blog'>
