@@ -6,12 +6,12 @@ import { sortPostsByDate } from '@/lib/date'
 import { getCollection } from 'astro:content'
 
 export const getStaticPaths = async () => {
-  const posts = sortPostsByDate(
+  const posts = await sortPostsByDate(
     await getCollection('blog', ({ data }) => data.draft !== true)
   )
-  return posts.map(post => ({
+  return posts.map((post, index, posts) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post, prevPost: posts[index + 1], nextPost: posts[index - 1] },
   }))
 }
 
@@ -20,15 +20,10 @@ const {
   post: {
     data: { title, desc, published, updated },
   },
+  prevPost,
+  nextPost,
 } = Astro.props
 const { Content } = await post.render()
-
-const posts = sortPostsByDate(
-  await getCollection('blog', ({ data }) => data.draft !== true)
-)
-const currentIndex = posts.findIndex(p => p.data.title === title)
-const prevPost = posts[currentIndex + 1]
-const nextPost = posts[currentIndex - 1]
 
 export const components = {
   a: Link,
