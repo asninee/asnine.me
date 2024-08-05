@@ -1,4 +1,4 @@
-import { generateOg } from '@/lib/og'
+import { generateOg } from '@lib/og'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
 interface Props {

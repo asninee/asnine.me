@@ -1,11 +1,11 @@
 ---
-import Link from '@/components/Link.astro'
-import NoteList from '@/components/NoteList.astro'
-import Post from '@/components/Post.astro'
-import Project from '@/components/Project.astro'
-import Base from '@/layouts/Base.astro'
-import { sortPostsByDate } from '@/lib/date'
-import { getProjects } from '@/lib/projects'
+import Link from '@components/Link.astro'
+import NoteList from '@components/NoteList.astro'
+import Post from '@components/Post.astro'
+import Project from '@components/Project.astro'
+import Base from '@layouts/Base.astro'
+import { sortPostsByDate } from '@lib/date'
+import { getProjects } from '@lib/projects'
 import { getCollection } from 'astro:content'
 
 const title = 'asnine • home'
