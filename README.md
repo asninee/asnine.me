@@ -27,18 +27,20 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [TypeScript](https://www.typescriptlang.org)
 - [Cloudflare Pages](https://pages.cloudflare.com)
 - [Satori](https://github.com/vercel/satori)
+- [Sharp](https://sharp.pixelplumbing.com)
 - [MDX](https://mdxjs.com)
 - [Shiki](https://shiki.style)
 
 ## Features
 
-- Dynamic OG image generation using [Satori](https://github.com/vercel/satori)
+- Dynamic OG image generation using [Satori](https://github.com/vercel/satori) and [Sharp](https://sharp.pixelplumbing.com)
 - "Blog" content collection for extended writings, and "Notepad" content collection for quick thoughts, using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
-- SPA-like transitions using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
-- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-asnine-me/zzpxys5m0a?form_factor=mobile) on Google's PageSpeed Insights
-- Carbon footprint of 0.02g/visit, being [98% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally, and achieving a [A+ DigitalBeacon score](https://digitalbeacon.co/report/asnine-me)
+- SPA-like transitions (with no-JS) using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
+- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-asnine-me/zzpxys5m0a?form_factor=mobile) on Google's PageSpeed Insights for mobile (1.1s LCP) and desktop (0.3 LCP)
+- Carbon footprint of 0.02g/visit, being [99% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally, and achieving a [A+ DigitalBeacon score](https://digitalbeacon.co/report/asnine-me)
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
+- No analytics used at all; privacy-first.
 
 ## Acknowledgements
 
@@ -57,6 +59,8 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
   - [Siddharth Arun](https://sdrn.co)
   - [Badrul Farooqi](https://farooqib.com)
   - [Edgar Lopéz](https://edgarlr.com)
+  - [Linus Rogge](https://linusrogge.com)
+  - [Mayur Bhoi](https://www.mayurbhoi.com)
 
 ## License
 
