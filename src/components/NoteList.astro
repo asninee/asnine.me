@@ -24,7 +24,7 @@ export const components = {
   {...props}
 >
   {
-    dates.map((d: string) => (
+    dates.map(d => (
       <div class='flex gap-6 md:gap-8 items-start mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-l/bor [&:not(:last-of-type)]:dark:border-d/bor'>
         <p class='text-xs text-l/sec dark:text-d/sec'>{d}</p>
         <ul class='mb-4 md:mb-6'>
