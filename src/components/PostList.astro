@@ -1,0 +1,25 @@
+---
+import { getPosts } from '@lib/posts'
+import { twMerge } from 'tailwind-merge'
+import Post from './Post.astro'
+
+const isHome = Astro.url.pathname === '/'
+const posts = await getPosts(isHome)
+
+const { class: className, ...props } = Astro.props
+---
+
+<ul class={twMerge(Astro.props.class)} {...props}>
+  {
+    posts.map(p => (
+      <li class='list-none'>
+        <Post
+          slug={p.slug}
+          title={p.data.title}
+          desc={p.data.desc}
+          date={p.data.updated ?? p.data.published}
+        />
+      </li>
+    ))
+  }
+</ul>
