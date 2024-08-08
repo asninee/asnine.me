@@ -7,16 +7,7 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asnine.me',
-  integrations: [
-    tailwind(),
-    mdx(),
-    sitemap(),
-    icon({
-      include: {
-        carbon: ['arrow-left'],
-      },
-    }),
-  ],
+  integrations: [tailwind(), mdx(), sitemap(), icon()],
   markdown: {
     shikiConfig: {
       themes: {
