@@ -1,5 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import logo from '../../public/favicon.svg'
 import BackLink from './BackLink.astro'
 
 const pathname = Astro.url.pathname
@@ -16,7 +17,13 @@ const pathname = Astro.url.pathname
       {
         pathname === '/' ? (
           <div class='flex md:pt-0.5 items-center gap-2'>
-            <Icon name='logo' />
+            <Image
+              loading='eager'
+              width='16'
+              height='16'
+              src={logo}
+              alt='Site logo'
+            />
             <span class='leading-none font-semibold text-sm'>asnine</span>
           </div>
         ) : pathname.includes('/blog/') && !pathname.endsWith('/blog/') ? (
