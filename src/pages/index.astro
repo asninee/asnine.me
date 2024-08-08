@@ -1,22 +1,13 @@
 ---
 import Link from '@components/Link.astro'
 import NoteList from '@components/NoteList.astro'
-import Post from '@components/Post.astro'
+import PostList from '@components/PostList.astro'
 import Project from '@components/Project.astro'
 import Base from '@layouts/Base.astro'
-import { sortPostsByDate } from '@lib/date'
 import { getProjects } from '@lib/projects'
-import { getCollection } from 'astro:content'
 
 const title = 'asnine • home'
-const [projects, posts] = await Promise.all([
-  getProjects(),
-  (
-    await sortPostsByDate(
-      await getCollection('blog', ({ data }) => data.draft !== true)
-    )
-  ).slice(0, 4),
-])
+const projects = await getProjects()
 ---
 
 <Base {title} description='my personal site and blog'>
@@ -58,20 +49,7 @@ const [projects, posts] = await Promise.all([
     <small class='text-l/sec dark:text-d/sec'>Blog</small>
     <Link lg href='/blog'><small class='font-medium'>View all</small></Link>
   </div>
-  <ul>
-    {
-      posts.map(p => (
-        <li class='list-none'>
-          <Post
-            slug={p.slug}
-            title={p.data.title}
-            desc={p.data.desc}
-            date={p.data.updated ?? p.data.published}
-          />
-        </li>
-      ))
-    }
-  </ul>
+  <PostList />
 
   <div class='mt-12 flex items-center justify-between'>
     <small class='text-l/sec dark:text-d/sec'>Notepad</small>
