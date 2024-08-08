@@ -1,6 +1,6 @@
 ---
 import { getProjects } from '@lib/projects'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@lib/utils'
 import Project from './Project.astro'
 
 const { class: className, ...props } = Astro.props
@@ -8,7 +8,7 @@ const { class: className, ...props } = Astro.props
 const projects = await getProjects()
 ---
 
-<ul class={twMerge(Astro.props.class)} {...props}>
+<ul class={cn(Astro.props.class)} {...props}>
   {
     projects.map(p => (
       <li class='list-none'>

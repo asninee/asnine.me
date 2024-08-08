@@ -1,6 +1,6 @@
 ---
 import { getNotes } from '@lib/notes'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@lib/utils'
 import Image from './Image.astro'
 import Link from './Link.astro'
 
@@ -17,7 +17,7 @@ export const components = {
 ---
 
 <div
-  class={twMerge(
+  class={cn(
     'border-t border-dotted border-l/bor dark:border-d/bor',
     Astro.props.class
   )}

@@ -23,6 +23,7 @@
     "@iconify-json/carbon": "^1.1.37",
     "astro": "^4.13.1",
     "astro-icon": "^1.1.0",
+    "clsx": "^2.1.1",
     "satori": "^0.10.14",
     "satori-html": "^0.3.2",
     "sharp": "^0.33.4",

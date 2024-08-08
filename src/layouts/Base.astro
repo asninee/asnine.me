@@ -2,7 +2,7 @@
 import Footer from '@components/Footer.astro'
 import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@lib/utils'
 
 const { title, description, ...props } = Astro.props
 ---
@@ -16,7 +16,7 @@ const { title, description, ...props } = Astro.props
       <Header />
 
       <main
-        class={twMerge(
+        class={cn(
           'py-4 mt-4 mb-4 prose md:mt-0 grow md:py-8',
           Astro.props.class
         )}
