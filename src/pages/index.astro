@@ -2,12 +2,10 @@
 import Link from '@components/Link.astro'
 import NoteList from '@components/NoteList.astro'
 import PostList from '@components/PostList.astro'
-import Project from '@components/Project.astro'
+import ProjectList from '@components/ProjectList.astro'
 import Base from '@layouts/Base.astro'
-import { getProjects } from '@lib/projects'
 
 const title = 'asnine • home'
-const projects = await getProjects()
 ---
 
 <Base {title} description='my personal site and blog'>
@@ -35,15 +33,7 @@ const projects = await getProjects()
 
   <div class='mt-12'></div>
   <small class='text-l/sec dark:text-d/sec'>Projects</small>
-  <ul class='mt-2'>
-    {
-      projects.map(p => (
-        <li class='list-none'>
-          <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
-        </li>
-      ))
-    }
-  </ul>
+  <ProjectList class='mt-2' />
 
   <div class='mt-12 flex items-center justify-between'>
     <small class='text-l/sec dark:text-d/sec'>Blog</small>
