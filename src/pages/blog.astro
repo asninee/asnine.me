@@ -1,21 +1,17 @@
 ---
 import Post from '@components/Post.astro'
 import Base from '@layouts/Base.astro'
-import { sortPostsByDate } from '@lib/date'
+import { getPosts } from '@lib/posts'
 import type { CollectionEntry } from 'astro:content'
-import { getCollection } from 'astro:content'
 
 const title = 'asnine • blog'
+const isHome = Astro.url.pathname === '/'
 
 type Posts = {
   [year: string]: CollectionEntry<'blog'>[]
 }
 
-const posts = (
-  await sortPostsByDate(
-    await getCollection('blog', ({ data }) => data.draft !== true)
-  )
-).reduce((acc: Posts, p) => {
+const posts = (await getPosts(isHome)).reduce((acc: Posts, p) => {
   const year = p.data.published.getFullYear().toString()
   if (!acc[year]) acc[year] = []
   acc[year].push(p)
