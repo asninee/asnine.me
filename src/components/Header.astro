@@ -27,13 +27,17 @@ const pathname = Astro.url.pathname
             <span class='leading-none font-semibold text-sm'>asnine</span>
           </div>
         ) : pathname.includes('/blog/') && !pathname.endsWith('/blog/') ? (
-          <>
+          <div class='flex items-center gap-9'>
             <BackLink href='/blog' />
-          </>
+            <p class='font-semibold'>
+              {pathname.split('/').pop()?.replaceAll('-', ' ')}
+            </p>
+          </div>
         ) : (
-          <>
+          <div class='flex items-center gap-9'>
             <BackLink href='/' />
-          </>
+            <p class='font-semibold'>{pathname.split('/').pop()}</p>
+          </div>
         )
       }
     </div>
