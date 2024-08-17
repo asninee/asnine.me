@@ -16,7 +16,7 @@ const pathname = Astro.url.pathname
     <div class='flex items-center gap-[22px]'>
       {
         pathname === '/' ? (
-          <div class='flex md:pt-0.5 items-center gap-2'>
+          <div class='flex md:pt-0.5 items-center gap-1.5'>
             <Image
               loading='eager'
               width='16'
@@ -30,13 +30,15 @@ const pathname = Astro.url.pathname
           <div class='flex items-center gap-9'>
             <BackLink href='/blog' />
             <p class='font-semibold'>
-              {pathname.split('/').pop()?.replaceAll('-', ' ')}
+              {pathname.split('/blog/').pop()?.replaceAll('-', ' ')}
             </p>
           </div>
         ) : (
           <div class='flex items-center gap-9'>
             <BackLink href='/' />
-            <p class='font-semibold'>{pathname.split('/').pop()}</p>
+            <p class='font-semibold'>
+              {pathname.split('/').slice(-2).join().replaceAll(',', '')}
+            </p>
           </div>
         )
       }
