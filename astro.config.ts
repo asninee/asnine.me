@@ -8,15 +8,7 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asnine.me',
-  integrations: [
-    tailwind(),
-    mdx(),
-    sitemap(),
-    icon(),
-    playformCompress({
-      CSS: false,
-    }),
-  ],
+  integrations: [tailwind(), mdx(), sitemap(), icon(), playformCompress()],
   markdown: {
     shikiConfig: {
       themes: {
