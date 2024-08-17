@@ -30,7 +30,11 @@ const pathname = Astro.url.pathname
           <div class='flex items-center gap-9'>
             <BackLink href='/blog' />
             <p class='font-semibold'>
-              {pathname.split('/blog/').pop()?.replaceAll('-', ' ')}
+              {pathname
+                .split('/blog/')
+                .pop()
+                ?.replaceAll('-', ' ')
+                .replace('/', '')}
             </p>
           </div>
         ) : (
