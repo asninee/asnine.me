@@ -1,9 +1,13 @@
 ---
 import { Image } from 'astro:assets'
+import { getEntry } from 'astro:content'
 import logo from '../../public/favicon.svg'
 import BackLink from './BackLink.astro'
 
 const pathname = Astro.url.pathname
+const pagename = pathname.match(/\/([^\/]+)\/?$/ || [])?.[1]
+const isPost = pathname.includes('/blog/') && !pathname.endsWith('/blog/')
+const post = isPost && (await getEntry('blog', pagename))
 ---
 
 <header
@@ -26,26 +30,43 @@ const pathname = Astro.url.pathname
             />
             <span class='leading-none font-semibold text-sm'>asnine</span>
           </div>
-        ) : pathname.includes('/blog/') && !pathname.endsWith('/blog/') ? (
+        ) : isPost ? (
           <div class='flex items-center gap-9'>
             <BackLink href='/blog' />
-            <p class='font-semibold'>
-              {pathname
-                .split('/blog/')
-                .pop()
-                ?.replaceAll('-', ' ')
-                .replace('/', '')}
-            </p>
+            <p class='font-semibold'>{pagename.replaceAll('-', ' ')}</p>
           </div>
         ) : (
           <div class='flex items-center gap-9'>
             <BackLink href='/' />
-            <p class='font-semibold'>
-              {pathname.split('/').slice(-2).join().replaceAll(',', '')}
-            </p>
+            <p class='font-semibold'>{pagename}</p>
           </div>
         )
       }
     </div>
+    {
+      isPost && (
+        <>
+          {post?.data.updated ? (
+            <div class='flex items-center gap-1'>
+              <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
+                updated
+              </small>
+              <small class='text-l/sec dark:text-d/sec'>
+                {new Intl.DateTimeFormat('en-GB').format(post.data.updated)}
+              </small>
+            </div>
+          ) : (
+            <div class='flex items-center gap-1'>
+              <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
+                published
+              </small>
+              <small class='text-l/sec dark:text-d/sec'>
+                {new Intl.DateTimeFormat('en-GB').format(post?.data.published)}
+              </small>
+            </div>
+          )}
+        </>
+      )
+    }
   </div>
 </header>
