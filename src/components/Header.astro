@@ -45,7 +45,7 @@ const post = isPost && (await getEntry('blog', pagename))
     </div>
     {
       isPost && (
-        <div class='flex items-center gap-1'>
+        <>
           {post?.data.updated ? (
             <div class='flex items-center gap-1'>
               <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
@@ -65,7 +65,7 @@ const post = isPost && (await getEntry('blog', pagename))
               </small>
             </div>
           )}
-        </div>
+        </>
       )
     }
   </div>
