@@ -16,13 +16,7 @@ export const components = {
 }
 ---
 
-<div
-  class={cn(
-    'border-t border-dotted border-l/bor dark:border-d/bor',
-    Astro.props.class
-  )}
-  {...props}
->
+<div class={cn(Astro.props.class)} {...props}>
   {
     dates.map(d => (
       <div class='flex items-start gap-6 md:gap-8 mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-l/bor [&:not(:last-of-type)]:dark:border-d/bor'>
