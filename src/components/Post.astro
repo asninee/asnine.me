@@ -15,7 +15,7 @@ const isHome = Astro.url.pathname === '/'
 >
   <span class='font-semibold'
     >{title}
-    <span class='hidden font-normal text-l/sec dark:text-d/sec md:flex'>
+    <span class='hidden font-normal text-l/sec dark:text-d/sec sm:flex'>
       {desc}
     </span>
   </span>
@@ -23,7 +23,7 @@ const isHome = Astro.url.pathname === '/'
   <time class='text-xs text-l/sec dark:text-d/sec'>
     {
       isHome
-        ? new Intl.DateTimeFormat('en-GB').format(date)
+        ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'numeric', year: '2-digit' }).format(date)
         : new Intl.DateTimeFormat('en-GB', {
             day: '2-digit',
             month: '2-digit',
