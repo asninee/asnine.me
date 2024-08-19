@@ -12,7 +12,7 @@ export const getNotes = async (isHome: boolean) =>
           await getCollection('notepad', ({ data }) => data.draft !== true)
         )
       )
-        .slice(0, 3)
+        .slice(0, 2)
         .reduce((acc: Notes, n) => {
           const date = new Intl.DateTimeFormat('en-GB', {
             day: 'numeric',
