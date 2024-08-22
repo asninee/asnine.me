@@ -1,5 +1,4 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
-import colors from './src/lib/colors'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,17 +10,12 @@ export default {
     },
     extend: {
       colors: {
-        'd/bg': colors.neutral[900],
-        'd/pri': colors.neutral[300],
-        'd/sec': colors.neutral[400],
-        'd/sel': colors.neutral[800],
-        'd/out': colors.neutral[600],
-        'd/bor': colors.neutral[700],
-        'l/bg': colors.neutral[100],
-        'l/pri': colors.neutral[800],
-        'l/sec': colors.neutral[600],
-        'l/out': colors.neutral[300],
-        'l/bor': colors.neutral[300],
+        bg: 'var(--bg)',
+        pri: 'var(--pri)',
+        sec: 'var(--sec)',
+        sel: 'var(--sel)',
+        out: 'var(--out)',
+        bor: 'var(--bor)',
       },
     },
   },
