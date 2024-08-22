@@ -23,8 +23,29 @@
   font-weight: 500;
 }
 
+@layer base {
+  :root {
+    --bg: theme(colors.neutral.100);
+    --pri: theme(colors.neutral.800);
+    --sec: theme(colors.neutral.600);
+    --out: theme(colors.neutral.300);
+    --bor: theme(colors.neutral.300);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: theme(colors.neutral.900);
+      --pri: theme(colors.neutral.300);
+      --sec: theme(colors.neutral.400);
+      --sel: theme(colors.neutral.800);
+      --out: theme(colors.neutral.600);
+      --bor: theme(colors.neutral.700);
+    }
+  }
+}
+
 * {
-  @apply outline-l/out dark:outline-d/out dark:selection:bg-d/sel;
+  @apply outline-out dark:selection:bg-sel;
 }
 
 .astro-code {
@@ -99,7 +120,7 @@
 }
 
 .prose :where(hr) {
-  @apply border-l/bor dark:border-d/bor border-b-0 border-dashed my-6 md:my-10;
+  @apply border-bor border-b-0 border-dashed my-6 md:my-10;
 }
 
 .prose :where(img) {
@@ -111,18 +132,18 @@
 }
 
 .prose :where(figcaption) {
-  @apply px-3 text-l/sec dark:text-d/sec;
+  @apply px-3 text-sec;
 }
 
 .prose :where(blockquote) {
-  @apply relative border-l-[1px] border-l/bor dark:border-d/bor px-3 py-2 my-2;
+  @apply relative border-l-[1px] border-bor px-3 py-2 my-2;
 }
 
 .prose :where(table) {
   @apply border-collapse table-fixed;
 
   :where(thead) {
-    @apply border-b border-l/bor dark:border-d/bor;
+    @apply border-b border-bor;
   }
 
   :where(th) {
