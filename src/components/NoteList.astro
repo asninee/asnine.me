@@ -19,12 +19,12 @@ export const components = {
 <div class={cn(Astro.props.class)} {...props}>
   {
     dates.map(d => (
-      <div class='flex items-start gap-6 md:gap-8 mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-l/bor [&:not(:last-of-type)]:dark:border-d/bor'>
-        <p class='text-xs text-l/sec dark:text-d/sec'>{d}</p>
+      <div class='flex items-start gap-6 md:gap-8 mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor'>
+        <p class='text-xs text-sec'>{d}</p>
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
             n.render().then(({ Content }) => (
-              <li class='list-none [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:pb-6 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-l/bor [&:not(:last-of-type)]:dark:border-d/bor md flex flex-col gap-4'>
+              <li class='list-none [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:pb-6 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor md flex flex-col gap-4'>
                 <Content components={components} />
               </li>
             ))
