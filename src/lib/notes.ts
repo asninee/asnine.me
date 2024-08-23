@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
-import { sortNotesByDate } from './date'
+import { formatDate, sortNotesByDate } from './date'
 
 export type Notes = {
   [date: string]: CollectionEntry<'notepad'>[]
@@ -14,11 +14,7 @@ export const getNotes = async (isHome: boolean) =>
       )
         .slice(0, 2)
         .reduce((acc: Notes, n) => {
-          const date = new Intl.DateTimeFormat('en-GB', {
-            day: 'numeric',
-            month: 'numeric',
-            year: '2-digit',
-          }).format(n.data.published)
+          const date = formatDate(n.data.published, true)
           if (!acc[date]) acc[date] = []
           acc[date].push(n)
 
@@ -29,11 +25,7 @@ export const getNotes = async (isHome: boolean) =>
           await getCollection('notepad', ({ data }) => data.draft !== true)
         )
       ).reduce((acc: Notes, n) => {
-        const date = new Intl.DateTimeFormat('en-GB', {
-          day: 'numeric',
-          month: 'numeric',
-          year: '2-digit',
-        }).format(n.data.published)
+        const date = formatDate(n.data.published, true)
         if (!acc[date]) acc[date] = []
         acc[date].push(n)
 

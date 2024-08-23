@@ -1,4 +1,5 @@
 ---
+import { formatDate } from '@lib/date'
 import Link from './Link.astro'
 
 const { slug, title, desc, date } = Astro.props
@@ -20,14 +21,5 @@ const isHome = Astro.url.pathname === '/'
     </span>
   </span>
 
-  <time class='text-xs text-sec'>
-    {
-      isHome
-        ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'numeric', year: '2-digit' }).format(date)
-        : new Intl.DateTimeFormat('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-          }).format(date)
-    }
-  </time>
+  <time class='text-xs text-sec'>{formatDate(date, isHome)}</time>
 </Link>

@@ -1,4 +1,5 @@
 ---
+import { formatDate } from '@lib/date'
 import { getEntry } from 'astro:content'
 import BackLink from './BackLink.astro'
 
@@ -38,8 +39,8 @@ const post = isPost && (await getEntry('blog', pagename))
               <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
                 upd.
               </small>
-              <small class='text-l/sec dark:text-d/sec'>
-                {new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'numeric', year: '2-digit' }).format(post.data.updated)}
+              <small class='text-sec'>
+                {formatDate(post.data.updated, true)}
               </small>
             </div>
           ) : (
@@ -47,8 +48,8 @@ const post = isPost && (await getEntry('blog', pagename))
               <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
                 pub.
               </small>
-              <small class='text-l/sec dark:text-d/sec'>
-                {new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'numeric', year: '2-digit' }).format(post?.data.published)}
+              <small class='text-sec'>
+                {formatDate(post.data.updated, true)}
               </small>
             </div>
           )}
