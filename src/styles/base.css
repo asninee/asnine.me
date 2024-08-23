@@ -136,7 +136,7 @@
 }
 
 .prose :where(blockquote) {
-  @apply relative border-l-[1px] border-bor px-3 py-2 my-2;
+  @apply relative border-l-2 border-bor px-3 py-2 my-2;
 }
 
 .prose :where(table) {
