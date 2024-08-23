@@ -40,7 +40,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - Small bundle size of 40KB, contributing towards a carbon footprint of 0.01g/visit, being [99% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally, and achieving a [A+ DigitalBeacon score](https://digitalbeacon.co/report/asnine-me)
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
-- No analytics used at all; privacy-first.
+- [No analytics used at all](https://themarkup.org/blacklight?url=asnine.me&location=us&device=mobile&force=false); privacy-first.
 
 ## Acknowledgements
 
