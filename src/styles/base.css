@@ -4,16 +4,9 @@
 
 @font-face {
   font-family: 'BDOGrotesk';
-  src: url('/fonts/BDOGrotesk400-subset.woff2') format('woff2');
+  src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
   font-display: swap;
   font-weight: 400;
-}
-
-@font-face {
-  font-family: 'BDOGrotesk';
-  src: url('/fonts/BDOGrotesk600-subset.woff2') format('woff2');
-  font-display: swap;
-  font-weight: 600;
 }
 
 @font-face {
@@ -72,7 +65,7 @@
 }
 
 .prose :where(h1, h2, h3) {
-  @apply font-semibold mt-6;
+  @apply mt-6;
 }
 
 .prose :where(h1) {
@@ -83,12 +76,8 @@
   @apply text-lg;
 }
 
-.prose :where(p) {
-  @apply leading-6;
-}
-
 .prose :where(ul, ol) {
-  @apply leading-6 list-outside marker:text-neutral-500;
+  @apply list-outside marker:text-neutral-500;
 }
 
 .prose :where(ul) {
@@ -104,19 +93,15 @@
 }
 
 .prose :where(:not(pre) > code) {
-  @apply p-[3px] text-xs bg-neutral-200 dark:bg-neutral-800 rounded normal-case;
+  @apply p-0.5 text-xs bg-neutral-200 dark:bg-neutral-800 rounded normal-case;
 }
 
 .prose :where(pre) {
-  @apply p-4 text-xs sm:text-sm normal-case;
+  @apply p-4 text-xs normal-case;
 }
 
 .prose :where(a) {
   @apply whitespace-nowrap;
-}
-
-.prose :where(strong, strong > em) {
-  @apply font-semibold;
 }
 
 .prose :where(hr) {
