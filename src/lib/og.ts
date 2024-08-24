@@ -18,7 +18,7 @@ export const getMarkup = async (post: CollectionEntry<'blog'>) =>
           await readFile('./public/favicon.png')
         ).toString('base64')}"
       />
-      <span tw="text-4xl font-semibold">asnine.me</span>
+      <span tw="text-4xl">asnine.me</span>
     </div>
     <div tw="flex flex-col mt-24" style="gap: 40px">
       <span tw="font-bold">${post.data.title}</span>
@@ -35,14 +35,8 @@ export const generateOg = async (
     fonts: [
       {
         name: 'BDOGrotesk',
-        data: await readFile('public/fonts/BDOGrotesk400.ttf'),
+        data: await readFile('public/fonts/BDOGrotesk.ttf'),
         weight: 400,
-        style: 'normal',
-      },
-      {
-        name: 'BDOGrotesk',
-        data: await readFile('public/fonts/BDOGrotesk600.ttf'),
-        weight: 600,
         style: 'normal',
       },
     ],

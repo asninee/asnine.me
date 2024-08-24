@@ -18,16 +18,16 @@ const post = isPost && (await getEntry('blog', pagename))
   >
     {
       pathname === '/' ? (
-        <p class='font-semibold'>asnine</p>
+        <p>asnine</p>
       ) : isPost ? (
         <div class='flex items-center gap-6'>
           <BackLink href='/blog' />
-          <p class='font-semibold'>{post?.data.title}</p>
+          <p>{post?.data.title}</p>
         </div>
       ) : (
         <div class='flex items-center gap-6'>
           <BackLink href='/' />
-          <p class='font-semibold'>{pagename}</p>
+          <p>{pagename}</p>
         </div>
       )
     }
@@ -36,7 +36,7 @@ const post = isPost && (await getEntry('blog', pagename))
         <>
           {post?.data.updated ? (
             <div class='flex items-center gap-1'>
-              <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
+              <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
                 upd.
               </small>
               <small class='text-sec'>
@@ -45,7 +45,7 @@ const post = isPost && (await getEntry('blog', pagename))
             </div>
           ) : (
             <div class='flex items-center gap-1'>
-              <small class='px-1 -my-2 rounded-md font-semibold bg-neutral-200 dark:bg-neutral-800'>
+              <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
                 pub.
               </small>
               <small class='text-sec'>

@@ -14,11 +14,9 @@ const isHome = Astro.url.pathname === '/'
   noUnderline
   label={`Open ${title} blog post`}
 >
-  <span class='font-semibold'
-    >{title}
-    <span class='hidden font-normal text-sec sm:flex'>
-      {desc}
-    </span>
+  {title}
+  <span class='hidden font-normal text-sec sm:flex'>
+    {desc}
   </span>
 
   <time class='text-xs text-sec'>{formatDate(date, isHome)}</time>
