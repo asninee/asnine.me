@@ -112,48 +112,6 @@ Markdown applications support these elements.
 }
 ```
 
-### Footnote
-
-Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
-
-### Definition List
-
-term : definition
-
 ### Strikethrough
 
 ~~I didn't mean to say this.~~
-
-### Task List
-
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
-
-### Heading ID — ❌ unsupported
-
-Curly braces in MDX escape to JavaScript, so they can't be used to assign ids.
-
-```md
-### My Great Heading {#custom-id}
-```
-
-Use JSX instead
-
-```jsx
-<h1 id='custom-id'>My Great Heading</h1>
-```
-
-### Emoji — ❌ unsupported
-
-```
-That is so funny! :joy:
-```
-
-Use your system emoji picker instead.
-
-### Highlight — ❌ unsupported
-
-I need to highlight these ==very important words==
