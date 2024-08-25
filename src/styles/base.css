@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'BDOGrotesk';
-  src: url('/fonts/BDOGrotesk-subset.woff2') format('woff2');
+  font-family: 'OpeningHoursSans';
+  src: url('/fonts/OpeningHoursSans-subset.woff2') format('woff2');
   font-display: swap;
   font-weight: 400;
 }

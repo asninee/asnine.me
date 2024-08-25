@@ -5,7 +5,7 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      sans: ['BDOGrotesk', ...defaultTheme.fontFamily.sans],
+      sans: ['OpeningHoursSans', ...defaultTheme.fontFamily.sans],
       mono: ['Iosevka', ...defaultTheme.fontFamily.mono],
     },
     extend: {
