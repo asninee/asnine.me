@@ -1,18 +1,19 @@
 ---
 title: 'a new start'
 published: 2024-05-02
+updated: 2024-08-25
 desc: 'ramblings on the journey of building this site.'
 ---
 
-Firstly, I'd like to voice my biggest thanks to you, the reader, for viewing my site, where I sincerely hope that you enjoy the experience as much as I did building it. Feel free to [let me know](mailto:hey@asnine.me) your thoughts!
+Firstly, I'd like to voice my biggest thanks to you, the reader, for viewing my site, where I sincerely hope that you enjoy the experience as much as I did building it. Feel free to [lmk](mailto:hey@asnine.me) your thoughts!
 
 ---
 
 I've always loved browsing through [curated lists](https://deadsimplesites.com/) of simple, but elegant portfolio sites, thinking to myself:
 
-> Can't wait to join them! Let's do this~
+> Can't wait to join them! Let's do this.~
 
-I may have not been aware of it initially, but a storm called procrastination started brewing. Exploring and delving deeper into what you discern as perfection very much leads you into chasing just that. Now, I'm already a perfectionist as-is, so you can imagine how things progressed from here; absolutely nothing done, where I was unable to formulate an action plan that I could fully get behind.
+But truth be told, I'm a masterful procrastinator. I seek perfection in pretty much all things, and so I'd end up in this cycle of continually obsessing over what was out there without actually going on to commit to an action plan or ideal.
 
 And so, for a good while, I put it off, continuing to explore where time allowed me to, thinking that future me would be more than capable enough to reach my own outlandish standards. But then, there came [Astro](https://astro.build/).
 
@@ -20,21 +21,21 @@ And so, for a good while, I put it off, continuing to explore where time allowed
 
 For context, I'd consider myself a React novice, where in recent projects I've been able to get a solid grasp of making full-stack web apps, navigating my way through managing state, handling persistent logins with token-based authentication using `localStorage`, and cookie-based authentication, using [React Router](https://reactrouter.com/en/main) to incorporate multi-page routing, and dealing with `useEffect()` hell (as I call it).
 
-While I love React and SPA's for the matter, nothing beats the elegance and simplicity of a static website. After all, I sought to build out a site that had the elegant simplicity of those which I've admired, but I also wanted it to be _blazingly fast_. With these points considered, I came to the conclusion that it didn't exactly make sense for me to build out my portfolio site using a SPA, where sending heaps of JS to the client for what would be a content-driven website would hurt performance. The [2023 Web Framework Performance Report](https://astro.build/blog/2023-web-framework-performance-report) goes into a great level of detail about how framework choice affects end-user performance, where I'd very much recommend that you give it a quick read. The key takeaway of the article (for me at least) is that:
+SPA's are great, but they're best suited for sites where you have dynamic content or need client-side interactivity; both of which my site wouldn't require. There's also the additional performance penalty involved in supporting these features, where sending (unused) heaps of JS to the client is a bit offputting. [This report](https://astro.build/blog/2023-web-framework-performance-report) validated my sentiments, with the key takeaway being:
 
-> Using a SPA framework gives you less performance out of the box (chasing performance becomes a real task)
+> Using a SPA framework gives you less performance out of the box (chasing performance becomes a real task).
 
-And so, with that, my mind tilted towards static-site generators. At first, I had some doubts, where my thinking of a static website was that of plain old HTML + JS, where you couldn't incorporate [Component Driven Design (CDD)](https://www.componentdriven.org), and you would also lose out on the declarative approach used by React (ah, the train of thought of a junior dev 😆).
+Given I was going to be dealing with static content, it made sense to tilt towards static-site generators. Being able have the built-in benefits of little to no JS being sent client-side, and thus having more performance out of the box meant I could nail down on ensuring that my site was _blazingly fast_. At first, I had some doubts, where my thinking of a static website was that of plain old HTML + JS, where you couldn't incorporate [Component Driven Design (CDD)](https://www.componentdriven.org), and you would also lose out on the declarative approach used by React (ah, the train of thought of a junior dev 😆).
 
-So you couldn't believe my amazement when I discovered that Astro had (basically) ticked all my boxes with their design principles:
+So you couldn't believe my amazement when I discovered that Astro had ticked all my boxes with their design principles:
 
-- [Leverages server-side-rendering](https://docs.astro.build/en/concepts/why-astro/#server-first)
+- [Leverages server-rendering](https://docs.astro.build/en/concepts/why-astro/#server-first)
 - [Speedy by default](https://docs.astro.build/en/concepts/why-astro/#fast-by-default)
 - [Ease of use](https://docs.astro.build/en/concepts/why-astro/#easy-to-use)
 
-I very much agreed with the sentiment that content-driven sites shouldn't need to be rendered on the client, where this was (literally) a breath of fresh air for me. Zero-JS sent to the client by default was another big win, where it should be "nearly impossible to build a slow website with Astro". When I looked at [syntax examples](https://docs.astro.build/en/basics/astro-syntax/) in Astro's docs page, I was literally like this: 😯. If you only know HTML, CSS and some basic JS, you'll be able to quickly get to grips with Astro.
+A no-JS approach be default, coupled together with this idea of being able to "opt in to complexity" immediately sold me onto Astro, where it would enable me to realise the simplistic but scalable site I envisaged. The [syntax examples](https://docs.astro.build/en/basics/astro-syntax/) in Astro's docs page had me completely gobsmacked with how HTML-like it felt, to the point that absolute newbies could probably have a stab at creating layouts using Astro.
 
-Now, Astro's `.astro` language works as a superset of HTML, but the magic behind it lies in that you can create components with it that can be used to build out your layouts. Sounds familiar to CDD, right? But there's another point that I'd like to highlight with the below code snippet:
+The reason behind this familiarity lies in Astro's `.astro` language actually working as a superset of HTML, where you can create pages, and/or create reusable components to use across all your pages (sounds like a CDD moment 🥹). But there's another point that I'd like to highlight with the below code snippet:
 
 ```astro
 ---
@@ -61,7 +62,9 @@ const name = "Astro"
 </script>
 ```
 
-Within a `.astro` file, the different aspects of your component logic are separated into distinct sections in a [Svelte-like manner](https://svelte.dev/), giving devs the power to create components with all the necessary logic incorporated into them in a single file. The code fences allow for the defining of local JS vars, where they can be injected in a JSX-like manner, as seen in the markup section. The point that I'm trying to make is that Astro retains the magic of React's declarative approach of calling components to build out UI's, but in a manner that you can embed your markup, styles and scripting all in one place.
+Within a `.astro` file, the different aspects of your component logic are separated into distinct sections in a [Svelte-like manner](https://svelte.dev/), giving devs the power to create components with all the necessary logic incorporated into them in a single file. The code fences allow for the defining of local JS vars, where they can be injected in a JSX-like manner, as seen in the markup section.
+
+You can see how Astro retains the magic of React's declarative approach of calling components to build out layouts, but in a manner that you can embed your markup, styles and scripting all in one place.
 
 You'd think this is all already impressive as-is, but there's something else I want to bring to your attention: [Astro Islands](https://docs.astro.build/en/concepts/islands/).
 
@@ -83,17 +86,17 @@ Given how islands are isolated in nature, there is no need to wrap the whole sit
 
 Apologies for the extended Astro shilling; but seriously, it's great. it's _blazingly fast_, has a minimal learning curve, allows you play around with different UI libraries in a familiar environment (something I'll be doing), but most importantly; it scales up according to the dev's needs. Want to create a blog? [Content Collections](https://docs.astro.build/en/guides/content-collections/). Want to add SPA-like transitions? [View Transitions](https://docs.astro.build/en/guides/view-transitions/). _Heck_, it's even got an integrated [DB](https://docs.astro.build/en/guides/astro-db/) now.
 
-The Astro team have absolutely smashed it out of the park with this framework, where my excitement to make use of Astro in practice helped me to overcome the storm of procrastination, where upon completing the [tutorial blog](https://astro-intro-asnine.vercel.app/), I quickly got to work on my portfolio site, filled with enthusiasm on how I could build on my initial stint using Astro.
+The Astro team have absolutely smashed it out of the park with this framework, where my excitement to make use of Astro in practice helped me to overcome the storm of procrastination, where upon completing the [tutorial blog](https://astro-intro-asnine.vercel.app/), I quickly got to work on my personal site, filled with enthusiasm on how I could build on my initial stint using Astro.
 
 But more than anything, completing this site changed my mentality on completing projects as a whole.
 
 ## A New Start...
 
-The whole journey of building this site was a real rollercoaster. Disregarding the procrastination factor entirely, when getting to work on the real thing, I inevitably ran into a myriad of issues that broke my momentum over and over: dealing with TailwindCSS config issues, the arduous process of troubleshooting and fixing style issues, and Shiki being a royal pain with [dual themes](https://github.com/shikijs/shiki/issues/33) just scratch the surface. But would I go through this whole experience again? Without a doubt, 100 times over. And the justification behind this is core to the premise of "my new start":
+The whole journey of building this site was a real rollercoaster. Disregarding the procrastination factor entirely, when getting to work on the real thing, I inevitably ran into a myriad of issues that broke my momentum over and over: lowering the network payload as much as possible, the arduous process of cleaning up any ott styles, and Shiki being a royal pain with [dual themes](https://github.com/shikijs/shiki/issues/33) just scratch the surface. But would I go through this whole experience again? Without a doubt, 100 times over. And the justification behind this is core to the premise of "my new start":
 
 > Build what you love, with what you love.
 
-Being able to nurture the excitement I had when learning about Astro, and transforming it into a love by immersing myself in using it allowed me to push forward towards my goal of building a portfolio site, where my passion for using Astro intersected with my goal. Having a goal that deeply resonated with me, with a tool that I loved that was pretty much the perfect fit for realising said goal, meant that I had the resilience to follow through, no matter what came in my way.
+I had the long-standing goal of wanting to build a minimal site, but I hadn't found a tech stack that felt me with the enthusiasm to realise this goal. Upon discovering Astro and understanding how it was the perfect fit, I was able to have a love for it, allowing me to immerse myself in achieving my goal, and relenting no matter what came in my way.
 
 And so, when wanting to start out a project, you should ask yourself these two questions:
 
