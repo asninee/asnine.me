@@ -1,13 +1,25 @@
 import type { CollectionEntry } from 'astro:content'
 
 export const sortPostsByDate = async (entries: CollectionEntry<'blog'>[]) =>
-  entries.sort(
-    (a, b) => b.data.published.getTime() - a.data.published.getTime()
+  entries.sort((a, b) =>
+    a.data.updated && b.data.updated
+      ? b.data.updated.getTime() - a.data.updated.getTime()
+      : a.data.updated && !b.data.updated
+      ? b.data.updated.getTime() - a.data.published.getTime()
+      : !a.data.updated && b.data.updated
+      ? b.data.updated.getTime() - a.data.published.getTime()
+      : b.data.published.getTime() - a.data.published.getTime()
   )
 
 export const sortNotesByDate = async (entries: CollectionEntry<'notepad'>[]) =>
-  entries.sort(
-    (a, b) => b.data.published.getTime() - a.data.published.getTime()
+  entries.sort((a, b) =>
+    a.data.updated && b.data.updated
+      ? b.data.updated.getTime() - a.data.updated.getTime()
+      : a.data.updated && !b.data.updated
+      ? b.data.updated.getTime() - a.data.published.getTime()
+      : !a.data.updated && b.data.updated
+      ? b.data.updated.getTime() - a.data.published.getTime()
+      : b.data.published.getTime() - a.data.published.getTime()
   )
 
 export const formatDate = (date: Date, isHome: boolean) =>
