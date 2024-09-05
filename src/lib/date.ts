@@ -5,7 +5,7 @@ export const sortPostsByDate = async (entries: CollectionEntry<'blog'>[]) =>
     a.data.updated && b.data.updated
       ? b.data.updated.getTime() - a.data.updated.getTime()
       : a.data.updated && !b.data.updated
-      ? b.data.updated.getTime() - a.data.published.getTime()
+      ? b.data.published.getTime() - a.data.updated.getTime()
       : !a.data.updated && b.data.updated
       ? b.data.updated.getTime() - a.data.published.getTime()
       : b.data.published.getTime() - a.data.published.getTime()
@@ -16,7 +16,7 @@ export const sortNotesByDate = async (entries: CollectionEntry<'notepad'>[]) =>
     a.data.updated && b.data.updated
       ? b.data.updated.getTime() - a.data.updated.getTime()
       : a.data.updated && !b.data.updated
-      ? b.data.updated.getTime() - a.data.published.getTime()
+      ? b.data.published.getTime() - a.data.updated.getTime()
       : !a.data.updated && b.data.updated
       ? b.data.updated.getTime() - a.data.published.getTime()
       : b.data.published.getTime() - a.data.published.getTime()
