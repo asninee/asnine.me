@@ -1,7 +1,7 @@
 {
   "name": "asnine.me",
   "description": "My personal site, built using Astro, TypeScript and TailwindCSS",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "author": "asninee",
   "repository": {
     "type": "git",
