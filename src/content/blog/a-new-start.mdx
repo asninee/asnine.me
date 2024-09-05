@@ -72,13 +72,9 @@ You'd think this is all already impressive as-is, but there's something else I w
 
 The key to Astro's insane performance comes from it's server-first approach, where it looks to minimise sending client-side JS as much as possible, which makes sense. But what happens when you need to add some client-side interactivity? Islands.
 
-### The Core Idea
-
 The Island Architecture refers to treating interactive components as "Islands", where they are independent in their own functionality, and are isolated. I very much like how the Astro docs put it, where you can think of them as "interactive widgets floating in a sea of otherwise static, lightweight, server-rendered HTML".
 
 Given how islands are isolated in nature, there is no need to wrap the whole site in a UI framework, where islands are selectively hydrated, ensuring performance. With this, Astro is able to be UI-agnostic, allowing you to create islands using React, Preact, Solid and Svelte to name a few.
-
-### Using Them In Practice
 
 [This section](https://docs.astro.build/en/concepts/islands/#creating-an-island) of the Astro docs does a stellar job explaining how islands work in practice, where by default Astro renders UI components to just HTML & CSS. It is only when `client:*` directives are used that interactivity is toggled on for a component, where it turns into an island.
 
