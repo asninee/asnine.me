@@ -1,12 +1,6 @@
 {
   "name": "asnine.me",
-  "description": "My personal site, built using Astro, TypeScript and TailwindCSS",
   "version": "1.8.0",
-  "author": "asninee",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/asninee/asnine.me"
-  },
   "type": "module",
   "scripts": {
     "dev": "astro dev",
