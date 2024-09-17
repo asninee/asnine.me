@@ -1,5 +1,6 @@
 ---
 import { formatDate } from '@lib/date'
+import { Icon } from 'astro-icon/components'
 import { getEntry } from 'astro:content'
 import BackLink from './BackLink.astro'
 
@@ -11,50 +12,50 @@ const post = isPost && (await getEntry('blog', pagename))
 
 <header
   data-header
-  class='z-50 py-4 px-[5vw] [--progressive-blur-height:16px] fixed inset-x-0 top-0 before:z-[-1] before:absolute before:inset-x-0 before:top-0 before:-bottom-[--progressive-blur-height] before:backdrop-blur-[10px] before:bg-[linear-gradient(to_bottom,var(--background-header),var(--background-header)_calc(100%-var(--progressive-blur-height)),transparent_calc(100%-var(--progressive-blur-height)))] before:[mask-image:linear-gradient(to_bottom,black_calc(100%-var(--progressive-blur-height)),transparent)]'
+  class='sticky top-0 z-50 py-3 bg-bg w-full flex flex-wrap items-center justify-between'
 >
-  <div
-    class='flex flex-wrap items-center justify-between w-full h-5 mx-auto max-w-[44rem]'
-  >
-    {
-      pathname === '/' ? (
+  {
+    pathname === '/' ? (
+      <div class='flex items-center gap-1'>
         <p>asnine</p>
-      ) : isPost ? (
-        <div class='flex items-center gap-6'>
-          <BackLink href='/blog' />
-          <p>{post?.data.title}</p>
-        </div>
-      ) : (
-        <div class='flex items-center gap-6'>
-          <BackLink href='/' />
-          <p>{pagename}</p>
-        </div>
-      )
-    }
-    {
-      isPost && (
-        <>
-          {post?.data.updated ? (
-            <div class='flex items-center gap-1'>
-              <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
-                upd.
-              </small>
-              <small class='text-sec'>
-                {formatDate(post.data.updated, true)}
-              </small>
-            </div>
-          ) : (
-            <div class='flex items-center gap-1'>
-              <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
-                pub.
-              </small>
-              <small class='text-sec'>
-                {formatDate(post.data.published, true)}
-              </small>
-            </div>
-          )}
-        </>
-      )
-    }
-  </div>
+        <Icon name='fluent:slash-forward-24-regular' class='h-6 w-4 text-neutral-400 dark:text-neutral-600' />
+        <p>full-stack developer</p>
+      </div>
+    ) : isPost ? (
+      <div class='flex items-center gap-6'>
+        <BackLink href='/blog' />
+        <p>{post?.data.title}</p>
+      </div>
+    ) : (
+      <div class='flex items-center gap-6'>
+        <BackLink href='/' />
+        <p>{pagename}</p>
+      </div>
+    )
+  }
+  {
+    isPost && (
+      <>
+        {post?.data.updated ? (
+          <div class='flex items-center gap-1'>
+            <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
+              upd.
+            </small>
+            <small class='text-sec'>
+              {formatDate(post.data.updated, true)}
+            </small>
+          </div>
+        ) : (
+          <div class='flex items-center gap-1'>
+            <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
+              pub.
+            </small>
+            <small class='text-sec'>
+              {formatDate(post.data.published, true)}
+            </small>
+          </div>
+        )}
+      </>
+    )
+  }
 </header>
