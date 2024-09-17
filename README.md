@@ -30,6 +30,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [Sharp](https://sharp.pixelplumbing.com)
 - [MDX](https://mdxjs.com)
 - [Shiki](https://shiki.style)
+- [Compress](https://github.com/PlayForm/Compress)
 
 ## Features
 

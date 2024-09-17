@@ -19,8 +19,8 @@ export const components = {
 <div class={cn(Astro.props.class)} {...props}>
   {
     dates.map(d => (
-      <div class='flex items-start gap-6 md:gap-8 mt-4 md:mt-6 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor'>
-        <span class='mt-1 text-xs text-sec'>{d}</span>
+      <div class='flex items-start gap-6 md:gap-8 mt-4 md:mt-6 [&:first-of-type]:mt-0 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor'>
+        <small class='mt-0.5 text-sec'>{d}</small>
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
             n.render().then(({ Content }) => (

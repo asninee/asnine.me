@@ -10,22 +10,20 @@ const { title, description, ...props } = Astro.props
 <html lang='en' class='scroll-smooth'>
   <Head title={title} description={description} />
   <body
-    class='antialiased px-[5vw] pt-[3vw] pb-4 flex justify-center overflow-x-hidden lowercase leading-relaxed min-h-dvh text-sm text-pri bg-bg'
+    class='antialiased max-w-[46rem] px-4 mx-auto flex flex-col overflow-x-hidden lowercase leading-relaxed h-dvh text-sm text-pri bg-bg'
   >
-    <div class='flex flex-col flex-1 min-w-0 max-w-[44rem]'>
-      <Header />
+    <Header />
 
-      <main
-        class={cn(
-          'py-4 mt-4 mb-4 prose md:mt-0 grow md:py-8',
-          Astro.props.class
-        )}
-        {...props}
-      >
-        <slot />
-      </main>
+    <main
+      class={cn(
+        'py-8 md:py-12 prose grow',
+        Astro.props.class
+      )}
+      {...props}
+    >
+      <slot />
+    </main>
 
-      <Footer />
-    </div>
+    <Footer />
   </body>
 </html>

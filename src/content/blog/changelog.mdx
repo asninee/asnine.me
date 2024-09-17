@@ -1,0 +1,226 @@
+---
+# draft: true
+title: 'changelog'
+published: 2024-09-17
+desc: 'source-of-truth for all changes.'
+---
+
+All notable changes to this project will be documented in this file, with snapshot links for each version being made available to view the state of the site at that point in time.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [1.8.0](https://5a9dcba2.asnine-me.pages.dev/) - <small>16/09/2024</small>
+
+Added:
+
+- Job title in home page header.
+- 'About' section label in home page.
+- Create posts: changelog.
+- Create notes: 17/09/24.
+
+Changed:
+
+- Shorten 'about' section content in home page.
+- Shorten vertical paddings on Header, Footer components.
+- Refactor site-wide margins/padding to ensure consistency.
+- Use `fluent` icon pack in place of `carbon`.
+- Tweak colophon post description.
+- Upgrade dependencies: Astro `4.15.6`, @astrojs/mdx `3.1.6`, tailwindcss `3.4.11`, typescript `5.6.2`.
+
+Removed:
+
+- Remove dependencies: @iconify-json/carbon.
+- Backdrop blur effect on Header component.
+- Dynamic vertical, horizontal paddings when changing viewport width.
+- `xl` variant from Link component.
+- Unnecessary style/divs for all components.
+
+## [1.7.2](https://798f5829.asnine-me.pages.dev/) - <small>05/09/2024</small>
+
+Changed:
+
+- Revamp date sorting for posts/notes to incorporate updated dates.
+- Update posts: a new start, md sheet sheet.
+- Update notes: 02/08/24.
+- Upgrade dependencies: Astro `4.15.3`, @astrojs/mdx `3.1.5`, iconify-json/carbon `1.2.1`.
+
+Removed:
+
+- Unused styles from `main.css` file and OG image markup.
+- Unnecessary file extensions from `tailwind.config.ts` file.
+
+## [1.7.1](https://e59dd547.asnine-me.pages.dev/) - <small>25/08/2024</small>
+
+Added:
+
+- OpeningHoursSans as the new sans-serif font.
+
+Fixed:
+
+- Add back `<span>` into Post component markup.
+
+Changed:
+
+- Lower site bundle size (`24KB` to `15KB`).
+- Update site screenshot image.
+- Update posts: colophon, a new start, md sheet sheet.
+
+Removed:
+
+- Remaining uses of bold font styling across the site.
+- All uses of unnecessary characters.
+- BDOGrotesk font from global styles.
+
+## [1.7.0](https://72917b07.asnine-me.pages.dev/) - <small>24/08/2024</small>
+
+Added:
+
+- Global `leading` style in Base layout.
+- Privacy Inspector link in README and colophon post.
+- Helper function for formatting dates.
+
+Fixed:
+
+- Post page header date ternary behaviour.
+
+Changed:
+
+- Lower site bundle size (`40KB` to `24KB`).
+- Use one font weight for BDOGrotesk (400).
+- Update posts: colophon.
+- Update notes: 19/08/24.
+- Compress Iosevka font further.
+- Upgrade dependencies: Astro `4.14.5`, @astrojs/mdx `3.1.4`.
+- Increase blockquote left-border sizing.
+
+Removed:
+
+- Most uses of bold font styling across the site.
+- All uses of unnecessary characters.
+- BDOGrotesk font from global styles.
+- Button component; not used.
+
+## [1.6.3](https://3b45e39d.asnine-me.pages.dev/) - <small>23/08/2024</small>
+
+Added:
+
+- Create notes: 19/08/24.
+- CSS vars for colour system within `main.css` file.
+- Privacy Inspector link in README and colophon post.
+- Helper function for formatting dates.
+
+Fixed:
+
+- Post page header date ternary behaviour.
+
+Changed:
+
+- Lower site bundle size (`52KB` to `40KB`).
+- Only preload 400 weight font.
+- CSS var declaration with `tailwind.config.ts`.
+- Update site screenshot image.
+- Update README with new PageSpeed scores.
+- Update posts: colophon.
+- Update notes: 09/05/24.
+- Restrict loaded num of loaded notes in home page to 2.
+
+Removed:
+
+- Preload link for 600 weight font.
+- Unused BDOGrotesk variable font file.
+- `colors.ts` helper file.
+- Unnecessary width style in Base layout file.
+- BDOGrotesk font from global styles.
+- Button component; not used.
+
+## [1.6.2](https://d0a394cd.asnine-me.pages.dev/) - <small>19/08/2024</small>
+
+Added:
+
+- `<hr>` at top of Post pages.
+
+Changed:
+
+- Shorten distance between back btn icon and separator line.
+- Use separate weight font files for BDOGrotesk (400, 600).
+- Replace all font-medium styles with semibold.
+- Use shorter date format (DD/MM/YY).
+- Shorten Post page header date section footprint (using pub/upd instead of published/updated).
+
+Removed:
+
+- Logo image in home page.
+- Top margin style in Post page top `<div>`.
+
+## [1.6.0](https://79312196.asnine-me.pages.dev/) - <small>18/08/2024</small>
+
+Added:
+
+- `getPosts()` helper func.
+- Add dependencies: @playform/compress.
+
+Changed:
+
+- Update posts: colophon.
+- Upgrade dependencies: Astro `4.14.2`, astro-icon `1.1.1`, sharp `0.33.5`.
+- Move post date info to navbar for Post pages.
+
+Removed:
+
+- Unnecessary `<div>` elems to clean-up markup.
+- Page title `<h1>` across all pages.
+- Top border in NoteList component.
+- Top margin in Post page's top `<div>`.
+
+## [1.5.0](https://d6fff6fa.asnine-me.pages.dev/) - <small>17/08/2024</small>
+
+Added:
+
+- Styles for CSS-only View Transitions.
+- Social links to Footer component.
+- `published` and `updated` fields for posts.
+- Create notes: 05/06/24, 03/07/24, 02/08/24.
+- BDOGrotesk as the new sans-serif font.
+- Iosevka as the new monospaced font.
+- Add blur effect to Header component.
+- Page title, and BackLink to Header component.
+- Bun as the new package manager.
+- Add dependencies: sharp, clsx.
+
+Changed:
+
+- Lower site bundle size (`92KB` to `52KB`).
+- Use `prefers-color-scheme` theming strategy.
+- Complete refactor of `og.ts` logic.
+- Refactor of Base layout.
+- Refactor of base CSS, using CSS vars.
+- Shorten underline gap for Link component.
+- Update README content.
+- Update posts: colophon.
+- Update notes: 13/05/24.
+- Bullet point coloring for visual contrast.
+- Styling of footer links.
+- Styling of Backlink component.
+- Styling of Project, Post components on hover.
+- Change 'View all' links to 'Archive' in home page.
+- Switch Project border type to `dotted`.
+- Wrap dates in NoteList, PostList and ProjectList components in `<small>` elem.
+- Shiki themes to `vitesse-light` and `vitesse-dark`.
+- Compress Iosevka font further.
+- All dependencies upgraded (too long to list).
+
+Removed:
+
+- All analytics related markup.
+- JS-based theming strategy.
+- Plugins section content from `tailwind.config.ts`.
+- JS-powered View Transitions markup.
+- Newsreader, Nacelle, Commit Mono font refs.
+- Blur-top effect on all pages.
+- BackLink component text.
+- 'links' section on home page.
+- ThemeButton component.
+- Remove dependencies: @resvg/resvg-js, @astrojs/cloudflare.
