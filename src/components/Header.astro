@@ -12,13 +12,16 @@ const post = isPost && (await getEntry('blog', pagename))
 
 <header
   data-header
-  class='sticky top-0 z-50 py-3 bg-bg flex flex-wrap items-center justify-between'
+  class='sticky top-0 z-50 flex flex-wrap items-center justify-between bg-bg py-3'
 >
   {
     pathname === '/' ? (
       <div class='flex items-center gap-1'>
         <p>asnine</p>
-        <Icon name='fluent:slash-forward-24-regular' class='h-6 w-4 text-neutral-400 dark:text-neutral-600' />
+        <Icon
+          name='fluent:slash-forward-24-regular'
+          class='h-6 w-4 text-neutral-400 dark:text-neutral-600'
+        />
         <p>full-stack developer</p>
       </div>
     ) : isPost ? (
@@ -38,7 +41,7 @@ const post = isPost && (await getEntry('blog', pagename))
       <>
         {post?.data.updated ? (
           <div class='flex items-center gap-1'>
-            <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
+            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
               upd.
             </small>
             <small class='text-sec'>
@@ -47,7 +50,7 @@ const post = isPost && (await getEntry('blog', pagename))
           </div>
         ) : (
           <div class='flex items-center gap-1'>
-            <small class='px-1 -my-2 rounded-md bg-neutral-200 dark:bg-neutral-800'>
+            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
               pub.
             </small>
             <small class='text-sec'>

@@ -10,17 +10,11 @@ const { title, description, ...props } = Astro.props
 <html lang='en' class='scroll-smooth'>
   <Head title={title} description={description} />
   <body
-    class='antialiased max-w-[46rem] px-4 mx-auto flex flex-col lowercase leading-relaxed min-h-dvh text-sm text-pri bg-bg'
+    class='mx-auto flex min-h-dvh max-w-[46rem] flex-col bg-bg px-4 text-sm lowercase leading-relaxed text-pri antialiased'
   >
     <Header />
 
-    <main
-      class={cn(
-        'py-8 md:py-12 prose grow',
-        Astro.props.class
-      )}
-      {...props}
-    >
+    <main class={cn('py-8 md:py-12 prose grow', Astro.props.class)} {...props}>
       <slot />
     </main>
 

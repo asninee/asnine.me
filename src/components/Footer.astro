@@ -6,9 +6,7 @@ import Social from './Social.astro'
 const socials = await getSocials()
 ---
 
-<footer
-  class='flex flex-wrap items-center justify-between py-3'
->
+<footer class='flex flex-wrap items-center justify-between py-3'>
   <ul class='flex items-center gap-2'>
     {
       socials.map(s => (

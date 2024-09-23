@@ -42,7 +42,7 @@
 }
 
 .astro-code {
-  @apply border border-neutral-200 dark:border-neutral-800 rounded-lg;
+  @apply rounded-lg border border-neutral-200 dark:border-neutral-800;
 }
 
 .astro-code,
@@ -61,7 +61,7 @@
 }
 
 .image-box:is(a) {
-  @apply p-1.5 -mx-1.5;
+  @apply -mx-1.5 p-1.5;
 }
 
 .prose :where(h1, h2, h3) {
@@ -89,7 +89,7 @@
 }
 
 .prose :where(:not(pre) > code) {
-  @apply p-0.5 text-xs bg-neutral-200 dark:bg-neutral-800 rounded normal-case;
+  @apply rounded bg-neutral-200 p-0.5 text-xs normal-case dark:bg-neutral-800;
 }
 
 .prose :where(pre) {
@@ -101,7 +101,7 @@
 }
 
 .prose :where(hr) {
-  @apply border-bor border-b-0 border-dashed my-6 md:my-10;
+  @apply my-6 border-b-0 border-dashed border-bor md:my-10;
 }
 
 .prose :where(img) {
@@ -117,11 +117,11 @@
 }
 
 .prose :where(blockquote) {
-  @apply relative border-l-2 border-bor px-3 py-2 my-2;
+  @apply relative my-2 border-l-2 border-bor px-3 py-2;
 }
 
 .prose :where(table) {
-  @apply border-collapse table-fixed;
+  @apply table-fixed border-collapse;
 
   :where(thead) {
     @apply border-b border-bor;
@@ -132,12 +132,12 @@
   }
 
   :where(th, td) {
-    @apply py-1 px-2 md:px-4;
+    @apply px-2 py-1 md:px-4;
   }
 }
 
 .md :where(ul, ol) {
-  @apply pl-7 flex flex-col gap-2;
+  @apply flex flex-col gap-2 pl-7;
 }
 
 .md :where(ul > li, ol > li) {

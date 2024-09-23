@@ -12,7 +12,10 @@ const destination = href === '/' ? 'home' : 'blog'
   href={href}
   noUnderline
   label={`Go back to ${destination} page`}
-  class='relative group/back w-8 h-5 after:absolute after:inset-y-0 after:-right-1 after:w-[0.5px] after:bg-neutral-400 dark:after:bg-neutral-600 flex items-center transition-opacity opacity-60 hover:opacity-100 focus-visible:opacity-100'
-  >
-  <Icon name='fluent:arrow-left-28-regular' class='h-4 w-4 transition-transform group-hover/back:-translate-x-1' />
+  class='group/back relative flex h-5 w-8 items-center opacity-60 transition-opacity after:absolute after:inset-y-0 after:-right-1 after:w-[0.5px] after:bg-neutral-400 hover:opacity-100 focus-visible:opacity-100 dark:after:bg-neutral-600'
+>
+  <Icon
+    name='fluent:arrow-left-28-regular'
+    class='h-4 w-4 transition-transform group-hover/back:-translate-x-1'
+  />
 </Link>
