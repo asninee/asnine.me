@@ -1,0 +1,10 @@
+---
+import Badge from './Badge.astro'
+
+const { type } = Astro.props
+---
+
+<div class='flex items-baseline gap-2'>
+  <Badge>{type}</Badge>
+  <slot />
+</div>
