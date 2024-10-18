@@ -8,7 +8,6 @@ export const getMarkup = async (post: CollectionEntry<'blog'>) =>
   html`<div
     tw="relative flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-neutral-300 text-6xl"
   >
-    <div tw="flex flex-col absolute border-l-2 border"></div>
     <div tw="flex items-center" style="gap: 20px">
       <img
         width="50"
