@@ -4,7 +4,7 @@ import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
 import { cn } from '@lib/utils'
 
-const { title, description, ...props } = Astro.props
+const { title, description, post, ...props } = Astro.props
 ---
 
 <html lang='en' class='scroll-smooth'>
@@ -12,7 +12,7 @@ const { title, description, ...props } = Astro.props
   <body
     class='mx-auto flex min-h-dvh max-w-[46rem] flex-col bg-bg px-4 text-sm lowercase leading-relaxed text-pri antialiased'
   >
-    <Header />
+    <Header post={post} />
 
     <main class={cn('py-8 md:py-12 prose grow', Astro.props.class)} {...props}>
       <slot />
