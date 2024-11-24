@@ -34,7 +34,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
           {posts[y].map(p => (
             <li class='list-none'>
               <Post
-                slug={p.slug}
+                slug={p.id}
                 title={p.data.title}
                 desc={p.data.desc}
                 date={p.data.updated ?? p.data.published}
