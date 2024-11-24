@@ -1,6 +1,7 @@
 ---
 import { getNotes } from '@lib/notes'
 import { cn } from '@lib/utils'
+import { render } from 'astro:content'
 import Image from './Image.astro'
 import Link from './Link.astro'
 
@@ -23,7 +24,7 @@ export const components = {
         <small class='mt-0.5 text-sec'>{d}</small>
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
-            n.render().then(({ Content }) => (
+            render(n).then(({ Content }) => (
               <li class='md flex list-none flex-col gap-4 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:md:pb-6'>
                 <Content components={components} />
               </li>
