@@ -1,62 +1,63 @@
 ---
-import { formatDate } from '@lib/date'
 import { Icon } from 'astro-icon/components'
-import BackLink from './BackLink.astro'
+import Link from './Link.astro'
 
 const pathname = Astro.url.pathname
-const pagename = pathname.match(/\/([^\/]+)\/?$/)?.[1]
-const { post } = Astro.props
+const paths = pathname
+  .split('/')
+  .filter(path => path !== '')
+  .map(path =>
+    path.replace(/-/g, ' ').replace(/\b\w/g, char => char.toLowerCase())
+  )
 ---
 
 <header
   data-header
-  class='sticky top-0 z-50 flex flex-wrap items-center justify-between bg-bg py-3'
+  class='flex flex-wrap items-center justify-between bg-bg py-3'
 >
   {
     pathname === '/' ? (
       <div class='flex items-center gap-1'>
         <p>asnine</p>
-        <Icon
-          name='fluent:slash-forward-24-regular'
-          class='h-6 w-4 text-neutral-400 dark:text-neutral-600'
-        />
+        <Icon name='fluent:slash-forward-24-regular' class='h-6 w-4 text-sec' />
         <p>full-stack developer</p>
       </div>
-    ) : post ? (
-      <div class='flex items-center gap-6'>
-        <BackLink href='/blog' />
-        <p>{post.data.title}</p>
-      </div>
     ) : (
-      <div class='flex items-center gap-6'>
-        <BackLink href='/' />
-        <p>{pagename}</p>
+      <div class='flex items-center gap-1'>
+        <Link nav href='/' noUnderline label={`Go to home page`}>
+          asnine
+        </Link>
+        <Icon name='fluent:slash-forward-24-regular' class='h-6 w-4 text-sec' />
+        {paths
+          .map((path, index) => {
+            const href = `/${paths.slice(0, index + 1).join('/')}`
+            const isLast = index === paths.length - 1
+
+            return (
+              <>
+                {isLast ? (
+                  <span class='text-sec'>{path}</span>
+                ) : (
+                  <Link
+                    nav
+                    href={href}
+                    noUnderline
+                    label={`Go to ${path} page`}
+                  >
+                    {path}
+                  </Link>
+                )}
+                {index < paths.length - 2 && (
+                  <Icon
+                    name='fluent:slash-forward-24-regular'
+                    class='h-6 w-4 text-sec'
+                  />
+                )}
+              </>
+            )
+          })
+          .slice(0, 1)}
       </div>
-    )
-  }
-  {
-    post && (
-      <>
-        {post.data.updated ? (
-          <div class='flex items-center gap-1'>
-            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
-              upd.
-            </small>
-            <small class='text-sec'>
-              {formatDate(post.data.updated, true)}
-            </small>
-          </div>
-        ) : (
-          <div class='flex items-center gap-1'>
-            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
-              pub.
-            </small>
-            <small class='text-sec'>
-              {formatDate(post.data.published, true)}
-            </small>
-          </div>
-        )}
-      </>
     )
   }
 </header>
