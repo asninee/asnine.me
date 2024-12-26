@@ -4,35 +4,58 @@ import NoteList from '@components/NoteList.astro'
 import PostList from '@components/PostList.astro'
 import ProjectList from '@components/ProjectList.astro'
 import Base from '@layouts/Base.astro'
+import { getNotesLength } from '@lib/notes'
+import { getPostsLength } from '@lib/posts'
+
+const [postsLength, notesLength] = await Promise.all([
+  getPostsLength(),
+  getNotesLength(),
+])
 
 const title = 'home • asnine'
 ---
 
-<Base {title} description='my personal site and blog'>
-  <small class='text-sec'>about</small>
-  <p class='mt-3'>
-    Driven towards building out simple, functional and elegant applications.
-    Currently working at <Link href='https://www.evelyn.com'
-      >Evelyn Partners</Link
-    >. Love exploring the latest and greatest in the tech sphere, where I value
-    high-quality products that are utilitarian in nature, but also incorporate a
-    sleek aesthetic.
-  </p>
+<Base
+  {title}
+  description='my personal site and blog'
+  class='flex flex-col gap-8 md:gap-12'
+>
+  <section>
+    <small class='text-sec'>about</small>
+    <p class='mt-3'>
+      Driven towards building out simple, functional and elegant applications.
+      Currently working at <Link href='https://www.evelyn.com'
+        >Evelyn Partners</Link
+      >. Love exploring the latest and greatest in the tech sphere, where I
+      value high-quality products that are utilitarian in nature, but also
+      incorporate a sleek aesthetic.
+    </p>
+  </section>
 
-  <div class='mt-8 md:mt-12'>
+  <section>
     <small class='text-sec'>Projects</small>
     <ProjectList class='mt-2' />
-  </div>
+  </section>
 
-  <div class='mt-8 flex items-center justify-between md:mt-12'>
-    <small class='text-sec'>Blog</small>
-    <Link lg href='/blog'><small>Archive</small></Link>
-  </div>
-  <PostList />
+  <section>
+    <div class='flex items-center'>
+      <Link alternate noUnderline lg href='/blog'
+        ><small class='text-sec'
+          >Blog<sup class='m-0.5'>{postsLength}</sup></small
+        ></Link
+      >
+    </div>
+    <PostList />
+  </section>
 
-  <div class='mt-8 flex items-center justify-between md:mt-12'>
-    <small class='text-sec'>Notepad</small>
-    <Link lg href='/notepad'><small>Archive</small></Link>
-  </div>
-  <NoteList class='mt-3' />
+  <section>
+    <div class='flex items-center'>
+      <Link alternate noUnderline lg href='/notepad'
+        ><small class='text-sec'
+          >Notepad<sup class='m-0.5'>{notesLength}</sup></small
+        ></Link
+      >
+    </div>
+    <NoteList class='mt-3' />
+  </section>
 </Base>
