@@ -17,7 +17,7 @@ export const getStaticPaths = async () => {
   const posts = await getCollection('blog', ({ data }) => data.draft !== true)
 
   return posts.map(post => ({
-    params: { slug: post.id },
+    params: { id: post.id },
     props: { post },
   }))
 }
