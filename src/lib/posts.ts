@@ -11,3 +11,6 @@ export const getPosts = async (isHome: boolean) =>
     : await sortPostsByDate(
         await getCollection('blog', ({ data }) => data.draft !== true)
       )
+
+export const getPostsLength = async () =>
+  (await getCollection('blog', ({ data }) => data.draft !== true)).length

@@ -31,3 +31,6 @@ export const getNotes = async (isHome: boolean) =>
 
         return acc
       }, {})
+
+export const getNotesLength = async () =>
+  (await getCollection('notepad', ({ data }) => data.draft !== true)).length
