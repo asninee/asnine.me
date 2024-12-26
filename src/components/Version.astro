@@ -4,7 +4,7 @@ import Link from './Link.astro'
 const { name, date, href } = Astro.props
 ---
 
-<div class='flex items-center gap-6'>
+<section class='flex items-center gap-6'>
   <div class='flex flex-col'>
     <Link class='text-lg' href={href}>{name}</Link>
     <small class='text-sec'>{date}</small>
@@ -12,4 +12,4 @@ const { name, date, href } = Astro.props
   <ul class='list-none border-l border-bor'>
     <slot />
   </ul>
-</div>
+</section>
