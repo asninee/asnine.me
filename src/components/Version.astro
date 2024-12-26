@@ -5,7 +5,7 @@ const { name, date, href } = Astro.props
 ---
 
 <section class='flex items-center gap-6'>
-  <div class='flex flex-col'>
+  <div class='flex flex-col items-center'>
     <Link class='text-lg' href={href}>{name}</Link>
     <small class='text-sec'>{date}</small>
   </div>
