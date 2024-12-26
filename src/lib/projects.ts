@@ -1,43 +1,13 @@
+import { PROJECTS } from '@consts'
 import { z } from 'astro/zod'
 
 const projectSchema = z.object({
-  repo: z.string(),
-  link: z.string(),
+  name: z.string(),
+  url: z.string(),
   desc: z.string(),
   year: z.number(),
 })
 
 export type Project = z.infer<typeof projectSchema>
 
-export const getProjects = async (): Promise<Project[]> => [
-  {
-    repo: 'asnine.me',
-    link: 'https://github.com/asninee/asnine.me',
-    desc: 'This site',
-    year: 2024,
-  },
-  {
-    repo: 'codemaze_server',
-    link: 'https://github.com/asninee/codemaze_server',
-    desc: 'Backend for the Codemaze application',
-    year: 2024,
-  },
-  {
-    repo: 'quizwiz_server',
-    link: 'https://github.com/asninee/quizwiz_server',
-    desc: 'Backend for the QuizWiz application',
-    year: 2023,
-  },
-  {
-    repo: 'music_app',
-    link: 'https://github.com/asninee/music-app',
-    desc: 'An artist viewing catalogue',
-    year: 2023,
-  },
-  {
-    repo: 'baloo-bot-final',
-    link: 'https://github.com/asninee/baloo-bot-final',
-    desc: 'A multi-purpose Discord bot',
-    year: 2023,
-  },
-]
+export const getProjects = async (): Promise<Project[]> => [...PROJECTS]
