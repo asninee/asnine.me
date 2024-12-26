@@ -1,8 +1,7 @@
 ---
 import { cn } from '@lib/utils'
 
-const { href, lg, xl, img, alternate, filled, noUnderline, label, ...props } =
-  Astro.props
+const { href, lg, alternate, nav, noUnderline, label, ...props } = Astro.props
 
 const isExternal = href.startsWith('http')
 ---
@@ -13,13 +12,11 @@ const isExternal = href.startsWith('http')
   aria-label={label}
   class={cn(
     'p-1 -mx-1',
-    alternate &&
-      'relative before:content-[""] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 rounded-lg before:rounded-lg before:transition-all before:duration-150 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-neutral-200 dark:hover:before:bg-neutral-800/60 focus:before:bg-neutral-200 dark:focus:before:bg-neutral-800/60',
+    alternate && 'hover:opacity-45',
+    nav && 'text-sec hover:text-black dark:hover:text-white py-0',
     lg && 'p-2 -mx-2',
-    img &&
-      'image-box relative before:content-[""] before:absolute before:inset-0 before:-z-10 before:opacity-0 before:scale-75 rounded-lg before:rounded-lg before:transition-all before:duration-150 before:bg-transparent hover:before:opacity-100 hover:before:scale-100 hover:before:transition-all hover:before:bg-neutral-200 dark:hover:before:bg-neutral-800/60 focus:before:bg-neutral-200 dark:focus:before:bg-neutral-800/60',
     !noUnderline &&
-      'underline underline-offset-2 decoration-neutral-300 dark:decoration-neutral-700 hover:decoration-neutral-400 dark:hover:decoration-neutral-500',
+      'underline underline-offset-2 decoration-bor hover:decoration-neutral-400 dark:hover:decoration-neutral-500',
     Astro.props.class
   )}
   {...props}><slot /></a
