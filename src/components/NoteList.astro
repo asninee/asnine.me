@@ -2,7 +2,6 @@
 import { getNotes } from '@lib/notes'
 import { cn } from '@lib/utils'
 import { render } from 'astro:content'
-import Image from './Image.astro'
 import Link from './Link.astro'
 
 const isHome = Astro.url.pathname === '/'
@@ -13,25 +12,26 @@ const { class: className, ...props } = Astro.props
 
 export const components = {
   a: Link,
-  img: Image,
 }
 ---
 
 <div class={cn(Astro.props.class)} {...props}>
   {
     dates.map(d => (
-      <div class='mt-4 flex items-start gap-6 md:mt-6 md:gap-8 [&:first-of-type]:mt-0 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor'>
+      <section class='mt-4 flex items-start gap-6 md:mt-6 md:gap-8 [&:first-of-type]:mt-0 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor'>
         <small class='mt-0.5 text-sec'>{d}</small>
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
             render(n).then(({ Content }) => (
-              <li class='md flex list-none flex-col gap-4 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:md:pb-6'>
-                <Content components={components} />
-              </li>
+              <article class='[&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:md:pb-6'>
+                <li class='flex list-none flex-col gap-4'>
+                  <Content components={components} />
+                </li>
+              </article>
             ))
           )}
         </ul>
-      </div>
+      </section>
     ))
   }
 </div>
