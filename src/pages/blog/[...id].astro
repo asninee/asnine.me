@@ -1,10 +1,13 @@
 ---
 import Badge from '@components/Badge.astro'
-import Image from '@components/Image.astro'
 import Link from '@components/Link.astro'
+import SectionList from '@components/SectionList.astro'
+import SectionListItem from '@components/SectionListItem.astro'
+import TableOfContents from '@components/TableOfContents.astro'
 import Version from '@components/Version.astro'
 import VersionItem from '@components/VersionItem.astro'
 import Base from '@layouts/Base.astro'
+import { formatDate } from '@lib/date'
 import { getPosts } from '@lib/posts'
 import { render } from 'astro:content'
 
@@ -19,30 +22,56 @@ export const getStaticPaths = async () => {
 const {
   post,
   post: {
-    data: { title, desc },
+    data: { title, desc, published, updated },
   },
   prevPost,
   nextPost,
 } = Astro.props
-const { Content } = await render(post)
+const { Content, headings } = await render(post)
 
 export const components = {
   a: Link,
-  img: Image,
+  Link,
   Version,
   VersionItem,
   Badge,
+  SectionList,
+  SectionListItem,
 }
 ---
 
-<Base class='md' title=`${title} • asnine` description={desc} post={post}>
-  <div class='flex flex-col gap-4 md:gap-5'>
+<Base title=`${title} • asnine` description={desc} post={post}>
+  <TableOfContents headings={headings} />
+  <section class='flex flex-col'>
+    <h1 class='mb-2'>{title}</h1>
+    <div class='flex items-center gap-1'>
+      {
+        updated ? (
+          <div class='flex items-center gap-1'>
+            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
+              upd.
+            </small>
+            <small class='text-sec'>{formatDate(updated, true)}</small>
+          </div>
+        ) : (
+          <div class='flex items-center gap-1'>
+            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
+              pub.
+            </small>
+            <small class='text-sec'>{formatDate(published, true)}</small>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <article class='mt-6 flex flex-col gap-4 md:mt-8 md:gap-5'>
     <Content components={components} />
-  </div>
+  </article>
 
   <hr />
 
-  <div class='flex flex-nowrap items-center justify-between'>
+  <section class='flex flex-nowrap items-center justify-between'>
     <div class='self-start'>
       {
         prevPost && (
@@ -76,5 +105,5 @@ export const components = {
         )
       }
     </div>
-  </div>
+  </section>
 </Base>
