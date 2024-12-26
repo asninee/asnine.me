@@ -14,7 +14,7 @@ const { title, description, post, ...props } = Astro.props
   >
     <Header post={post} />
 
-    <main class={cn('py-8 md:py-12 prose grow', Astro.props.class)} {...props}>
+    <main class={cn('py-6 md:py-8 grow', Astro.props.class)} {...props}>
       <slot />
     </main>
 
