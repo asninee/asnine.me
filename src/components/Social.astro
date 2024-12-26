@@ -1,9 +1,9 @@
 ---
 import Link from './Link.astro'
 
-const { name, link } = Astro.props
+const { name, url } = Astro.props
 ---
 
-<Link lg href={link} label={`Open ${name} social link`} class='text-xs'
+<Link lg href={url} label={`Open ${name} social url`} class='text-xs'
   >{name}</Link
 >

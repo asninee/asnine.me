@@ -11,7 +11,7 @@ const socials = await getSocials()
     {
       socials.map(s => (
         <li class='list-none'>
-          <Social name={s.name} link={s.link} />
+          <Social name={s.name} url={s.url} />
         </li>
       ))
     }

@@ -1,17 +1,17 @@
 ---
 import Link from './Link.astro'
 
-const { link, repo, desc, year } = Astro.props
+const { url, name, desc, year } = Astro.props
 ---
 
 <Link
   lg
-  href={link}
+  href={url}
   class='flex items-center justify-between gap-3 transition-all duration-300 hover:opacity-45'
   noUnderline
-  label={`Open ${repo} project link`}
+  label={`Open ${name} project url`}
 >
-  {repo}
+  <span class='font-medium'>{name}</span>
   <span class='-ml-2 hidden text-sec sm:flex'>{desc}</span>
   <div class='grow border-b border-dotted border-bor'></div>
   <time class='text-xs text-sec'>{year}</time>

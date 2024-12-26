@@ -12,7 +12,7 @@ const projects = await getProjects()
   {
     projects.map(p => (
       <li class='list-none'>
-        <Project link={p.link} repo={p.repo} desc={p.desc} year={p.year} />
+        <Project url={p.url} name={p.name} desc={p.desc} year={p.year} />
       </li>
     ))
   }
