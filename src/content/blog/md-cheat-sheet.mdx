@@ -5,8 +5,6 @@ published: 2024-04-24
 desc: 'A look at all the supported features and styles.'
 ---
 
-import Link from '@/components/Link.astro'
-
 This project uses Markdown for formatting text. I've embedded the Markdown [Cheat Sheet] below, so you can see how it's styled, and what features are
 supported.
 
@@ -83,7 +81,7 @@ And here's some `inline code` surrounded with ordinary text.
 ### Image
 
 <Link
-  img
+  alternate
   href='https://commons.wikimedia.org/wiki/File:Le_penseur_de_la_Porte_de_lEnfer_(mus%C3%A9e_Rodin)_(4528252054).jpg'
 >
   ![The Thinker in The Gates of Hell at the Musée
@@ -115,3 +113,19 @@ Markdown applications support these elements.
 ### Strikethrough
 
 ~~I didn't mean to say this.~~
+
+### Highlight
+
+I need to highlight these <mark>very important words</mark>.
+
+### Keyboard
+
+Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
+
+### Subscript
+
+H<sub>2</sub>O
+
+### Superscript
+
+E=mc<sup>2</sup>
