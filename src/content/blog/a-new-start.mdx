@@ -11,7 +11,7 @@ Firstly, I'd like to voice my biggest thanks to you, the reader, for viewing my 
 
 I've always loved browsing through [curated lists](https://deadsimplesites.com/) of simple, but elegant portfolio sites, thinking to myself:
 
-> Can't wait to join them! Let's do this.~
+> Can't wait to join them! Let's do this.
 
 But truth be told, I'm a masterful procrastinator. I seek perfection in pretty much all things, and so I'd end up in this cycle of continually obsessing over what was out there without actually going on to commit to an action plan or ideal.
 
@@ -40,25 +40,25 @@ The reason behind this familiarity lies in Astro's `.astro` language actually wo
 ```astro
 ---
 // code fences
-const name = "Astro"
+const name = 'Astro'
 ---
 
 <!-- markup section -->
-<button id="button">click me, {name}</button>
+<button id='button'>click me, {name}</button>
 
 <!-- style section -->
 <style>
-    #button {
-        background-color: cadetblue;
-    }
+  #button {
+    background-color: cadetblue;
+  }
 </style>
 
 <!-- script section -->
 <script>
-  function handleClick () {
-    console.log("button clicked!");
+  function handleClick() {
+    console.log('button clicked!')
   }
-  document.getElementById("button").addEventListener("click", handleClick);
+  document.getElementById('button').addEventListener('click', handleClick)
 </script>
 ```
 
