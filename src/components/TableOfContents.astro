@@ -1,0 +1,35 @@
+---
+import { cn } from '@lib/utils'
+import type { MarkdownHeading } from 'astro'
+import Link from './Link.astro'
+
+export interface Props {
+  headings: MarkdownHeading[]
+}
+
+const { headings } = Astro.props
+---
+
+<section
+  class='fixed left-[max(0px,calc(50%-43rem/2-20rem-1rem))] hidden max-h-full w-48 border-l border-l-bor px-4 pr-0 xl:block'
+>
+  <ul class='flex list-none flex-col text-sm text-sec'>
+    {
+      headings.map(({ text, depth, slug }) => {
+        if (depth < 2 || depth > 3) return null
+        return (
+          <li class={cn(depth === 3 && 'ml-4')}>
+            <Link
+              href={'#' + slug}
+              noUnderline
+              alternate
+              class='text-left text-xs'
+            >
+              {text}
+            </Link>
+          </li>
+        )
+      })
+    }
+  </ul>
+</section>
