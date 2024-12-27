@@ -89,9 +89,11 @@ main :where(table) {
     @apply px-2 py-1 md:px-4;
   }
 }
-article :where(ul, ol) {
+article,
+.md :where(ul, ol) {
   @apply flex flex-col gap-2 pl-7;
 }
-article :where(ul > li, ol > li) {
+article,
+.md :where(ul > li, ol > li) {
   @apply pl-1;
 }
