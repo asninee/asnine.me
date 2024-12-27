@@ -4,7 +4,7 @@
 > My personal site, built using Astro, TypeScript and TailwindCSS.
 > View [_here_](https://asnine.me/).
 
-![Home page screenshot](/public/images/screenshot.jpeg)
+![Home page screenshot](/public/images/screenshot.png)
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - Dynamic OG image generation using [Satori](https://github.com/vercel/satori) and [Sharp](https://sharp.pixelplumbing.com)
 - "Blog" content collection for extended writings, and "Notepad" content collection for quick thoughts, using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
 - SPA-like transitions (with no-JS) using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
-- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-asnine-me/44wlnjgnzj?form_factor=mobile) on Google's PageSpeed Insights for mobile (0.8s LCP) and desktop (0.2 LCP)
+- [Perfect 100 score](https://pagespeed.web.dev/analysis/https-asnine-me/cdc1t5pe6n?form_factor=mobile) on Google's PageSpeed Insights for mobile (0.8s LCP) and desktop (0.2 LCP)
 - Minuscule bundle size of 8KB, contributing towards a carbon footprint of 0.003g/visit, being [100% cleaner](https://www.websitecarbon.com/website/asnine-me) than all web pages globally, and achieving a [A+ DigitalBeacon score](https://digitalbeacon.co/report/asnine-me)
 - Syntax highlighting using [Shiki](https://shiki.style)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
