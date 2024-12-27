@@ -23,11 +23,13 @@ export const components = {
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
             render(n).then(({ Content }) => (
-              <article class='[&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:md:pb-6'>
-                <li class='flex list-none flex-col gap-4'>
-                  <Content components={components} />
-                </li>
-              </article>
+              <li class='list-none'>
+                <ul class='md [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:border-bor [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:md:pb-6'>
+                  <li class='flex list-none flex-col gap-4'>
+                    <Content components={components} />
+                  </li>
+                </ul>
+              </li>
             ))
           )}
         </ul>
