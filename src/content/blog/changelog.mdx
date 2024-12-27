@@ -2,7 +2,7 @@
 # draft: true
 title: 'changelog'
 published: 2024-09-17
-updated: 2024-09-23
+updated: 2024-12-26
 desc: 'source-of-truth for all changes.'
 ---
 
@@ -13,13 +13,74 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<Version name='1.9.0' date='25/11/24' href=''>
+<Version name='1.10.0' date='26/11/24' href=''>
+  <VersionItem type='add'>
+    Add Helvetica Neue font as the new sans-serif font (for supported devices),
+    with the `system` monospace font being used.
+  </VersionItem>
+  <VersionItem type='add'>
+    add dependencies: prettier-plugin-astro-organize-imports.
+  </VersionItem>
+  <VersionItem type='add'>Create new `consts.ts` file</VersionItem>
+  <VersionItem type='add'>
+    Create components: `SectionList`, `SectionListItem`, `TableOfContents`
+  </VersionItem>
+  <VersionItem type='add'>
+    Create `nav` variant for `Link` component.
+  </VersionItem>
+  <VersionItem type='add'>
+    Create `getLength` function for posts and notes, apply within index page.
+  </VersionItem>
+  <VersionItem type='add'>
+    Overhaul post page logic, adding back the title and date info, and embedding
+    the `TableOfContents` component.
+  </VersionItem>
+  <hr />
+  <VersionItem type='patch'>Update posts: colophon.</VersionItem>
+  <VersionItem type='patch'>Add `<span>` in `VersionItem` component to fix styling issues.</VersionItem>
+  <VersionItem type='patch'>
+    Massively refactor styles, minimising CSS footprint.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Tweak OG generation logic to work with Astro v5.
+  </VersionItem>
+  <VersionItem type='patch'>Apply semantic HTML in components</VersionItem>
+  <VersionItem type='patch'>
+    Make use of multiple font weights (again)
+  </VersionItem>
+  <VersionItem type='patch'>
+    Revamp `Footer`, `Project`, `ProjectList`, `Social` components and related
+    `lib` functions to work with `consts.ts` file
+  </VersionItem>
+  <VersionItem type='patch'>
+    Upgrade dependencies: Astro `5.1.1`, @astrojs/mdx `4.0.3`, @astrojs/sitemap
+    `3.2.1`, @astrojs/tailwind `5.1.4`, @iconify-json/fluent `1.2.11`,
+    tailwindcss `3.4.17`, tailwind-merge `2.6.0`, astro-icon `1.1.5`
+  </VersionItem>
+  <hr />
+  <VersionItem type='delete'>
+    Remove `post` fetching approach in `Header` component.
+  </VersionItem>
+  <VersionItem type='delete'>Remove all custom `woff2` fonts.</VersionItem>
+  <VersionItem type='delete'>
+    Strip out unnecessary variants for `Link` component.
+  </VersionItem>
+  <VersionItem type='delete'>Remove `Image` component.</VersionItem>
+</Version>
+
+---
+
+<Version
+  name='1.9.0'
+  date='25/11/24'
+  href='https://3eeb3961.asnine-me.pages.dev'
+>
   <VersionItem type='add'>Create new `content.config.ts` file</VersionItem>
   <VersionItem type='add'>Add new Content Layer logic.</VersionItem>
   <hr />
   <VersionItem type='patch'>Update posts: changelog.</VersionItem>
   <VersionItem type='patch'>
-    Refactor `post` fetching approach in Header component.
+    Refactor `post` fetching approach in `Header` component.
   </VersionItem>
   <VersionItem type='patch'>
     Upgrade dependencies: Astro `5.0.0-beta.10`, @astrojs/mdx `4.0.0-beta.3`,
@@ -91,17 +152,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Create `.prettierrc` file with formatting options.
   </VersionItem>
   <VersionItem type='add'>
-    Create components: Version, VersionItem, Badge
+    Create components: `Version`, `VersionItem`, `Badge`
   </VersionItem>
   <hr />
   <VersionItem type='patch'>
-    Revamp changelog post with usage of Version, VersionItem components.
+    Revamp changelog post with usage of `Version`, `VersionItem` components.
   </VersionItem>
   <VersionItem type='patch'>
     Format all files using new formatting approach.
   </VersionItem>
   <VersionItem type='patch'>
-    Amend sticky behaviour of Header component.
+    Amend sticky behaviour of `Header` component.
   </VersionItem>
   <VersionItem type='patch'>Minor tweak of page titles.</VersionItem>
   <VersionItem type='patch'>
@@ -126,7 +187,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Shorten 'about' section content in home page.
   </VersionItem>
   <VersionItem type='patch'>
-    Shorten vertical paddings in Header, Footer components.
+    Shorten vertical paddings in `Header`, `Footer` components.
   </VersionItem>
   <VersionItem type='patch'>
     Refactor site-wide margins/padding to ensure consistency.
@@ -144,12 +205,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Remove dependencies: @iconify-json/carbon.
   </VersionItem>
   <VersionItem type='delete'>
-    Backdrop blur effect on Header component.
+    Backdrop blur effect on `Header` component.
   </VersionItem>
   <VersionItem type='delete'>
     Dynamic vertical, horizontal paddings when changing viewport width.
   </VersionItem>
-  <VersionItem type='delete'>xl variant of Link component.</VersionItem>
+  <VersionItem type='delete'>xl variant of `Link` component.</VersionItem>
   <VersionItem type='delete'>
     Unnecessary style/divs for all components.
   </VersionItem>
@@ -254,7 +315,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   </VersionItem>
   <VersionItem type='delete'>All uses of unnecessary characters.</VersionItem>
   <VersionItem type='delete'>BDOGrotesk font from global styles.</VersionItem>
-  <VersionItem type='delete'>Button component; not used.</VersionItem>
+  <VersionItem type='delete'>`Button` component; not used.</VersionItem>
 </Version>
 
 ---
@@ -298,8 +359,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   <VersionItem type='delete'>
     Unnecessary width style in Base layout file.
   </VersionItem>
-  <VersionItem type='delete'>BDOGrotesk font from global styles.</VersionItem>
-  <VersionItem type='delete'>Button component; not used.</VersionItem>
 </Version>
 
 ---
@@ -368,7 +427,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Page title `<h1>` across all pages.
   </VersionItem>
   <VersionItem type='delete'>
-    Top border in NoteList component.
+    Top border in `NoteList` component.
   </VersionItem>
   <VersionItem type='delete'>
     Top margin in Post page's top `<div>`.
@@ -383,7 +442,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   href='https://d6fff6fa.asnine-me.pages.dev/'
 >
   <VersionItem type='add'>Styles for CSS-only View Transitions.</VersionItem>
-  <VersionItem type='add'>Social links to Footer component.</VersionItem>
+  <VersionItem type='add'>Social links to `Footer` component.</VersionItem>
   <VersionItem type='add'>
     `published` and `updated` fields for posts.
   </VersionItem>
@@ -392,7 +451,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   </VersionItem>
   <VersionItem type='add'>BDOGrotesk as the new sans-serif font.</VersionItem>
   <VersionItem type='add'>Iosevka as the new monospaced font.</VersionItem>
-  <VersionItem type='add'>Add blur effect to Header component.</VersionItem>
+  <VersionItem type='add'>Add blur effect to `Header` component.</VersionItem>
   <VersionItem type='add'>
     Page title, and BackLink to Header component.
   </VersionItem>
@@ -420,13 +479,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   <VersionItem type='patch'>Styling of footer links.</VersionItem>
   <VersionItem type='patch'>Styling of Backlink component.</VersionItem>
   <VersionItem type='patch'>
-    Styling of Project, Post components on hover.
+    Styling of `Project`, `Post` components on hover.
   </VersionItem>
   <VersionItem type='patch'>
-    Switch Project border type to `dotted`.
+    Switch `Project` border type to `dotted`.
   </VersionItem>
   <VersionItem type='patch'>
-    Wrap dates in NoteList, PostList and ProjectList components in `<small>` elem.
+    Wrap dates in `NoteList`, `PostList` and `ProjectList` components in `<small>` elem.
   </VersionItem>
   <VersionItem type='patch'>
     Shiki themes to `vitesse-light` and `vitesse-dark`.
@@ -454,13 +513,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Blur-top effect on all pages.
   </VersionItem>
   <VersionItem type='delete'>
-    BackLink component text.
+    `BackLink` component text.
   </VersionItem>
     <VersionItem type='delete'>
     'links' section on home page.
   </VersionItem>
   <VersionItem type='delete'>
-    ThemeButton component.
+    `ThemeButton` component.
   </VersionItem>
   <VersionItem type='delete'>
     Remove dependencies: @resvg/resvg-js, @astrojs/cloudflare.
