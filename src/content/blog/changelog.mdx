@@ -2,7 +2,7 @@
 # draft: true
 title: 'changelog'
 published: 2024-09-17
-updated: 2024-12-28
+updated: 2024-12-29
 desc: 'source-of-truth for all changes.'
 ---
 
@@ -13,9 +13,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+<Version name='1.10.3' date='29/12/24' href=''>
+  <VersionItem type='add'>Add dependencies: @tailwindcss/vite.</VersionItem>
+  <hr />
+  <VersionItem type='patch'>Update posts: changelog.</VersionItem>
+  <VersionItem type='patch'>
+    Upgrade dependencies: tailwindcss `4.0.0-beta.8`
+  </VersionItem>
+  <VersionItem type='patch'>
+    Massively refactor styles (again), to conform with tailwindcss v4 changes.
+  </VersionItem>
+  <hr />
+  <VersionItem type='delete'>Remove `tailwind.config.ts` file.</VersionItem>
+</Version>
+
+---
+
 <Version
   name='1.10.2'
-  date='28/11/24'
+  date='28/12/24'
   href='https://ca74cd5b.asnine-me.pages.dev'
 >
   <VersionItem type='add'>Create posts: uses.</VersionItem>
@@ -29,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<Version name='1.10.1' date='26/11/24' href='https://6eb3bd8a.asnine-me.pages.dev'>
+<Version name='1.10.1' date='26/12/24' href='https://6eb3bd8a.asnine-me.pages.dev'>
   <VersionItem type='add'>Add `.md` class to article selectors</VersionItem>
   <hr />
   <VersionItem type='patch'>Add `<li>` in `NoteList` component for a11y reasons.</VersionItem>
@@ -44,13 +60,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<Version name='1.10.0' date='26/11/24' href='https://7135bd4c.asnine-me.pages.dev'>
+<Version name='1.10.0' date='26/12/24' href='https://7135bd4c.asnine-me.pages.dev'>
   <VersionItem type='add'>
     Add Helvetica Neue font as the new sans-serif font (for supported devices),
     with the `system` monospace font being used.
   </VersionItem>
   <VersionItem type='add'>
-    add dependencies: prettier-plugin-astro-organize-imports.
+    Add dependencies: prettier-plugin-astro-organize-imports.
   </VersionItem>
   <VersionItem type='add'>Create new `consts.ts` file</VersionItem>
   <VersionItem type='add'>
