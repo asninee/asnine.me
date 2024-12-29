@@ -1,99 +1,106 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
+@theme {
+  --font-sans: 'Helvetica Neue', sans-serif;
+  --font-mono: monospace;
+
+  --color-bg: var(--color-neutral-100);
+  --color-pri: var(--color-neutral-800);
+  --color-sec: var(--color-neutral-600);
+  --color-bor: var(--color-neutral-300);
+}
 @layer base {
-  :root {
-    --bg: theme(colors.neutral.100);
-    --pri: theme(colors.neutral.800);
-    --sec: theme(colors.neutral.600);
-    --bor: theme(colors.neutral.300);
-  }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: theme(colors.neutral.900);
-      --pri: theme(colors.neutral.300);
-      --sec: theme(colors.neutral.400);
-      --bor: theme(colors.neutral.700);
+      --color-bg: var(--color-neutral-900);
+      --color-pri: var(--color-neutral-300);
+      --color-sec: var(--color-neutral-400);
+      --color-bor: var(--color-neutral-700);
+    }
+  }
+  .astro-code,
+  .astro-code span {
+    background-color: var(--bg-light) !important;
+  }
+  @media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--bg-dark) !important;
     }
   }
 }
-.astro-code,
-.astro-code span {
-  background-color: var(--bg-light) !important;
-}
-@media (prefers-color-scheme: dark) {
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--bg-dark) !important;
+main {
+  h1,
+  h2,
+  h3 {
+    @apply mt-6 font-medium;
+  }
+  h1 {
+    @apply mt-0 text-2xl;
+  }
+  h2 {
+    @apply text-xl [&:first-of-type]:mt-0;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  :not(pre) > code {
+    @apply rounded bg-neutral-200 p-0.5 text-xs normal-case dark:bg-neutral-800;
+  }
+  pre {
+    @apply rounded-lg border border-neutral-200 p-4 text-xs normal-case dark:border-neutral-800;
+  }
+  hr {
+    @apply border-bor my-6 border-b-0 border-dashed md:my-10;
+  }
+  img {
+    @apply mx-auto rounded-md;
+  }
+  figcaption {
+    @apply text-sec px-3;
+  }
+  mark {
+    @apply dark:bg-yellow-500/50 dark:text-white;
+  }
+  kbd {
+    @apply rounded bg-neutral-200 p-1 text-xs normal-case dark:bg-neutral-800;
+  }
+  blockquote {
+    @apply border-bor relative my-2 border-l-2 px-3 py-2;
+  }
+  table {
+    @apply table-fixed border-collapse;
+    thead {
+      @apply border-bor border-b;
+    }
+    th {
+      @apply text-left;
+    }
+    th,
+    td {
+      @apply px-2 py-1 md:px-4;
+    }
   }
 }
-main :where(h1, h2, h3) {
-  @apply mt-6 font-medium;
-}
-main :where(h1) {
-  @apply mt-0 text-2xl;
-}
-main :where(h2) {
-  @apply text-xl [&:first-of-type]:mt-0;
-}
-main :where(h3) {
-  @apply text-lg;
-}
-main :where(ul, ol) {
-  @apply list-outside marker:text-neutral-500;
-}
-main :where(ul) {
-  @apply list-disc;
-}
-main :where(ol) {
-  @apply list-decimal;
-}
-main :where(:not(pre) > code) {
-  @apply rounded bg-neutral-200 p-0.5 text-xs normal-case dark:bg-neutral-800;
-}
-main :where(pre) {
-  @apply rounded-lg border border-neutral-200 p-4 text-xs normal-case dark:border-neutral-800;
-}
-main :where(a) {
-  @apply whitespace-nowrap;
-}
-main :where(hr) {
-  @apply my-6 border-b-0 border-dashed border-bor md:my-10;
-}
-main :where(img) {
-  @apply mx-auto rounded-md;
-}
-main :where(figcaption) {
-  @apply px-3 text-sec;
-}
-main :where(mark) {
-  @apply dark:bg-yellow-500/50 dark:text-white;
-}
-main :where(kbd) {
-  @apply rounded bg-neutral-200 p-1 text-xs normal-case dark:bg-neutral-800;
-}
-main :where(blockquote) {
-  @apply relative my-2 border-l-2 border-bor px-3 py-2;
-}
-main :where(table) {
-  @apply table-fixed border-collapse;
-  :where(thead) {
-    @apply border-b border-bor;
+article,
+.md {
+  ul,
+  ol {
+    @apply list-outside marker:text-neutral-500;
   }
-  :where(th) {
-    @apply text-left;
+  ul {
+    @apply list-disc;
   }
-  :where(th, td) {
-    @apply px-2 py-1 md:px-4;
+  ol {
+    @apply list-decimal;
   }
-}
-article :where(ul, ol),
-.md :where(ul, ol) {
-  @apply flex flex-col gap-2 pl-7;
-}
-article :where(ul > li, ol > li),
-.md :where(ul > li, ol > li) {
-  @apply pl-1;
+  ul,
+  ol {
+    @apply flex flex-col gap-2 pl-7;
+  }
+  ul > li,
+  ol > li {
+    @apply pl-1;
+  }
 }
