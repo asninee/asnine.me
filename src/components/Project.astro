@@ -12,7 +12,7 @@ const { url, name, desc, year } = Astro.props
   label={`Open ${name} project url`}
 >
   <span class='font-medium'>{name}</span>
-  <span class='-ml-2 hidden text-sec sm:flex'>{desc}</span>
-  <div class='grow border-b border-dotted border-bor'></div>
-  <time class='text-xs text-sec'>{year}</time>
+  <span class='text-sec -ml-2 hidden sm:flex'>{desc}</span>
+  <div class='border-bor grow border-b border-dotted'></div>
+  <time class='text-sec text-xs'>{year}</time>
 </Link>

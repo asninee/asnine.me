@@ -9,7 +9,7 @@ const { name, date, href } = Astro.props
     <Link class='text-lg' href={href}>{name}</Link>
     <small class='text-sec'>{date}</small>
   </div>
-  <ul class='list-none border-l border-bor'>
+  <ul class='border-bor list-none border-l'>
     <slot />
   </ul>
 </section>

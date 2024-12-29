@@ -11,9 +11,9 @@ const { headings } = Astro.props
 ---
 
 <section
-  class='fixed left-[max(0px,calc(50%-43rem/2-20rem-1rem))] hidden max-h-full w-48 border-l border-l-bor px-4 pr-0 xl:block'
+  class='border-l-bor fixed left-[max(0px,calc(50%-43rem/2-20rem-1rem))] hidden max-h-full w-48 border-l px-4 pr-0 xl:block'
 >
-  <ul class='flex list-none flex-col text-sm text-sec'>
+  <ul class='text-sec flex list-none flex-col text-sm'>
     {
       headings.map(({ text, depth, slug }) => {
         if (depth < 2 || depth > 3) return null

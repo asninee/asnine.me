@@ -1,10 +1,9 @@
 ---
-const { name } = Astro.props
+
 ---
 
-<section class='flex items-start gap-6'>
-  {name && <h2>{name}</h2>}
-  <ul class='flex list-none flex-col gap-6 border-l border-bor'>
+<section class='flex items-start'>
+  <ul class='border-bor list-none !gap-6 border-l'>
     <slot />
   </ul>
 </section>
