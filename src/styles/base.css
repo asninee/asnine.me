@@ -17,17 +17,15 @@
       --color-sec: var(--color-neutral-400);
       --color-bor: var(--color-neutral-700);
     }
-  }
-  .astro-code,
-  .astro-code span {
-    background-color: var(--bg-light) !important;
-  }
-  @media (prefers-color-scheme: dark) {
     .astro-code,
     .astro-code span {
       color: var(--shiki-dark) !important;
       background-color: var(--bg-dark) !important;
     }
+  }
+  .astro-code,
+  .astro-code span {
+    background-color: var(--bg-light) !important;
   }
 }
 main {
@@ -40,7 +38,7 @@ main {
     @apply mt-0 text-2xl;
   }
   h2 {
-    @apply text-xl [&:first-of-type]:mt-0;
+    @apply text-xl;
   }
   h3 {
     @apply text-lg;
