@@ -1,6 +1,6 @@
 {
   "name": "asnine.me",
-  "version": "1.10.3",
+  "version": "1.10.4",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -13,26 +13,27 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.3",
+    "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.4",
-    "@iconify-json/fluent": "^1.2.11",
-    "@tailwindcss/vite": "^4.0.0-beta.8",
-    "astro": "^5.1.1",
+    "@iconify-json/fluent": "^1.2.13",
+    "@tailwindcss/vite": "^4.0.5",
+    "astro": "^5.2.5",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
     "satori": "^0.10.14",
     "satori-html": "^0.3.2",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^4.0.0-beta.8",
-    "typescript": "^5.7.2"
+    "tailwindcss": "^4.0.5",
+    "typescript": "^5.7.3",
+    "vite-plugin-tailwindcss-cleaner": "^1.1.0"
   },
   "devDependencies": {
     "@playform/compress": "0.1.1",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.0",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-astro-organize-imports": "^0.4.11",
-    "prettier-plugin-tailwindcss": "^0.6.9"
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "sonda": "^0.7.1"
   }
 }
