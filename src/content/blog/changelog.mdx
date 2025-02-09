@@ -2,7 +2,7 @@
 # draft: true
 title: 'changelog'
 published: 2024-09-17
-updated: 2024-12-29
+updated: 2025-02-09
 desc: 'source-of-truth for all changes.'
 ---
 
@@ -10,6 +10,33 @@ All notable changes to this project will be documented in this file, with snapsh
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+<Version name='1.10.4' date='09/02/25' href=''>
+  <VersionItem type='add'>
+    Add dependencies: sonda, vite-plugin-tailwindcss-cleaner.
+  </VersionItem>
+  <VersionItem type='add'>Add `bun.lock` file.</VersionItem>
+  <hr />
+  <VersionItem type='patch'>Update posts: uses, changelog.</VersionItem>
+  <VersionItem type='patch'>
+    Upgrade dependencies: tailwindcss `4.0.5`, @astrojs/mdx `4.0.8`,
+    @iconify-json/fluent `1.2.13`, @tailwindcss/vite `4.0.5`, astro `5.2.5`,
+    typescript `5.7.3`, prettier `3.5.0`, prettier-plugin-astro-organize-imports
+    `0.4.11`, prettier-plugin-astro `0.14.1`, prettier-plugin-tailwindcss
+    `0.6.11`
+  </VersionItem>
+  <VersionItem type='patch'>
+    Enhance Astro config with lightningcss compression, sonda bundle analysis,
+    and pruning of unused tailwind styles.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Apply visual tweaks across `SectionList`, `SectionListItem` cmpts
+  </VersionItem>
+  <hr />
+  <VersionItem type='delete'>Remove `bun.lockb` file.</VersionItem>
+</Version>
 
 ---
 
