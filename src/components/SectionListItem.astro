@@ -9,7 +9,15 @@ const { badge, title, desc, href } = Astro.props
   <div class='flex flex-col justify-center gap-2'>
     <div class='flex items-center gap-2'>
       <Badge>{badge}</Badge>
-      {href ? <Link href={href}>{title}</Link> : <span>{title}</span>}
+      {
+        href ? (
+          <Link href={href} class='font-semibold'>
+            {title}
+          </Link>
+        ) : (
+          <span class='font-semibold'>{title}</span>
+        )
+      }
     </div>
     <p class='text-sec'>{desc}</p>
   </div>
