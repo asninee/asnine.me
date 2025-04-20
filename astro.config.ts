@@ -5,13 +5,12 @@ import tailwindcss from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 import sonda from 'sonda/astro'
-import tailwindcssCleaner from 'vite-plugin-tailwindcss-cleaner'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://asnine.me',
   vite: {
-    plugins: [tailwindcss(), tailwindcssCleaner()],
+    plugins: [tailwindcss()],
     build: {
       sourcemap: true,
     },
