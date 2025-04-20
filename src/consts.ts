@@ -3,7 +3,7 @@ export const PROJECTS = [
     name: 'asnine.me',
     url: 'https://github.com/asninee/asnine.me',
     desc: 'This site',
-    year: 2024,
+    year: 2025,
   },
   {
     name: 'codemaze_server',
