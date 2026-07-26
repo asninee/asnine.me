@@ -11,21 +11,21 @@
 ## Dependencies
 
 <details>
-<summary>Added dependencies</summary>
+<summary>Added</summary>
 
 - `package` `version`
 
 </details>
 
 <details>
-<summary>Updated dependencies</summary>
+<summary>Updated</summary>
 
 - `package`: `old` → `new`
 
 </details>
 
 <details>
-<summary>Removed dependencies</summary>
+<summary>Removed</summary>
 
 - `package` `version`
 
