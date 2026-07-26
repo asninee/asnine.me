@@ -1,7 +1,14 @@
 ---
-import { cn } from '@lib/utils'
-
-const { href, lg, alternate, nav, noUnderline, label, ...props } = Astro.props
+const {
+  href,
+  lg,
+  alternate,
+  nav,
+  noUnderline,
+  label,
+  class: className,
+  ...props
+} = Astro.props
 
 const isExternal = href.startsWith('http')
 ---
@@ -10,14 +17,16 @@ const isExternal = href.startsWith('http')
   href={href}
   target={isExternal ? '_blank' : '_self'}
   aria-label={label}
-  class={cn(
-    'p-1 -mx-1',
+  class:list={[
+    nav
+      ? 'text-sec -mx-1 px-1 py-0 hover:text-black dark:hover:text-white'
+      : lg
+        ? '-mx-2 p-2'
+        : '-mx-1 p-1',
     alternate && 'hover:opacity-45',
-    nav && 'text-sec hover:text-black dark:hover:text-white py-0',
-    lg && 'p-2 -mx-2',
     !noUnderline &&
-      'underline underline-offset-2 decoration-bor hover:decoration-neutral-400 dark:hover:decoration-neutral-500',
-    Astro.props.class
-  )}
+      'decoration-bor underline underline-offset-2 hover:decoration-neutral-400 dark:hover:decoration-neutral-500',
+    className,
+  ]}
   {...props}><slot /></a
 >

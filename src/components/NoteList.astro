@@ -1,6 +1,5 @@
 ---
 import { getNotes } from '@lib/notes'
-import { cn } from '@lib/utils'
 import { render } from 'astro:content'
 import Link from './Link.astro'
 
@@ -10,12 +9,12 @@ const dates = Object.keys(notes)
 
 const { class: className, ...props } = Astro.props
 
-export const components = {
+const components = {
   a: Link,
 }
 ---
 
-<div class={cn(Astro.props.class)} {...props}>
+<div class={className} {...props}>
   {
     dates.map(d => (
       <section class='[&:not(:last-of-type)]:border-bor mt-4 flex items-start gap-6 md:mt-6 md:gap-8 [&:first-of-type]:mt-0 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted'>

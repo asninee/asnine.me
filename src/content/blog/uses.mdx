@@ -5,6 +5,11 @@ updated: 2025-04-19
 desc: 'one-stop shop for all the things i use.'
 ---
 
+import { Image } from 'astro:assets'
+import vscScreenshot from '../../assets/vsc.png'
+import obsidianScreenshot from '../../assets/obsidian.png'
+import setupScreenshot from '../../assets/setup.png'
+
 Below is a list of all the key tools, software and hardware that I use on the regular, with some screenshots added also for some eye-candy (or not 😆). Feel free to check out [uses.tech](https://uses.tech/) for a list of everyone's `/uses` pages!
 
 ## Hardware
@@ -133,6 +138,21 @@ Below is a list of all the key tools, software and hardware that I use on the re
 
 ## Screenshots
 
-![vscode screenshot img](../../assets/vsc.png)
-![obsidian screenshot img](../../assets/obsidian.png)
-![setup screenshot img](../../assets/setup.png)
+<Image
+  src={vscScreenshot}
+  alt='vscode screenshot img'
+  widths={[736, 1472]}
+  sizes='(max-width: 768px) calc(100vw - 2rem), 736px'
+/>
+<Image
+  src={obsidianScreenshot}
+  alt='obsidian screenshot img'
+  widths={[736, 1472]}
+  sizes='(max-width: 768px) calc(100vw - 2rem), 736px'
+/>
+<Image
+  src={setupScreenshot}
+  alt='setup screenshot img'
+  widths={[736, 1472]}
+  sizes='(max-width: 768px) calc(100vw - 2rem), 736px'
+/>

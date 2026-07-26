@@ -2,9 +2,8 @@
 import Footer from '@components/Footer.astro'
 import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
-import { cn } from '@lib/utils'
 
-const { title, description, post, ...props } = Astro.props
+const { title, description, post, class: className, ...props } = Astro.props
 ---
 
 <html lang='en' class='scroll-smooth'>
@@ -14,7 +13,7 @@ const { title, description, post, ...props } = Astro.props
   >
     <Header post={post} />
 
-    <main class={cn('py-6 md:py-8 grow', Astro.props.class)} {...props}>
+    <main class:list={['grow py-6 md:py-8', className]} {...props}>
       <slot />
     </main>
 

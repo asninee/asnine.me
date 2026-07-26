@@ -19,7 +19,7 @@ const posts = (await getPosts(isHome)).reduce((acc: Posts, p) => {
   return acc
 }, {})
 
-const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
+const years = Object.keys(posts).toSorted((a, b) => parseInt(b) - parseInt(a))
 ---
 
 <Base

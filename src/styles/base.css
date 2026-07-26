@@ -3,14 +3,17 @@
 @theme {
   --font-sans: 'Helvetica Neue', sans-serif;
   --font-mono: monospace;
-
   --color-bg: var(--color-neutral-100);
   --color-pri: var(--color-neutral-800);
   --color-sec: var(--color-neutral-600);
   --color-bor: var(--color-neutral-300);
 }
 @layer base {
-  @media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light dark;
+    background-color: var(--color-bg);
+  }
+  @variant dark {
     :root {
       --color-bg: var(--color-neutral-900);
       --color-pri: var(--color-neutral-300);

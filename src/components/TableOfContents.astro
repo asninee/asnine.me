@@ -1,9 +1,8 @@
 ---
-import { cn } from '@lib/utils'
 import type { MarkdownHeading } from 'astro'
 import Link from './Link.astro'
 
-export interface Props {
+interface Props {
   headings: MarkdownHeading[]
 }
 
@@ -18,7 +17,7 @@ const { headings } = Astro.props
       headings.map(({ text, depth, slug }) => {
         if (depth < 2 || depth > 3) return null
         return (
-          <li class={cn(depth === 3 && 'ml-4')}>
+          <li class:list={[depth === 3 && 'ml-4']}>
             <Link
               href={'#' + slug}
               noUnderline

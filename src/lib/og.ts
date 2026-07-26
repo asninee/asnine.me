@@ -4,16 +4,15 @@ import satori from 'satori'
 import { html } from 'satori-html'
 import sharp from 'sharp'
 
-export const getMarkup = async (post: CollectionEntry<'blog'>) =>
+const getMarkup = async (post: CollectionEntry<'blog'>) =>
   html`<div
     tw="relative flex flex-col h-[100%] w-[100%] py-14 px-[70px] bg-neutral-900 lowercase text-neutral-300 text-6xl"
   >
     <div tw="flex items-center" style="gap: 20px">
       <img
-        width="50"
-        height="50"
+        style="width: 50px; height: 50px"
         src="data:image/png;base64,${(
-          await readFile('./public/favicon.png')
+          await readFile('./src/assets/og/favicon.png')
         ).toString('base64')}"
       />
       <span tw="text-4xl">asnine.me</span>
@@ -33,12 +32,14 @@ export const generateOg = async (
     fonts: [
       {
         name: 'OpeningHoursSans',
-        data: await readFile('public/fonts/OpeningHoursSans.otf'),
+        data: await readFile('src/assets/og/OpeningHoursSans.otf'),
         weight: 400,
         style: 'normal',
       },
     ],
   })
 
-  return await sharp(Buffer.from(svg)).png().toBuffer()
+  return sharp(Buffer.from(svg))
+    .png({ compressionLevel: 9, palette: true })
+    .toBuffer()
 }

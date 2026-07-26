@@ -6,10 +6,18 @@ const { name, date, href } = Astro.props
 
 <section class='flex items-center gap-6'>
   <div class='flex flex-col items-center'>
-    <Link class='text-lg' href={href}>{name}</Link>
+    {
+      href ? (
+        <Link class='text-lg' href={href}>
+          {name}
+        </Link>
+      ) : (
+        <span class='text-lg'>{name}</span>
+      )
+    }
     <small class='text-sec'>{date}</small>
   </div>
-  <ul class='border-bor list-none border-l'>
+  <div class='border-bor flex flex-col gap-2 border-l pl-7'>
     <slot />
-  </ul>
+  </div>
 </section>
