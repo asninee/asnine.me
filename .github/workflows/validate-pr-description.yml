@@ -21,17 +21,17 @@ jobs:
           const body = process.env.PR_BODY ?? ''
           const hasContent = heading =>
             new RegExp(`^## ${heading}\\s*\\n(?:\\s*-\\s+\\S.*\\n?)+`, 'm').test(body)
-          const hasSummary = hasContent('Summary')
-          const hasWhatAndWhy = hasContent('What') && hasContent('Why')
-          const hasValidation = /^## Validation\s*\n(?:\s*-\s+\[[ xX]\]\s+\S.*\n?)+/m.test(body)
+          const hasSummary = hasContent('summary')
+          const hasWhatAndWhy = hasContent('what') && hasContent('why')
+          const hasValidation = /^## validation\s*\n(?:\s*-\s+\[[ xX]\]\s+\S.*\n?)+/m.test(body)
 
           if (!hasSummary && !hasWhatAndWhy) {
-            console.error('PR description must include a non-empty Summary section or both What and Why sections.')
+            console.error('PR description must include a non-empty summary section or both what and why sections.')
             process.exit(1)
           }
 
           if (!hasValidation) {
-            console.error('PR description must include a non-empty Validation section.')
+            console.error('PR description must include a non-empty validation section.')
             process.exit(1)
           }
           EOF
