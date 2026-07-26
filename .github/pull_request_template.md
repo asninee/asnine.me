@@ -18,6 +18,9 @@
 When dependencies change, add this directly below Summary or What. Remove empty details blocks.
 
 <details>
+<summary>Dependencies</summary>
+
+<details>
 <summary>Added</summary>
 
 - `package` `version`
@@ -35,6 +38,8 @@ When dependencies change, add this directly below Summary or What. Remove empty 
 <summary>Removed</summary>
 
 - `package`
+
+</details>
 
 </details>
 -->
