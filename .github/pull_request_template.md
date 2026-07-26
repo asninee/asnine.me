@@ -23,21 +23,21 @@ When dependencies change, add this directly below Summary or What. Remove empty 
 <details>
 <summary>Added</summary><blockquote>
 
-- `package` `version`
+`package` `version`
 
 </blockquote></details>
 
 <details>
 <summary>Updated</summary><blockquote>
 
-- `package`: `old` → `new`
+`package`: `old` → `new`
 
 </blockquote></details>
 
 <details>
 <summary>Removed</summary><blockquote>
 
-- `package`
+`package`
 
 </blockquote></details>
 
