@@ -1,3 +1,10 @@
+<!-- For broad refactors or migrations, replace Summary with What and Why sections. -->
+
+## Summary
+
+- Describe the change.
+
+<!--
 ## What
 
 - Describe the changes.
@@ -5,6 +12,7 @@
 ## Why
 
 - Describe the motivation or non-obvious trade-offs.
+-->
 
 <!-- Remove this section when dependencies do not change. Remove empty details blocks. -->
 

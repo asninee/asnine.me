@@ -19,17 +19,19 @@ jobs:
         run: |
           node --input-type=module <<'EOF'
           const body = process.env.PR_BODY ?? ''
-          const sections = [
-            ['What', /^## What\s*\n(?:\s*-\s+\S.*\n?)+/m],
-            ['Why', /^## Why\s*\n(?:\s*-\s+\S.*\n?)+/m],
-            ['Validation', /^## Validation\s*\n(?:\s*-\s+\[[ xX]\]\s+\S.*\n?)+/m],
-          ]
-          const missing = sections
-            .filter(([, pattern]) => !pattern.test(body))
-            .map(([name]) => name)
+          const hasContent = heading =>
+            new RegExp(`^## ${heading}\\s*\\n(?:\\s*-\\s+\\S.*\\n?)+`, 'm').test(body)
+          const hasSummary = hasContent('Summary')
+          const hasWhatAndWhy = hasContent('What') && hasContent('Why')
+          const hasValidation = /^## Validation\s*\n(?:\s*-\s+\[[ xX]\]\s+\S.*\n?)+/m.test(body)
 
-          if (missing.length) {
-            console.error(`PR description must include non-empty ${missing.join(' and ')} section(s).`)
+          if (!hasSummary && !hasWhatAndWhy) {
+            console.error('PR description must include a non-empty Summary section or both What and Why sections.')
+            process.exit(1)
+          }
+
+          if (!hasValidation) {
+            console.error('PR description must include a non-empty Validation section.')
             process.exit(1)
           }
           EOF
