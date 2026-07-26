@@ -14,9 +14,8 @@
 - Describe the motivation or non-obvious trade-offs.
 -->
 
-<!-- Remove this section when dependencies do not change. Remove empty details blocks. -->
-
-## Dependencies
+<!--
+When dependencies change, add this directly below Summary or What. Remove empty details blocks.
 
 <details>
 <summary>Added</summary>
@@ -38,6 +37,7 @@
 - `package`
 
 </details>
+-->
 
 ## Validation
 
