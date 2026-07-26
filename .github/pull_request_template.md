@@ -1,6 +1,10 @@
-## Summary
+## What
 
-- Describe the change.
+- Describe the changes.
+
+## Why
+
+- Describe the motivation or non-obvious trade-offs.
 
 <!-- Remove this section when dependencies do not change. -->
 
@@ -19,4 +23,17 @@
 
 ## Validation
 
-- [ ] Describe the validation performed.
+- [ ] `pnpm validate`
+- [ ] Manual check: …
+
+<!-- Remove this section when no work remains before merging. -->
+
+## Before merge
+
+- [ ] …
+
+<!-- Remove this section when the PR has no visual changes. -->
+
+## Visuals
+
+- Screenshot, recording, or preview URL

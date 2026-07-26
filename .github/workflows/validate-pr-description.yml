@@ -20,7 +20,8 @@ jobs:
           node --input-type=module <<'EOF'
           const body = process.env.PR_BODY ?? ''
           const sections = [
-            ['Summary', /^## Summary\s*\n(?:\s*-\s+\S.*\n?)+/m],
+            ['What', /^## What\s*\n(?:\s*-\s+\S.*\n?)+/m],
+            ['Why', /^## Why\s*\n(?:\s*-\s+\S.*\n?)+/m],
             ['Validation', /^## Validation\s*\n(?:\s*-\s+\[[ xX]\]\s+\S.*\n?)+/m],
           ]
           const missing = sections
