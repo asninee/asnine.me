@@ -6,9 +6,9 @@
 
 ## Dependencies
 
-- Added: …
-- Updated: …
-- Removed: …
+- Added: `package` `version`
+- Updated: `package` `old` → `new`
+- Removed: `package`
 
 ## Validation
 
