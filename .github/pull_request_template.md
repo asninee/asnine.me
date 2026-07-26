@@ -13,27 +13,21 @@
 <details>
 <summary>Added dependencies</summary>
 
-| Package   | Version   |
-| --------- | --------- |
-| `package` | `version` |
+- `package` `version`
 
 </details>
 
 <details>
 <summary>Updated dependencies</summary>
 
-| Package   | From  | To    |
-| --------- | ----- | ----- |
-| `package` | `old` | `new` |
+- `package`: `old` → `new`
 
 </details>
 
 <details>
 <summary>Removed dependencies</summary>
 
-| Package   | Version   |
-| --------- | --------- |
-| `package` | `version` |
+- `package` `version`
 
 </details>
 
