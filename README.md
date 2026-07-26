@@ -4,7 +4,7 @@
 > My personal site, built using Astro, TypeScript and TailwindCSS.
 > View [_here_](https://asnine.me/).
 
-![Home page screenshot](/public/images/screenshot.png)
+![Home page screenshot](src/assets/site-screenshot.png)
 
 ## Table of Contents
 
@@ -30,11 +30,11 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - [Sharp](https://sharp.pixelplumbing.com)
 - [MDX](https://mdxjs.com)
 - [Shiki](https://shiki.style)
-- [Compress](https://github.com/PlayForm/Compress)
 
 ## Features
 
 - Dynamic OG image generation using [Satori](https://github.com/vercel/satori) and [Sharp](https://sharp.pixelplumbing.com)
+- Optimized local images using [Astro's assets](https://docs.astro.build/en/guides/images/)
 - "Blog" content collection for extended writings, and "Notepad" content collection for quick thoughts, using Astro's [Content Collections](https://docs.astro.build/en/guides/content-collections)
 - SPA-like transitions (with no-JS) using Astro's [View Transitions](https://docs.astro.build/en/guides/view-transitions)
 - [Perfect 100 score](https://pagespeed.web.dev/analysis/https-asnine-me/mmmqsoimzg?form_factor=mobile) on Google's PageSpeed Insights for mobile (0.8s LCP) and desktop (0.2 LCP)

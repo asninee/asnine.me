@@ -13,9 +13,13 @@ import { render } from 'astro:content'
 
 export const getStaticPaths = async () => {
   const posts = await getPosts(false)
-  return posts.map((post, index, posts) => ({
+  return posts.map((post, index, allPosts) => ({
     params: { id: post.id },
-    props: { post, prevPost: posts[index + 1], nextPost: posts[index - 1] },
+    props: {
+      post,
+      prevPost: allPosts[index + 1],
+      nextPost: allPosts[index - 1],
+    },
   }))
 }
 
