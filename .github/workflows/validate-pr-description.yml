@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   validate:
+    name: PR description
     runs-on: ubuntu-latest
     steps:
       - name: Validate required sections
