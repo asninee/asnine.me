@@ -1,41 +1,41 @@
-<!-- For broad refactors or migrations, replace summary with what and why sections. -->
+<!-- for broad refactors or migrations, replace summary with what and why sections. -->
 
 ## summary
 
-- Describe the change.
+- describe the change.
 
 <!--
 ## what
 
-- Describe the changes.
+- describe the changes.
 
 ## why
 
-- Describe the motivation or non-obvious trade-offs.
+- describe the motivation or non-obvious trade-offs.
 -->
 
 <!--
-When dependencies change, add this directly below summary or what. Remove empty details blocks.
+when dependencies change, add this directly below summary or what. remove empty details blocks.
 
 <details>
-<summary>Dependencies</summary><blockquote>
+<summary>dependencies</summary><blockquote>
 
 <details>
-<summary>Added</summary><blockquote>
+<summary>added</summary><blockquote>
 
 `package` `version`
 
 </blockquote></details>
 
 <details>
-<summary>Updated</summary><blockquote>
+<summary>updated</summary><blockquote>
 
 `package`: `old` → `new`
 
 </blockquote></details>
 
 <details>
-<summary>Removed</summary><blockquote>
+<summary>removed</summary><blockquote>
 
 `package`
 
@@ -47,16 +47,16 @@ When dependencies change, add this directly below summary or what. Remove empty 
 ## validation
 
 - [ ] `pnpm validate`
-- [ ] Manual check: …
+- [ ] manual check: …
 
-<!-- Remove this section when no work remains before merging. -->
+<!-- remove this section when no work remains before merging. -->
 
 ## before merge
 
 - [ ] …
 
-<!-- Remove this section when the PR has no visual changes. -->
+<!-- remove this section when the pr has no visual changes. -->
 
 ## visuals
 
-- Screenshot, recording, or preview URL
+- screenshot, recording, or preview url
