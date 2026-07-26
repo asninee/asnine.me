@@ -18,30 +18,30 @@
 When dependencies change, add this directly below Summary or What. Remove empty details blocks.
 
 <details>
-<summary>Dependencies</summary>
+<summary>Dependencies</summary><blockquote>
 
 <details>
-<summary>Added</summary>
+<summary>Added</summary><blockquote>
 
 - `package` `version`
 
-</details>
+</blockquote></details>
 
 <details>
-<summary>Updated</summary>
+<summary>Updated</summary><blockquote>
 
 - `package`: `old` → `new`
 
-</details>
+</blockquote></details>
 
 <details>
-<summary>Removed</summary>
+<summary>Removed</summary><blockquote>
 
 - `package`
 
-</details>
+</blockquote></details>
 
-</details>
+</blockquote></details>
 -->
 
 ## Validation
