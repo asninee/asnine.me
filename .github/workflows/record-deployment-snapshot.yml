@@ -1,4 +1,4 @@
-name: Record deployment snapshot
+name: snapshot
 
 on:
   deployment_status:

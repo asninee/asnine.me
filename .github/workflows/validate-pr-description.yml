@@ -1,4 +1,4 @@
-name: Validate PR description
+name: pr
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   validate:
-    name: PR description
+    name: description
     runs-on: ubuntu-latest
     steps:
       - name: Validate required sections
