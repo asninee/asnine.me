@@ -1,0 +1,33 @@
+name: Validate PR description
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate required sections
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          node --input-type=module <<'EOF'
+          const body = process.env.PR_BODY ?? ''
+          const sections = [
+            ['Summary', /^## Summary\s*\n(?:\s*-\s+\S.*\n?)+/m],
+            ['Validation', /^## Validation\s*\n(?:\s*-\s+\[[ xX]\]\s+\S.*\n?)+/m],
+          ]
+          const missing = sections
+            .filter(([, pattern]) => !pattern.test(body))
+            .map(([name]) => name)
+
+          if (missing.length) {
+            console.error(`PR description must include non-empty ${missing.join(' and ')} section(s).`)
+            process.exit(1)
+          }
+          EOF
