@@ -27,7 +27,7 @@
 <details>
 <summary>Removed</summary>
 
-- `package` `version`
+- `package`
 
 </details>
 
