@@ -6,18 +6,34 @@
 
 - Describe the motivation or non-obvious trade-offs.
 
-<!-- Remove this section when dependencies do not change. -->
+<!-- Remove this section when dependencies do not change. Remove empty details blocks. -->
 
 ## Dependencies
 
 <details>
-<summary>Dependency changes</summary>
+<summary>Added dependencies</summary>
 
-| Change  | Package   | From      | To        |
-| ------- | --------- | --------- | --------- |
-| Added   | `package` | —         | `version` |
-| Updated | `package` | `old`     | `new`     |
-| Removed | `package` | `version` | —         |
+| Package   | Version   |
+| --------- | --------- |
+| `package` | `version` |
+
+</details>
+
+<details>
+<summary>Updated dependencies</summary>
+
+| Package   | From  | To    |
+| --------- | ----- | ----- |
+| `package` | `old` | `new` |
+
+</details>
+
+<details>
+<summary>Removed dependencies</summary>
+
+| Package   | Version   |
+| --------- | --------- |
+| `package` | `version` |
 
 </details>
 
