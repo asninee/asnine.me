@@ -32,6 +32,8 @@ const {
   nextPost,
 } = Astro.props
 const { Content, headings } = await render(post)
+const displayDate = updated ?? published
+const dateLabel = updated ? 'upd.' : 'pub.'
 
 export const components = {
   a: Link,
@@ -44,30 +46,17 @@ export const components = {
 }
 ---
 
-<Base title=`${title} • asnine` description={desc} post={post}>
+<Base title=`${title} • asnine` description={desc}>
   <TableOfContents headings={headings} />
-  <section class='flex flex-col'>
+  <header>
     <h1 class='mb-2'>{title}</h1>
     <div class='flex items-center gap-1'>
-      {
-        updated ? (
-          <div class='flex items-center gap-1'>
-            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
-              upd.
-            </small>
-            <small class='text-sec'>{formatDate(updated, true)}</small>
-          </div>
-        ) : (
-          <div class='flex items-center gap-1'>
-            <small class='-my-2 rounded-md bg-neutral-200 px-1 dark:bg-neutral-800'>
-              pub.
-            </small>
-            <small class='text-sec'>{formatDate(published, true)}</small>
-          </div>
-        )
-      }
+      <Badge>{dateLabel}</Badge>
+      <time class='text-sec' datetime={displayDate.toISOString()}>
+        {formatDate(displayDate, true)}
+      </time>
     </div>
-  </section>
+  </header>
 
   <article class='md mt-6 flex flex-col gap-4 md:mt-8 md:gap-5'>
     <Content components={components} />
@@ -75,39 +64,34 @@ export const components = {
 
   <hr />
 
-  <section class='flex flex-nowrap items-center justify-between'>
-    <div class='self-start'>
-      {
-        prevPost && (
-          <Link
-            alternate
-            lg
-            href={`/blog/${prevPost.id}`}
-            class='flex flex-col gap-1'
-            noUnderline
-          >
-            <small class='text-sec'>Previous</small>
-            <small>{prevPost.data.title}</small>
-          </Link>
-        )
-      }
-    </div>
-
-    <div class='self-end'>
-      {
-        nextPost && (
-          <Link
-            alternate
-            lg
-            href={`/blog/${nextPost.id}`}
-            class='flex flex-col gap-1'
-            noUnderline
-          >
-            <small class='text-sec self-end'>Next</small>
-            <small>{nextPost.data.title}</small>
-          </Link>
-        )
-      }
-    </div>
-  </section>
+  <nav aria-label='Post pagination' class='flex items-center'>
+    {
+      prevPost && (
+        <Link
+          alternate
+          lg
+          href={`/blog/${prevPost.id}`}
+          class='flex flex-col gap-1'
+          noUnderline
+        >
+          <small class='text-sec'>Previous</small>
+          <small>{prevPost.data.title}</small>
+        </Link>
+      )
+    }
+    {
+      nextPost && (
+        <Link
+          alternate
+          lg
+          href={`/blog/${nextPost.id}`}
+          class='ml-auto flex flex-col items-end gap-1'
+          noUnderline
+        >
+          <small class='text-sec'>Next</small>
+          <small>{nextPost.data.title}</small>
+        </Link>
+      )
+    }
+  </nav>
 </Base>

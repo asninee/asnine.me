@@ -8,11 +8,13 @@ const { name, date, href } = Astro.props
   <div class='flex flex-col items-center'>
     {
       href ? (
-        <Link class='text-lg' href={href}>
-          {name}
-        </Link>
+        <h2 class='m-0 font-normal'>
+          <Link class='text-lg' href={href}>
+            {name}
+          </Link>
+        </h2>
       ) : (
-        <span class='text-lg'>{name}</span>
+        <h2 class='m-0 text-lg font-normal'>{name}</h2>
       )
     }
     <small class='text-sec'>{date}</small>

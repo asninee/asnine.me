@@ -9,8 +9,9 @@ interface Props {
 const { headings } = Astro.props
 ---
 
-<section
-  class='border-l-bor fixed left-[max(0px,calc(50%-43rem/2-20rem-1rem))] hidden max-h-full w-48 border-l px-4 pr-0 xl:block'
+<nav
+  aria-label='Table of contents'
+  class='border-l-bor fixed left-[max(0px,calc(50%-23rem-13rem))] hidden max-h-full w-48 overflow-y-auto border-l px-4 pr-0 xl:block'
 >
   <ul class='text-sec flex list-none flex-col text-sm'>
     {
@@ -31,4 +32,4 @@ const { headings } = Astro.props
       })
     }
   </ul>
-</section>
+</nav>
