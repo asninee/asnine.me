@@ -1,7 +1,7 @@
 import type { CollectionEntry } from 'astro:content'
 
 export const sortPostsByDate = async (entries: CollectionEntry<'blog'>[]) =>
-  entries.sort((a, b) =>
+  entries.toSorted((a, b) =>
     a.data.updated && b.data.updated
       ? b.data.updated.getTime() - a.data.updated.getTime()
       : a.data.updated && !b.data.updated
@@ -12,7 +12,7 @@ export const sortPostsByDate = async (entries: CollectionEntry<'blog'>[]) =>
   )
 
 export const sortNotesByDate = async (entries: CollectionEntry<'notepad'>[]) =>
-  entries.sort(
+  entries.toSorted(
     (a, b) => b.data.published.getTime() - a.data.published.getTime()
   )
 
