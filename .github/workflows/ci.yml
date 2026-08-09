@@ -111,28 +111,37 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - name: Report Lighthouse scores
-        if: needs.validate.outputs.lighthouse != ''
+      - name: Report success
+        if: needs.validate.result == 'success'
         uses: marocchino/sticky-pull-request-comment@v3
         with:
-          header: lighthouse
+          header: checks
           skip_unchanged: true
           message: |
-            **Lighthouse** · ${{ needs.validate.outputs.lighthouse }}
+            **Checks passed**
+
+            Lighthouse · ${{ needs.validate.outputs.lighthouse }}
+
             [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
 
       - name: Report failure
         if: needs.validate.result == 'failure'
         uses: marocchino/sticky-pull-request-comment@v3
         with:
-          header: ci-failure
+          header: checks
           skip_unchanged: true
           message: |
-            **CI failed** · `${{ needs.validate.outputs.failure }}`
+            **Checks failed** · `${{ needs.validate.outputs.failure }}`
+
             [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
 
-      - name: Clear resolved failure
-        if: needs.validate.result == 'success'
+      - name: Clear previous Lighthouse comment
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: lighthouse
+          delete: true
+
+      - name: Clear previous failure comment
         uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: ci-failure
