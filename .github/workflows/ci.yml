@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       failure: ${{ steps.failure.outputs.name }}
+      lighthouse: ${{ steps.lighthouse-scores.outputs.comment }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -57,10 +58,28 @@ jobs:
 
       - name: Audit site
         id: lighthouse
+        continue-on-error: true
         uses: treosh/lighthouse-ci-action@12.6.2
         with:
           configPath: ./.lighthouserc.json
           uploadArtifacts: true
+
+      - name: Format Lighthouse scores
+        id: lighthouse-scores
+        env:
+          RESULTS_PATH: ${{ steps.lighthouse.outputs.resultsPath }}
+        run: |
+          scores=$(jq -r '
+            map(select(.isRepresentativeRun))
+            | first
+            | .summary
+            | "Performance **\(.performance * 100 | round)** · Accessibility **\(.accessibility * 100 | round)** · Best practices **\(.\"best-practices\" * 100 | round)** · SEO **\(.seo * 100 | round)**"
+          ' "$RESULTS_PATH/manifest.json")
+          echo "comment=$scores" >> "$GITHUB_OUTPUT"
+
+      - name: Enforce Lighthouse thresholds
+        if: steps.lighthouse.outcome == 'failure'
+        run: exit 1
 
       - name: Identify failure
         id: failure
@@ -71,7 +90,7 @@ jobs:
           CHECK: ${{ steps.check.conclusion }}
           TEST: ${{ steps.test.conclusion }}
           BUILD: ${{ steps.build.conclusion }}
-          LIGHTHOUSE: ${{ steps.lighthouse.conclusion }}
+          LIGHTHOUSE: ${{ steps.lighthouse.outcome }}
         run: |
           for check in format lint check test build lighthouse; do
             result=$(printenv "${check^^}")
@@ -92,6 +111,16 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
+      - name: Report Lighthouse scores
+        if: needs.validate.outputs.lighthouse != ''
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: lighthouse
+          skip_unchanged: true
+          message: |
+            **Lighthouse** · ${{ needs.validate.outputs.lighthouse }}
+            [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
       - name: Report failure
         if: needs.validate.result == 'failure'
         uses: marocchino/sticky-pull-request-comment@v3
