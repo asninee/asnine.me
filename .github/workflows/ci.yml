@@ -31,3 +31,9 @@ jobs:
 
       - name: Validate project
         run: pnpm validate
+
+      - name: Audit site
+        uses: treosh/lighthouse-ci-action@12.6.2
+        with:
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
