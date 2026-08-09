@@ -3,32 +3,29 @@
 @theme {
   --font-sans: 'Helvetica Neue', sans-serif;
   --font-mono: monospace;
-  --color-bg: var(--color-neutral-100);
-  --color-pri: var(--color-neutral-800);
-  --color-sec: var(--color-neutral-600);
-  --color-bor: var(--color-neutral-300);
+  --color-bg: light-dark(var(--color-neutral-100), var(--color-neutral-900));
+  --color-pri: light-dark(var(--color-neutral-800), var(--color-neutral-300));
+  --color-sec: light-dark(var(--color-neutral-600), var(--color-neutral-400));
+  --color-bor: light-dark(var(--color-neutral-300), var(--color-neutral-700));
 }
 @layer base {
   :root {
+    --code-bg: light-dark(#fff, #121212);
+    --code-text: light-dark(#393a34, #dbd7ca);
+    --code-comment: light-dark(#a0ada0, #758575);
+    --code-keyword: light-dark(#ab5959, #cb7676);
+    --code-function: light-dark(#59873a, #80a665);
+    --code-tag: light-dark(#1e754f, #4d9375);
+    --code-property: light-dark(#998418, #b8a965);
+    --code-attribute: light-dark(#b07d48, #bd976a);
+    --code-string: light-dark(#b56959, #c98a7d);
+    --code-punctuation: light-dark(#999, #666);
     color-scheme: light dark;
     background-color: var(--color-bg);
   }
-  @variant dark {
-    :root {
-      --color-bg: var(--color-neutral-900);
-      --color-pri: var(--color-neutral-300);
-      --color-sec: var(--color-neutral-400);
-      --color-bor: var(--color-neutral-700);
-    }
-    .astro-code,
-    .astro-code span {
-      color: var(--shiki-dark) !important;
-      background-color: var(--bg-dark) !important;
-    }
-  }
-  .astro-code,
-  .astro-code span {
-    background-color: var(--bg-light) !important;
+  pre[class*='language-'] {
+    background-color: var(--code-bg);
+    color: var(--code-text);
   }
 }
 main {
@@ -46,11 +43,41 @@ main {
   h3 {
     @apply text-lg;
   }
+  :not(pre) > code,
+  kbd {
+    @apply rounded bg-neutral-200 text-xs normal-case dark:bg-neutral-800;
+  }
   :not(pre) > code {
-    @apply rounded bg-neutral-200 p-0.5 text-xs normal-case dark:bg-neutral-800;
+    @apply p-0.5;
   }
   pre {
     @apply rounded-lg border border-neutral-200 p-4 text-xs normal-case dark:border-neutral-800;
+  }
+  .token {
+    &:is(.comment, .prolog, .doctype, .cdata) {
+      color: var(--code-comment);
+    }
+    &:is(.keyword, .atrule) {
+      color: var(--code-keyword);
+    }
+    &:is(.function, .class-name, .builtin) {
+      color: var(--code-function);
+    }
+    &:is(.tag, .selector) {
+      color: var(--code-tag);
+    }
+    &.property {
+      color: var(--code-property);
+    }
+    &:is(.number, .boolean, .constant, .attr-name) {
+      color: var(--code-attribute);
+    }
+    &:is(.string, .char, .attr-value, .regex, .entity, .url) {
+      color: var(--code-string);
+    }
+    &:is(.operator, .punctuation) {
+      color: var(--code-punctuation);
+    }
   }
   hr {
     @apply border-bor my-6 border-b-0 border-dashed md:my-10;
@@ -65,7 +92,7 @@ main {
     @apply dark:bg-yellow-500/50 dark:text-white;
   }
   kbd {
-    @apply rounded bg-neutral-200 p-1 text-xs normal-case dark:bg-neutral-800;
+    @apply p-1;
   }
   blockquote {
     @apply border-bor relative my-2 border-l-2 px-3 py-2;
@@ -84,11 +111,9 @@ main {
     }
   }
 }
-article,
-.md {
-  ul,
-  ol {
-    @apply list-outside marker:text-neutral-500;
+:is(article, .md) {
+  :is(ul, ol) {
+    @apply flex list-outside flex-col gap-2 pl-7 marker:text-neutral-500;
   }
   ul {
     @apply list-disc;
@@ -96,12 +121,7 @@ article,
   ol {
     @apply list-decimal;
   }
-  ul,
-  ol {
-    @apply flex flex-col gap-2 pl-7;
-  }
-  ul > li,
-  ol > li {
+  :is(ul, ol) > li {
     @apply pl-1;
   }
 }
