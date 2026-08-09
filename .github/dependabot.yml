@@ -1,0 +1,24 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      astro:
+        patterns:
+          - astro
+          - '@astrojs/*'
+      tailwind:
+        patterns:
+          - tailwindcss
+          - '@tailwindcss/*'
+    ignore:
+      - dependency-name: astro
+        update-types:
+          - version-update:semver-major
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

@@ -3,7 +3,7 @@ import Footer from '@components/Footer.astro'
 import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
 
-const { title, description, post, class: className, ...props } = Astro.props
+const { title, description, class: className, ...props } = Astro.props
 ---
 
 <html lang='en' class='scroll-smooth'>
@@ -11,7 +11,7 @@ const { title, description, post, class: className, ...props } = Astro.props
   <body
     class='bg-bg text-pri mx-auto flex min-h-dvh max-w-[46rem] flex-col px-4 text-sm leading-relaxed lowercase antialiased'
   >
-    <Header post={post} />
+    <Header />
 
     <main class:list={['grow py-6 md:py-8', className]} {...props}>
       <slot />

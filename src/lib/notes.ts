@@ -5,32 +5,19 @@ export type Notes = {
   [date: string]: CollectionEntry<'notepad'>[]
 }
 
-export const getNotes = async (isHome: boolean) =>
-  isHome
-    ? (
-        await sortNotesByDate(
-          await getCollection('notepad', ({ data }) => data.draft !== true)
-        )
-      )
-        .slice(0, 2)
-        .reduce((acc: Notes, n) => {
-          const date = formatDate(n.data.published, true)
-          if (!acc[date]) acc[date] = []
-          acc[date].push(n)
+const getPublishedNotes = () =>
+  getCollection('notepad', ({ data }) => data.draft !== true)
 
-          return acc
-        }, {})
-    : (
-        await sortNotesByDate(
-          await getCollection('notepad', ({ data }) => data.draft !== true)
-        )
-      ).reduce((acc: Notes, n) => {
-        const date = formatDate(n.data.published, true)
-        if (!acc[date]) acc[date] = []
-        acc[date].push(n)
+export const getNotes = async (isHome: boolean) => {
+  const notes = sortNotesByDate(await getPublishedNotes())
+  const visibleNotes = isHome ? notes.slice(0, 2) : notes
 
-        return acc
-      }, {})
+  return visibleNotes.reduce((acc: Notes, note) => {
+    const date = formatDate(note.data.published, true)
+    if (!acc[date]) acc[date] = []
+    acc[date].push(note)
+    return acc
+  }, {})
+}
 
-export const getNotesLength = async () =>
-  (await getCollection('notepad', ({ data }) => data.draft !== true)).length
+export const getNotesLength = async () => (await getPublishedNotes()).length

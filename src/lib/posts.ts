@@ -1,16 +1,12 @@
 import { getCollection } from 'astro:content'
 import { sortPostsByDate } from './date'
 
-export const getPosts = async (isHome: boolean) =>
-  isHome
-    ? (
-        await sortPostsByDate(
-          await getCollection('blog', ({ data }) => data.draft !== true)
-        )
-      ).slice(0, 4)
-    : await sortPostsByDate(
-        await getCollection('blog', ({ data }) => data.draft !== true)
-      )
+const getPublishedPosts = () =>
+  getCollection('blog', ({ data }) => data.draft !== true)
 
-export const getPostsLength = async () =>
-  (await getCollection('blog', ({ data }) => data.draft !== true)).length
+export const getPosts = async (isHome: boolean) => {
+  const posts = sortPostsByDate(await getPublishedPosts())
+  return isHome ? posts.slice(0, 4) : posts
+}
+
+export const getPostsLength = async () => (await getPublishedPosts()).length

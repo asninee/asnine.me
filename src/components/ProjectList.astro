@@ -4,13 +4,13 @@ import Project from './Project.astro'
 
 const { class: className, ...props } = Astro.props
 
-const projects = await getProjects()
+const projects = getProjects()
 ---
 
 <ul class={className} {...props}>
   {
     projects.map(p => (
-      <li class='list-none'>
+      <li>
         <Project url={p.url} name={p.name} desc={p.desc} year={p.year} />
       </li>
     ))

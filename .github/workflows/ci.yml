@@ -8,9 +8,16 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     runs-on: ubuntu-latest
+    outputs:
+      failure: ${{ steps.failure.outputs.name }}
+      lighthouse: ${{ steps.lighthouse-scores.outputs.comment }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -29,5 +36,113 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Validate project
-        run: pnpm validate
+      - name: Check formatting
+        id: format
+        run: pnpm format:check
+
+      - name: Lint
+        id: lint
+        run: pnpm lint
+
+      - name: Check project
+        id: check
+        run: pnpm check
+
+      - name: Test
+        id: test
+        run: pnpm test
+
+      - name: Build
+        id: build
+        run: pnpm build
+
+      - name: Audit site
+        id: lighthouse
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@12.6.2
+        with:
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
+
+      - name: Format Lighthouse scores
+        id: lighthouse-scores
+        env:
+          RESULTS_PATH: ${{ steps.lighthouse.outputs.resultsPath }}
+        run: |
+          scores=$(jq -r '
+            map(select(.isRepresentativeRun))
+            | first
+            | .summary
+            | "Performance **\(.performance * 100 | round)** · Accessibility **\(.accessibility * 100 | round)** · Best practices **\(.["best-practices"] * 100 | round)** · SEO **\(.seo * 100 | round)**"
+          ' "$RESULTS_PATH/manifest.json")
+          echo "comment=$scores" >> "$GITHUB_OUTPUT"
+
+      - name: Enforce Lighthouse thresholds
+        if: steps.lighthouse.outcome == 'failure'
+        run: exit 1
+
+      - name: Identify failure
+        id: failure
+        if: failure()
+        env:
+          FORMAT: ${{ steps.format.conclusion }}
+          LINT: ${{ steps.lint.conclusion }}
+          CHECK: ${{ steps.check.conclusion }}
+          TEST: ${{ steps.test.conclusion }}
+          BUILD: ${{ steps.build.conclusion }}
+          LIGHTHOUSE: ${{ steps.lighthouse.outcome }}
+        run: |
+          for check in format lint check test build lighthouse; do
+            result=$(printenv "${check^^}")
+            if [ "$result" = failure ]; then
+              echo "name=$check" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          echo 'name=setup' >> "$GITHUB_OUTPUT"
+
+  report:
+    needs: validate
+    if: >-
+      always() &&
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.fork == false
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report success
+        if: needs.validate.result == 'success'
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: checks
+          skip_unchanged: true
+          message: |
+            **Checks passed**
+
+            Lighthouse · ${{ needs.validate.outputs.lighthouse }}
+
+            [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+      - name: Report failure
+        if: needs.validate.result == 'failure'
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: checks
+          skip_unchanged: true
+          message: |
+            **Checks failed** · `${{ needs.validate.outputs.failure }}`
+
+            [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+      - name: Clear previous Lighthouse comment
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: lighthouse
+          delete: true
+
+      - name: Clear previous failure comment
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+          header: ci-failure
+          delete: true

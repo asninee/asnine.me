@@ -1,7 +1,7 @@
 ---
 title: 'changelog'
 published: 2024-09-17
-updated: 2026-07-26
+updated: 2026-08-09
 desc: 'source-of-truth for all changes.'
 ---
 
@@ -12,7 +12,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-<Version name='2.0.0' date='26/07/26'>
+<Version name='2.0.1' date='09/08/26'>
+  <VersionItem type='fix'>
+    Fix dynamic OG image URLs and canonical social metadata.
+  </VersionItem>
+  <VersionItem type='fix'>
+    Restore blog grouping by each post's latest effective date.
+  </VersionItem>
+  <hr />
+  <VersionItem type='patch'>
+    Simplify content helpers, global styles, and Tailwind utilities.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Improve headings, navigation, dates, and list semantics.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Simplify header navigation while retaining clickable parent sections.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Update the README, colophon, and draft content with the latest PageSpeed
+    report, current asset delivery, and Prism usage.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Align the local Node version with the supported runtime minimum.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Improve CI efficiency with stale-run cancellation and granular validation
+    steps.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Report concise, updatable check results and Lighthouse scores on pull
+    requests.
+  </VersionItem>
+  <VersionItem type='patch'>
+    Record Cloudflare Pages deployment snapshots in the latest changelog
+    release.
+  </VersionItem>
+</Version>
+
+---
+
+<Version
+  name='2.0.0'
+  date='26/07/26'
+  href='https://65660821.asnine-me.pages.dev'
+>
   <VersionItem type='add'>Add pnpm workspace and lockfile.</VersionItem>
   <VersionItem type='add'>Add CI workflow for project validation.</VersionItem>
   <VersionItem type='add'>

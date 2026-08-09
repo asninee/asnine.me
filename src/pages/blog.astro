@@ -5,14 +5,13 @@ import { getPosts } from '@lib/posts'
 import type { CollectionEntry } from 'astro:content'
 
 const title = 'blog • asnine'
-const isHome = Astro.url.pathname === '/'
 
 type Posts = {
   [year: string]: CollectionEntry<'blog'>[]
 }
 
-const posts = (await getPosts(isHome)).reduce((acc: Posts, p) => {
-  const year = p.data.published.getFullYear().toString()
+const posts = (await getPosts(false)).reduce((acc: Posts, p) => {
+  const year = (p.data.updated ?? p.data.published).getFullYear().toString()
   if (!acc[year]) acc[year] = []
   acc[year].push(p)
 
@@ -26,13 +25,14 @@ const years = Object.keys(posts).toSorted((a, b) => parseInt(b) - parseInt(a))
   {title}
   description='a collection of all my extended thoughts and experiences'
 >
+  <h1 class='sr-only'>Blog</h1>
   {
     years.map(y => (
       <section class='[&:not(:first-of-type)]:mt-8'>
-        <small class='text-sec'>{y}</small>
+        <h2 class='text-sec m-0 text-[80%] font-normal'>{y}</h2>
         <ul class='mt-2'>
           {posts[y].map(p => (
-            <li class='list-none'>
+            <li>
               <Post
                 slug={p.id}
                 title={p.data.title}
