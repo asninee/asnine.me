@@ -73,7 +73,7 @@ jobs:
             map(select(.isRepresentativeRun))
             | first
             | .summary
-            | "Performance **\(.performance * 100 | round)** · Accessibility **\(.accessibility * 100 | round)** · Best practices **\(.\"best-practices\" * 100 | round)** · SEO **\(.seo * 100 | round)**"
+            | "Performance **\(.performance * 100 | round)** · Accessibility **\(.accessibility * 100 | round)** · Best practices **\(.["best-practices"] * 100 | round)** · SEO **\(.seo * 100 | round)**"
           ' "$RESULTS_PATH/manifest.json")
           echo "comment=$scores" >> "$GITHUB_OUTPUT"
 
