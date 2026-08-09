@@ -17,12 +17,12 @@ const components = {
 <div class={className} {...props}>
   {
     dates.map(d => (
-      <section class='[&:not(:last-of-type)]:border-bor mt-4 flex items-start gap-6 md:mt-6 md:gap-8 [&:first-of-type]:mt-0 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted'>
+      <section class='not-last:border-bor mt-4 flex items-start gap-6 not-last:border-b not-last:border-dotted first:mt-0 md:mt-6 md:gap-8'>
         <small class='text-sec mt-0.5'>{d}</small>
         <ul class='mb-4 md:mb-6'>
           {notes[d].map(n =>
             render(n).then(({ Content }) => (
-              <li class='md [&:not(:last-of-type)]:border-bor flex list-none flex-col gap-4 [&:not(:last-of-type)]:mb-4 [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-dotted [&:not(:last-of-type)]:pb-4 [&:not(:last-of-type)]:md:mb-6 [&:not(:last-of-type)]:md:pb-6'>
+              <li class='md not-last:border-bor flex list-none flex-col gap-4 not-last:mb-4 not-last:border-b not-last:border-dotted not-last:pb-4 md:not-last:mb-6 md:not-last:pb-6'>
                 <Content components={components} />
               </li>
             ))

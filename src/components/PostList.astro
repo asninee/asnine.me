@@ -11,7 +11,7 @@ const { class: className, ...props } = Astro.props
 <ul class={className} {...props}>
   {
     posts.map(p => (
-      <li class='list-none'>
+      <li>
         <Post
           slug={p.id}
           title={p.data.title}

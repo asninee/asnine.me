@@ -27,101 +27,101 @@
     background-color: var(--code-bg);
     color: var(--code-text);
   }
-}
-main {
-  h1,
-  h2,
-  h3 {
-    @apply mt-6 font-medium;
-  }
-  h1 {
-    @apply mt-0 text-2xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
-  h3 {
-    @apply text-lg;
-  }
-  :not(pre) > code,
-  kbd {
-    @apply rounded bg-neutral-200 text-xs normal-case dark:bg-neutral-800;
-  }
-  :not(pre) > code {
-    @apply p-0.5;
-  }
-  pre {
-    @apply rounded-lg border border-neutral-200 p-4 text-xs normal-case dark:border-neutral-800;
-  }
-  .token {
-    &:is(.comment, .prolog, .doctype, .cdata) {
-      color: var(--code-comment);
+  main {
+    h1,
+    h2,
+    h3 {
+      @apply mt-6 font-medium;
     }
-    &:is(.keyword, .atrule) {
-      color: var(--code-keyword);
+    h1 {
+      @apply mt-0 text-2xl;
     }
-    &:is(.function, .class-name, .builtin) {
-      color: var(--code-function);
+    h2 {
+      @apply text-xl;
     }
-    &:is(.tag, .selector) {
-      color: var(--code-tag);
+    h3 {
+      @apply text-lg;
     }
-    &.property {
-      color: var(--code-property);
+    :not(pre) > code,
+    kbd {
+      @apply rounded bg-neutral-200 text-xs normal-case dark:bg-neutral-800;
     }
-    &:is(.number, .boolean, .constant, .attr-name) {
-      color: var(--code-attribute);
+    :not(pre) > code {
+      @apply p-0.5;
     }
-    &:is(.string, .char, .attr-value, .regex, .entity, .url) {
-      color: var(--code-string);
+    pre {
+      @apply rounded-lg border border-neutral-200 p-4 text-xs normal-case dark:border-neutral-800;
     }
-    &:is(.operator, .punctuation) {
-      color: var(--code-punctuation);
+    .token {
+      &:is(.comment, .prolog, .doctype, .cdata) {
+        color: var(--code-comment);
+      }
+      &:is(.keyword, .atrule) {
+        color: var(--code-keyword);
+      }
+      &:is(.function, .class-name, .builtin) {
+        color: var(--code-function);
+      }
+      &:is(.tag, .selector) {
+        color: var(--code-tag);
+      }
+      &.property {
+        color: var(--code-property);
+      }
+      &:is(.number, .boolean, .constant, .attr-name) {
+        color: var(--code-attribute);
+      }
+      &:is(.string, .char, .attr-value, .regex, .entity, .url) {
+        color: var(--code-string);
+      }
+      &:is(.operator, .punctuation) {
+        color: var(--code-punctuation);
+      }
+    }
+    hr {
+      @apply border-bor my-6 border-b-0 border-dashed md:my-10;
+    }
+    img {
+      @apply mx-auto rounded-md;
+    }
+    figcaption {
+      @apply text-sec px-3;
+    }
+    mark {
+      @apply dark:bg-yellow-500/50 dark:text-white;
+    }
+    kbd {
+      @apply p-1;
+    }
+    blockquote {
+      @apply border-bor relative my-2 border-l-2 px-3 py-2;
+    }
+    table {
+      @apply table-fixed border-collapse;
+      thead {
+        @apply border-bor border-b;
+      }
+      th {
+        @apply text-left;
+      }
+      th,
+      td {
+        @apply px-2 py-1 md:px-4;
+      }
     }
   }
-  hr {
-    @apply border-bor my-6 border-b-0 border-dashed md:my-10;
-  }
-  img {
-    @apply mx-auto rounded-md;
-  }
-  figcaption {
-    @apply text-sec px-3;
-  }
-  mark {
-    @apply dark:bg-yellow-500/50 dark:text-white;
-  }
-  kbd {
-    @apply p-1;
-  }
-  blockquote {
-    @apply border-bor relative my-2 border-l-2 px-3 py-2;
-  }
-  table {
-    @apply table-fixed border-collapse;
-    thead {
-      @apply border-bor border-b;
+  :is(article, .md) {
+    :is(ul, ol) {
+      @apply flex list-outside flex-col gap-2 pl-7 marker:text-neutral-500;
     }
-    th {
-      @apply text-left;
+    ul {
+      @apply list-disc;
     }
-    th,
-    td {
-      @apply px-2 py-1 md:px-4;
+    ol {
+      @apply list-decimal;
     }
-  }
-}
-:is(article, .md) {
-  :is(ul, ol) {
-    @apply flex list-outside flex-col gap-2 pl-7 marker:text-neutral-500;
-  }
-  ul {
-    @apply list-disc;
-  }
-  ol {
-    @apply list-decimal;
-  }
-  :is(ul, ol) > li {
-    @apply pl-1;
+    :is(ul, ol) > li {
+      @apply pl-1;
+    }
   }
 }

@@ -5,14 +5,14 @@ const { url, name, desc, year } = Astro.props
 ---
 
 <Link
+  alternate
   lg
   href={url}
-  class='flex items-center justify-between gap-3 transition-all duration-300 hover:opacity-45'
+  class='flex items-center justify-between gap-3'
   noUnderline
-  label={`Open ${name} project url`}
 >
   <span class='font-medium'>{name}</span>
-  <span class='text-sec -ml-2 hidden sm:flex'>{desc}</span>
+  <span class='text-sec -ml-2 hidden sm:inline'>{desc}</span>
   <div class='border-bor grow border-b border-dotted'></div>
-  <time class='text-sec text-xs'>{year}</time>
+  <time class='text-sec text-xs' datetime={String(year)}>{year}</time>
 </Link>
