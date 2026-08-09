@@ -1,17 +1,19 @@
 name: snapshot
 
 on:
-  deployment_status:
+  check_run:
+    types: [completed]
 
 permissions:
+  checks: read
   contents: write
 
 jobs:
   record:
     if: >-
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.ref == 'main' &&
-      github.event.deployment_status.environment_url != ''
+      github.event.check_run.name == 'Cloudflare Pages' &&
+      github.event.check_run.app.name == 'Cloudflare Workers and Pages' &&
+      github.event.check_run.conclusion == 'success'
     runs-on: ubuntu-latest
     concurrency:
       group: record-deployment-snapshot
@@ -24,22 +26,27 @@ jobs:
 
       - name: Confirm deployment is current
         env:
-          DEPLOYMENT_SHA: ${{ github.event.deployment.sha }}
+          DEPLOYMENT_SHA: ${{ github.event.check_run.head_sha }}
         run: |
           git fetch origin main
           test "$(git rev-parse origin/main)" = "$DEPLOYMENT_SHA"
 
       - name: Record deployment URL
         env:
-          DEPLOYMENT_URL: ${{ github.event.deployment_status.environment_url }}
-        run: node scripts/record-deployment-snapshot.mjs
+          GH_TOKEN: ${{ github.token }}
+          CHECK_RUN_ID: ${{ github.event.check_run.id }}
+        run: gh api "repos/$GITHUB_REPOSITORY/check-runs/$CHECK_RUN_ID" | node scripts/record-deployment-snapshot.mjs
 
       - name: Commit changelog update
+        env:
+          DEPLOYMENT_SHA: ${{ github.event.check_run.head_sha }}
         run: |
-          if git diff --quiet; then
+          if git diff --quiet -- src/content/blog/changelog.mdx; then
             exit 0
           fi
 
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$DEPLOYMENT_SHA"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add src/content/blog/changelog.mdx
