@@ -16,22 +16,22 @@ const note = (published: string) =>
   ({ data: { published: new Date(published) } }) as Note
 
 describe('date helpers', () => {
-  it('sorts posts by their latest effective date without mutating input', async () => {
+  it('sorts posts by their latest effective date without mutating input', () => {
     const older = post('2025-01-01')
     const updated = post('2024-01-01', '2025-03-01')
     const newer = post('2025-02-01')
     const posts = [older, updated, newer]
 
-    expect(await sortPostsByDate(posts)).toEqual([updated, newer, older])
+    expect(sortPostsByDate(posts)).toEqual([updated, newer, older])
     expect(posts).toEqual([older, updated, newer])
   })
 
-  it('sorts notes by published date without mutating input', async () => {
+  it('sorts notes by published date without mutating input', () => {
     const older = note('2025-01-01')
     const newer = note('2025-02-01')
     const notes = [older, newer]
 
-    expect(await sortNotesByDate(notes)).toEqual([newer, older])
+    expect(sortNotesByDate(notes)).toEqual([newer, older])
     expect(notes).toEqual([older, newer])
   })
 
