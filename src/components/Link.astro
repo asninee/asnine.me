@@ -15,7 +15,8 @@ const isExternal = href.startsWith('http')
 
 <a
   href={href}
-  target={isExternal ? '_blank' : '_self'}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
   aria-label={label}
   class:list={[
     nav
