@@ -21,10 +21,10 @@
     "validate": "pnpm format:check && pnpm lint && pnpm check && pnpm test && pnpm build"
   },
   "dependencies": {
-    "@astrojs/mdx": "7.0.5",
-    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/mdx": "8.0.0",
+    "@astrojs/sitemap": "3.7.4",
     "@tailwindcss/vite": "^4.1.16",
-    "astro": "7.2.0",
+    "astro": "7.2.10",
     "satori": "^0.29.0",
     "satori-html": "^0.3.2",
     "sharp": "^0.35.3",
