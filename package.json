@@ -1,8 +1,8 @@
 {
   "name": "asnine.me",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@12.3.4",
   "engines": {
     "node": ">=22.13.0"
   },
@@ -12,31 +12,38 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "new:post": "node scripts/content.mjs new-post",
+    "new:note": "node scripts/content.mjs new-note",
+    "content:dates": "node scripts/content.mjs update-post-dates --staged",
+    "release:prepare": "node scripts/release.mjs prepare",
+    "release:check": "node scripts/release.mjs check",
+    "prepare": "node scripts/content.mjs install-hooks",
     "check": "astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "oxlint --deny-warnings",
     "lint:fix": "oxlint --fix",
     "test": "vitest run",
-    "validate": "pnpm format:check && pnpm lint && pnpm check && pnpm test && pnpm build"
+    "validate:source": "pnpm run --parallel \"/^(format:check|lint|check|test)$/\"",
+    "validate": "pnpm validate:source && pnpm build"
   },
   "dependencies": {
-    "@astrojs/mdx": "7.0.5",
-    "@astrojs/sitemap": "3.7.3",
-    "@tailwindcss/vite": "^4.1.16",
-    "astro": "7.2.0",
-    "satori": "^0.29.0",
+    "@astrojs/mdx": "8.0.1",
+    "@astrojs/sitemap": "3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "7.3.2",
+    "satori": "^0.33.4",
     "satori-html": "^0.3.2",
-    "sharp": "^0.35.3",
-    "tailwindcss": "^4.1.16"
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "oxlint": "^1.77.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1",
+    "oxlint": "^1.82.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.10"
+    "vitest": "^5.0.0"
   }
 }

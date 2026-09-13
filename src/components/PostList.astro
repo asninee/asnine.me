@@ -1,24 +1,28 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
 import { getPosts } from '@lib/posts'
+import type { DateFormat } from '@lib/date'
 import Post from './Post.astro'
 
-const isHome = Astro.url.pathname === '/'
-const posts = await getPosts(isHome)
+interface Props extends HTMLAttributes<'ul'> {
+  limit: number
+  dateFormat: DateFormat
+}
 
-const { class: className, ...props } = Astro.props
+const { limit, dateFormat, class: className, ...props } = Astro.props
+const posts = await getPosts(limit)
 ---
 
 <ul class={className} {...props}>
-  {
-    posts.map(p => (
-      <li>
-        <Post
-          slug={p.id}
-          title={p.data.title}
-          desc={p.data.desc}
-          date={p.data.updated ?? p.data.published}
-        />
-      </li>
-    ))
-  }
+  {posts.map(p => (
+    <li>
+      <Post
+        slug={p.id}
+        title={p.data.title}
+        desc={p.data.desc}
+        date={p.data.updated ?? p.data.published}
+        dateFormat={dateFormat}
+      />
+    </li>
+  ))}
 </ul>

@@ -15,7 +15,7 @@ export const GET: APIRoute<Props, Params> = async ({ props }) => {
 }
 
 export const getStaticPaths = (async () => {
-  const posts = await getPosts(false)
+  const posts = await getPosts()
 
   return posts.map(post => ({
     params: { id: post.id },

@@ -12,27 +12,25 @@ const pathHref = `/${paths[0]}`
   data-header
   class='bg-bg flex flex-wrap items-center justify-between py-3'
 >
-  {
-    pathname === '/' ? (
-      <div class='flex items-center gap-1'>
-        <p>asnine</p>
-        <SlashIcon />
-        <p>full-stack engineer</p>
-      </div>
-    ) : (
-      <div class='flex items-center gap-1'>
-        <Link nav href='/' noUnderline>
-          asnine
+  {pathname === '/' ? (
+    <div class='flex items-center gap-1'>
+      <p>asnine</p>
+      <SlashIcon />
+      <p>full-stack engineer</p>
+    </div>
+  ) : (
+    <div class='flex items-center gap-1'>
+      <Link nav href='/' noUnderline>
+        asnine
+      </Link>
+      <SlashIcon />
+      {paths.length > 1 ? (
+        <Link nav href={pathHref} noUnderline>
+          {path}
         </Link>
-        <SlashIcon />
-        {paths.length > 1 ? (
-          <Link nav href={pathHref} noUnderline>
-            {path}
-          </Link>
-        ) : (
-          <span class='text-sec'>{path}</span>
-        )}
-      </div>
-    )
-  }
+      ) : (
+        <span class='text-sec'>{path}</span>
+      )}
+    </div>
+  )}
 </header>

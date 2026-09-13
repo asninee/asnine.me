@@ -1,6 +1,11 @@
 ---
 import '@styles/base.css'
 
+interface Props {
+  title: string
+  description: string
+}
+
 const { title, description } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const isPost = /^\/blog\/[^/]+\/?$/.test(canonicalURL.pathname)

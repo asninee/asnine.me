@@ -1,23 +1,31 @@
 ---
 import Link from './Link.astro'
 
-const { name, date, href } = Astro.props
+interface Props {
+  name: string
+  dateTime: string
+  href?: string
+}
+
+const { name, dateTime, href } = Astro.props
+const [year, month, day] = dateTime.split('-')
+const date = `${day}/${month}/${year.slice(-2)}`
 ---
 
 <section class='flex items-center gap-6'>
   <div class='flex flex-col items-center'>
-    {
-      href ? (
-        <h2 class='m-0 font-normal'>
-          <Link class='text-lg' href={href}>
-            {name}
-          </Link>
-        </h2>
-      ) : (
-        <h2 class='m-0 text-lg font-normal'>{name}</h2>
-      )
-    }
-    <small class='text-sec'>{date}</small>
+    {href ? (
+      <h2 class='m-0 font-normal'>
+        <Link class='text-lg' href={href}>
+          {name}
+        </Link>
+      </h2>
+    ) : (
+      <h2 class='m-0 text-lg font-normal'>{name}</h2>
+    )}
+    <small class='text-sec'>
+      <time datetime={dateTime}>{date}</time>
+    </small>
   </div>
   <div class='border-bor flex flex-col gap-2 border-l pl-7'>
     <slot />

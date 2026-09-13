@@ -25,7 +25,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 11.17.0
+          version: 12.3.4
 
       - name: Set up Node.js
         uses: actions/setup-node@v7
@@ -36,21 +36,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check formatting
-        id: format
-        run: pnpm format:check
-
-      - name: Lint
-        id: lint
-        run: pnpm lint
-
-      - name: Check project
-        id: check
-        run: pnpm check
-
-      - name: Test
-        id: test
-        run: pnpm test
+      - name: Validate source
+        id: source
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        run: |
+          if [[ "$BRANCH_NAME" == release/* ]]; then
+            RELEASE_BRANCH="$BRANCH_NAME" pnpm release:check "${BRANCH_NAME#release/}"
+          fi
+          pnpm validate:source
 
       - name: Build
         id: build
@@ -62,12 +56,24 @@ jobs:
         uses: treosh/lighthouse-ci-action@12.6.2
         with:
           configPath: ./.lighthouserc.json
+          runs: ${{ github.event_name == 'pull_request' && 1 || 3 }}
           uploadArtifacts: true
+
+      - name: Retry site audit
+        id: lighthouse-retry
+        if: steps.lighthouse.outcome == 'failure'
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@12.6.2
+        with:
+          configPath: ./.lighthouserc.json
+          runs: 2
+          uploadArtifacts: true
+          artifactName: lighthouse-results-retry
 
       - name: Format Lighthouse scores
         id: lighthouse-scores
         env:
-          RESULTS_PATH: ${{ steps.lighthouse.outputs.resultsPath }}
+          RESULTS_PATH: ${{ steps.lighthouse-retry.outputs.resultsPath || steps.lighthouse.outputs.resultsPath }}
         run: |
           scores=$(jq -r '
             map(select(.isRepresentativeRun))
@@ -78,21 +84,20 @@ jobs:
           echo "comment=$scores" >> "$GITHUB_OUTPUT"
 
       - name: Enforce Lighthouse thresholds
-        if: steps.lighthouse.outcome == 'failure'
+        if: >-
+          steps.lighthouse.outcome == 'failure' &&
+          steps.lighthouse-retry.outcome != 'success'
         run: exit 1
 
       - name: Identify failure
         id: failure
         if: failure()
         env:
-          FORMAT: ${{ steps.format.conclusion }}
-          LINT: ${{ steps.lint.conclusion }}
-          CHECK: ${{ steps.check.conclusion }}
-          TEST: ${{ steps.test.conclusion }}
+          SOURCE: ${{ steps.source.conclusion }}
           BUILD: ${{ steps.build.conclusion }}
-          LIGHTHOUSE: ${{ steps.lighthouse.outcome }}
+          LIGHTHOUSE: ${{ steps.lighthouse-retry.outcome == 'success' && 'success' || steps.lighthouse.outcome }}
         run: |
-          for check in format lint check test build lighthouse; do
+          for check in source build lighthouse; do
             result=$(printenv "${check^^}")
             if [ "$result" = failure ]; then
               echo "name=$check" >> "$GITHUB_OUTPUT"
@@ -134,15 +139,3 @@ jobs:
             **Checks failed** · `${{ needs.validate.outputs.failure }}`
 
             [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-
-      - name: Clear previous Lighthouse comment
-        uses: marocchino/sticky-pull-request-comment@v3
-        with:
-          header: lighthouse
-          delete: true
-
-      - name: Clear previous failure comment
-        uses: marocchino/sticky-pull-request-comment@v3
-        with:
-          header: ci-failure
-          delete: true

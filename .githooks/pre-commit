@@ -1,0 +1,3 @@
+#!/bin/sh
+
+node scripts/content.mjs update-post-dates --staged

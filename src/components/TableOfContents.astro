@@ -14,22 +14,20 @@ const { headings } = Astro.props
   class='border-l-bor fixed left-[max(0px,calc(50%-23rem-13rem))] hidden max-h-full w-48 overflow-y-auto border-l px-4 pr-0 xl:block'
 >
   <ul class='text-sec flex list-none flex-col text-sm'>
-    {
-      headings.map(({ text, depth, slug }) => {
-        if (depth < 2 || depth > 3) return null
-        return (
-          <li class:list={[depth === 3 && 'ml-4']}>
-            <Link
-              href={'#' + slug}
-              noUnderline
-              alternate
-              class='text-left text-xs'
-            >
-              {text}
-            </Link>
-          </li>
-        )
-      })
-    }
+    {headings.map(({ text, depth, slug }) => {
+      if (depth < 2 || depth > 3) return null
+      return (
+        <li class:list={[depth === 3 && 'ml-4']}>
+          <Link
+            href={'#' + slug}
+            noUnderline
+            alternate
+            class='text-left text-xs'
+          >
+            {text}
+          </Link>
+        </li>
+      )
+    })}
   </ul>
 </nav>

@@ -1,0 +1,38 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image as AstroImage } from 'astro:assets'
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends Omit<HTMLAttributes<'img'>, 'src'> {
+  src: string | ImageMetadata
+  alt?: string
+  format?: 'avif' | 'jpeg' | 'jpg' | 'png' | 'webp'
+}
+
+const { src, alt, class: className, format, ...props } = Astro.props
+const href = typeof src === 'string' ? src : src.src
+---
+
+<a
+  class:list={['zoom-image', className]}
+  href={href}
+  target='_blank'
+  rel='noopener noreferrer'
+  aria-label={`Open image${alt ? `: ${alt}` : ''}`}
+>
+  {typeof src === 'string' ? (
+    <img src={src} alt={alt} {...props} />
+  ) : (
+    <AstroImage src={src} alt={alt ?? ''} format={format} />
+  )}
+</a>
+
+<style>
+  .zoom-image {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    cursor: zoom-in;
+  }
+</style>

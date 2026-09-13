@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content'
-import { glob } from 'astro/loaders'
+import { glob, type Loader } from 'astro/loaders'
 import { z } from 'astro/zod'
+import { getNotePublishedDate } from './lib/note-date'
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/blog' }),
@@ -18,8 +19,25 @@ const blog = defineCollection({
     ),
 })
 
+const noteFiles = glob({ pattern: '**/*.mdx', base: './src/content/notepad' })
+
+const datedNoteFiles: Loader = {
+  ...noteFiles,
+  name: 'dated-note-files',
+  load: context =>
+    noteFiles.load({
+      ...context,
+      parseData: ({ id, data, filePath }) =>
+        context.parseData({
+          id,
+          data: { ...data, published: getNotePublishedDate(id) },
+          filePath,
+        }),
+    }),
+}
+
 const notepad = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/notepad' }),
+  loader: datedNoteFiles,
   schema: z.object({
     published: z.coerce.date(),
     draft: z.boolean().optional().default(false),

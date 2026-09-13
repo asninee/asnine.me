@@ -41,11 +41,7 @@ export function recordDeploymentUrl(changelog, deploymentUrl) {
 }
 
 async function main() {
-  const chunks = []
-  for await (const chunk of process.stdin) chunks.push(chunk)
-
-  const checkRun = JSON.parse(Buffer.concat(chunks).toString('utf8'))
-  const deploymentUrl = getDeploymentUrl(checkRun.output?.summary)
+  const deploymentUrl = getDeploymentUrl(process.env.DEPLOYMENT_SUMMARY)
   const changelog = await readFile(changelogPath, 'utf8')
   const updatedChangelog = recordDeploymentUrl(changelog, deploymentUrl)
 
