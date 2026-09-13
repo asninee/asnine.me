@@ -18,7 +18,8 @@
     "lint": "oxlint --deny-warnings",
     "lint:fix": "oxlint --fix",
     "test": "vitest run",
-    "validate": "pnpm format:check && pnpm lint && pnpm check && pnpm test && pnpm build"
+    "validate:source": "pnpm run --parallel \"/^(format:check|lint|check|test)$/\"",
+    "validate": "pnpm validate:source && pnpm build"
   },
   "dependencies": {
     "@astrojs/mdx": "8.0.1",

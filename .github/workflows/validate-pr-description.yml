@@ -6,6 +6,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: pr-description-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: description

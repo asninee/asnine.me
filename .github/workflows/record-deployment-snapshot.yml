@@ -5,7 +5,6 @@ on:
     types: [completed]
 
 permissions:
-  checks: read
   contents: write
 
 jobs:
@@ -13,29 +12,22 @@ jobs:
     if: >-
       github.event.check_run.name == 'Cloudflare Pages' &&
       github.event.check_run.app.name == 'Cloudflare Workers and Pages' &&
-      github.event.check_run.conclusion == 'success'
+      github.event.check_run.conclusion == 'success' &&
+      github.event.check_run.head_sha == github.sha
     runs-on: ubuntu-latest
     concurrency:
       group: record-deployment-snapshot
-      cancel-in-progress: false
+      cancel-in-progress: true
     steps:
-      - name: Check out main
+      - name: Check out deployment
         uses: actions/checkout@v7
         with:
-          ref: main
-
-      - name: Confirm deployment is current
-        env:
-          DEPLOYMENT_SHA: ${{ github.event.check_run.head_sha }}
-        run: |
-          git fetch origin main
-          test "$(git rev-parse origin/main)" = "$DEPLOYMENT_SHA"
+          ref: ${{ github.event.check_run.head_sha }}
 
       - name: Record deployment URL
         env:
-          GH_TOKEN: ${{ github.token }}
-          CHECK_RUN_ID: ${{ github.event.check_run.id }}
-        run: gh api "repos/$GITHUB_REPOSITORY/check-runs/$CHECK_RUN_ID" | node scripts/record-deployment-snapshot.mjs
+          DEPLOYMENT_SUMMARY: ${{ github.event.check_run.output.summary }}
+        run: node scripts/record-deployment-snapshot.mjs
 
       - name: Commit changelog update
         env:
@@ -45,8 +37,13 @@ jobs:
             exit 0
           fi
 
-          git fetch origin main
-          test "$(git rev-parse origin/main)" = "$DEPLOYMENT_SHA"
+          remote_ref=$(git ls-remote --exit-code origin refs/heads/main)
+          remote_sha=${remote_ref%%[[:space:]]*}
+          if [ "$remote_sha" != "$DEPLOYMENT_SHA" ]; then
+            echo 'Skipping snapshot for a superseded deployment.'
+            exit 0
+          fi
+
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add src/content/blog/changelog.mdx
