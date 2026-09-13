@@ -38,7 +38,13 @@ jobs:
 
       - name: Validate source
         id: source
-        run: pnpm validate:source
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        run: |
+          if [[ "$BRANCH_NAME" == release/* ]]; then
+            RELEASE_BRANCH="$BRANCH_NAME" pnpm release:check "${BRANCH_NAME#release/}"
+          fi
+          pnpm validate:source
 
       - name: Build
         id: build

@@ -23,7 +23,7 @@ jobs:
           node --input-type=module <<'EOF'
           const title = process.env.PR_TITLE ?? ''
           const branch = process.env.PR_BRANCH ?? ''
-          const version = String.raw`(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)`
+          const version = String.raw`(\d+\.\d+\.\d+)`
           const titleMatch = new RegExp(`^chore\\(release\\): ${version}$`).exec(title)
           const branchMatch = new RegExp(`^release/${version}$`).exec(branch)
 
