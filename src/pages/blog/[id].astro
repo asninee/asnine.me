@@ -12,7 +12,7 @@ import { getPosts } from '@lib/posts'
 import { render } from 'astro:content'
 
 export const getStaticPaths = async () => {
-  const posts = await getPosts(false)
+  const posts = await getPosts()
   return posts.map((post, index, allPosts) => ({
     params: { id: post.id },
     props: {
@@ -53,7 +53,7 @@ export const components = {
     <div class='flex items-center gap-1'>
       <Badge>{dateLabel}</Badge>
       <time class='text-sec' datetime={displayDate.toISOString()}>
-        {formatDate(displayDate, true)}
+        {formatDate(displayDate, 'withYear')}
       </time>
     </div>
   </header>
@@ -65,33 +65,29 @@ export const components = {
   <hr />
 
   <nav aria-label='Post pagination' class='flex items-center'>
-    {
-      prevPost && (
-        <Link
-          alternate
-          lg
-          href={`/blog/${prevPost.id}`}
-          class='flex flex-col gap-1'
-          noUnderline
-        >
-          <small class='text-sec'>Previous</small>
-          <small>{prevPost.data.title}</small>
-        </Link>
-      )
-    }
-    {
-      nextPost && (
-        <Link
-          alternate
-          lg
-          href={`/blog/${nextPost.id}`}
-          class='ml-auto flex flex-col items-end gap-1'
-          noUnderline
-        >
-          <small class='text-sec'>Next</small>
-          <small>{nextPost.data.title}</small>
-        </Link>
-      )
-    }
+    {prevPost && (
+      <Link
+        alternate
+        lg
+        href={`/blog/${prevPost.id}`}
+        class='flex flex-col gap-1'
+        noUnderline
+      >
+        <small class='text-sec'>Previous</small>
+        <small>{prevPost.data.title}</small>
+      </Link>
+    )}
+    {nextPost && (
+      <Link
+        alternate
+        lg
+        href={`/blog/${nextPost.id}`}
+        class='ml-auto flex flex-col items-end gap-1'
+        noUnderline
+      >
+        <small class='text-sec'>Next</small>
+        <small>{nextPost.data.title}</small>
+      </Link>
+    )}
   </nav>
 </Base>

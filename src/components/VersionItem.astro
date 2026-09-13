@@ -1,10 +1,16 @@
 ---
 import Badge from './Badge.astro'
 
+interface Props {
+  type: string
+}
+
 const { type } = Astro.props
 ---
 
 <div class='flex items-baseline gap-2'>
   <Badge>{type}</Badge>
-  <div><slot /></div>
+  <div>
+    <slot />
+  </div>
 </div>

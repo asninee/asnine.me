@@ -1,6 +1,13 @@
 ---
 import Link from './Link.astro'
 
+interface Props {
+  url: string
+  name: string
+  desc: string
+  year: number
+}
+
 const { url, name, desc, year } = Astro.props
 ---
 
@@ -14,5 +21,7 @@ const { url, name, desc, year } = Astro.props
   <span class='font-medium'>{name}</span>
   <span class='text-sec -ml-2 hidden sm:inline'>{desc}</span>
   <div class='border-bor grow border-b border-dotted'></div>
-  <time class='text-sec text-xs' datetime={String(year)}>{year}</time>
+  <time class='text-sec text-xs' datetime={String(year)}>
+    {year}
+  </time>
 </Link>

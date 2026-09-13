@@ -1,5 +1,7 @@
 import type { CollectionEntry } from 'astro:content'
 
+export type DateFormat = 'short' | 'withYear'
+
 export const sortPostsByDate = (entries: CollectionEntry<'blog'>[]) =>
   entries.toSorted((a, b) =>
     a.data.updated && b.data.updated
@@ -16,8 +18,8 @@ export const sortNotesByDate = (entries: CollectionEntry<'notepad'>[]) =>
     (a, b) => b.data.published.getTime() - a.data.published.getTime()
   )
 
-export const formatDate = (date: Date, isHome: boolean) =>
-  isHome
+export const formatDate = (date: Date, format: DateFormat) =>
+  format === 'withYear'
     ? new Intl.DateTimeFormat('en-GB', {
         day: 'numeric',
         month: 'numeric',

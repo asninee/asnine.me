@@ -35,10 +35,10 @@ describe('date helpers', () => {
     expect(notes).toEqual([older, newer])
   })
 
-  it('formats dates for list and detail contexts', () => {
+  it('formats dates using explicit formats', () => {
     const date = new Date(2026, 0, 2)
 
-    expect(formatDate(date, true)).toBe('02/01/26')
-    expect(formatDate(date, false)).toBe('02/01')
+    expect(formatDate(date, 'withYear')).toBe('02/01/26')
+    expect(formatDate(date, 'short')).toBe('02/01')
   })
 })

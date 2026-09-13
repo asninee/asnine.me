@@ -2,21 +2,26 @@
 import Badge from './Badge.astro'
 import Link from './Link.astro'
 
+interface Props {
+  badge: string
+  title: string
+  desc: string
+  href?: string
+}
+
 const { badge, title, desc, href } = Astro.props
 ---
 
 <li class='flex flex-col justify-center gap-2 pl-0'>
   <div class='flex items-center gap-2'>
     <Badge>{badge}</Badge>
-    {
-      href ? (
-        <Link href={href} class='font-semibold'>
-          {title}
-        </Link>
-      ) : (
-        <span class='font-semibold'>{title}</span>
-      )
-    }
+    {href ? (
+      <Link href={href} class='font-semibold'>
+        {title}
+      </Link>
+    ) : (
+      <span class='font-semibold'>{title}</span>
+    )}
   </div>
   <p class='text-sec'>{desc}</p>
 </li>

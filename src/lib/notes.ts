@@ -8,12 +8,12 @@ export type Notes = {
 const getPublishedNotes = () =>
   getCollection('notepad', ({ data }) => data.draft !== true)
 
-export const getNotes = async (isHome: boolean) => {
+export const getNotes = async (limit?: number) => {
   const notes = sortNotesByDate(await getPublishedNotes())
-  const visibleNotes = isHome ? notes.slice(0, 2) : notes
+  const visibleNotes = limit === undefined ? notes : notes.slice(0, limit)
 
   return visibleNotes.reduce((acc: Notes, note) => {
-    const date = formatDate(note.data.published, true)
+    const date = formatDate(note.data.published, 'withYear')
     if (!acc[date]) acc[date] = []
     acc[date].push(note)
     return acc

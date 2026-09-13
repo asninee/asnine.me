@@ -1,4 +1,14 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
+  href: string
+  lg?: boolean
+  alternate?: boolean
+  nav?: boolean
+  noUnderline?: boolean
+}
+
 const {
   href,
   lg,
@@ -27,5 +37,7 @@ const isExternal = href.startsWith('http')
       'decoration-bor underline underline-offset-2 hover:decoration-neutral-400 dark:hover:decoration-neutral-500',
     className,
   ]}
-  {...props}><slot /></a
+  {...props}
 >
+  <slot />
+</a>

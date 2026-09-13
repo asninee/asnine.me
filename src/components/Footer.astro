@@ -9,14 +9,14 @@ const socials = getSocials()
 <footer class='flex flex-wrap items-center justify-between py-3'>
   <nav aria-label='Social links'>
     <ul class='flex items-center gap-2'>
-      {
-        socials.map(s => (
-          <li>
-            <Social name={s.name} url={s.url} />
-          </li>
-        ))
-      }
+      {socials.map(s => (
+        <li>
+          <Social name={s.name} url={s.url} />
+        </li>
+      ))}
     </ul>
   </nav>
-  <Link class='text-xs' href='https://ceasefiretoday.com/'>#freepalestine</Link>
+  <Link class='text-xs' href='https://ceasefiretoday.com/'>
+    #freepalestine
+  </Link>
 </footer>

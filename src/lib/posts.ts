@@ -4,9 +4,9 @@ import { sortPostsByDate } from './date'
 const getPublishedPosts = () =>
   getCollection('blog', ({ data }) => data.draft !== true)
 
-export const getPosts = async (isHome: boolean) => {
+export const getPosts = async (limit?: number) => {
   const posts = sortPostsByDate(await getPublishedPosts())
-  return isHome ? posts.slice(0, 4) : posts
+  return limit === undefined ? posts : posts.slice(0, limit)
 }
 
 export const getPostsLength = async () => (await getPublishedPosts()).length

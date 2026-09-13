@@ -1,7 +1,14 @@
 ---
 import Link from './Link.astro'
 
+interface Props {
+  name: string
+  url: string
+}
+
 const { name, url } = Astro.props
 ---
 
-<Link lg href={url} class='text-xs'>{name}</Link>
+<Link lg href={url} class='text-xs'>
+  {name}
+</Link>

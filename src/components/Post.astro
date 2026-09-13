@@ -1,10 +1,16 @@
 ---
-import { formatDate } from '@lib/date'
+import { formatDate, type DateFormat } from '@lib/date'
 import Link from './Link.astro'
 
-const { slug, title, desc, date } = Astro.props
+interface Props {
+  slug: string
+  title: string
+  desc: string
+  date: Date
+  dateFormat: DateFormat
+}
 
-const isHome = Astro.url.pathname === '/'
+const { slug, title, desc, date, dateFormat } = Astro.props
 ---
 
 <Link
@@ -16,12 +22,10 @@ const isHome = Astro.url.pathname === '/'
 >
   <span class='font-medium'>
     {title}
-    <span class='text-sec hidden font-normal sm:block'>
-      {desc}
-    </span>
+    <span class='text-sec hidden font-normal sm:block'>{desc}</span>
   </span>
 
   <time class='text-sec text-xs' datetime={date.toISOString()}>
-    {formatDate(date, isHome)}
+    {formatDate(date, dateFormat)}
   </time>
 </Link>

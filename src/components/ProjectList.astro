@@ -1,6 +1,9 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
 import { getProjects } from '@lib/projects'
 import Project from './Project.astro'
+
+type Props = HTMLAttributes<'ul'>
 
 const { class: className, ...props } = Astro.props
 
@@ -8,11 +11,9 @@ const projects = getProjects()
 ---
 
 <ul class={className} {...props}>
-  {
-    projects.map(p => (
-      <li>
-        <Project url={p.url} name={p.name} desc={p.desc} year={p.year} />
-      </li>
-    ))
-  }
+  {projects.map(p => (
+    <li>
+      <Project url={p.url} name={p.name} desc={p.desc} year={p.year} />
+    </li>
+  ))}
 </ul>
