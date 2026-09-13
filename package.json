@@ -1,6 +1,6 @@
 {
   "name": "asnine.me",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
   "packageManager": "pnpm@12.3.4",
   "engines": {
@@ -12,6 +12,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "new:post": "node scripts/content.mjs new-post",
+    "new:note": "node scripts/content.mjs new-note",
+    "content:dates": "node scripts/content.mjs update-post-dates --staged",
+    "prepare": "node scripts/content.mjs install-hooks",
     "check": "astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

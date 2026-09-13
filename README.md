@@ -13,6 +13,7 @@
   - [Motivation](#motivation)
   - [Technologies Used](#technologies-used)
   - [Features](#features)
+  - [Writing](#writing)
   - [Acknowledgements](#acknowledgements)
   - [License](#license)
 
@@ -43,6 +44,13 @@ I've spoken a bit about this in my [first blog post](https://asnine.me/blog/a-ne
 - Syntax highlighting using [Prism](https://prismjs.com)
 - Mobile-first responsive styles using [TailwindCSS](https://tailwindcss.com)
 - [No analytics used at all](https://themarkup.org/blacklight?url=asnine.me&location=us&device=mobile&force=false); privacy-first.
+
+## Writing
+
+Create a draft blog post with `pnpm new:post <slug>`, or a draft note with
+`pnpm new:note`. Post publication dates are stamped when they are created, and
+their update dates are maintained by the pre-commit hook. Note publication dates
+are derived from their `D-M-YY[-n].mdx` filenames.
 
 ## Acknowledgements
 
