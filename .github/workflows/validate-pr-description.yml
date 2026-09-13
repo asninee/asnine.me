@@ -15,6 +15,28 @@ jobs:
     name: description
     runs-on: ubuntu-latest
     steps:
+      - name: Validate release naming
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          node --input-type=module <<'EOF'
+          const title = process.env.PR_TITLE ?? ''
+          const branch = process.env.PR_BRANCH ?? ''
+          const version = String.raw`(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)`
+          const titleMatch = new RegExp(`^chore\\(release\\): ${version}$`).exec(title)
+          const branchMatch = new RegExp(`^release/${version}$`).exec(branch)
+
+          if (!titleMatch && !branchMatch) process.exit(0)
+
+          if (!titleMatch || !branchMatch || titleMatch[1] !== branchMatch[1]) {
+            console.error(
+              'release pull requests must use matching `chore(release): x.y.z` titles and `release/x.y.z` branches.'
+            )
+            process.exit(1)
+          }
+          EOF
+
       - name: Validate required sections
         env:
           PR_BODY: ${{ github.event.pull_request.body }}

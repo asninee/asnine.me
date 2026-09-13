@@ -1,4 +1,5 @@
 <!-- for broad refactors or migrations, replace summary with what and why sections. -->
+<!-- release convention: title `chore(release): x.y.z`, branch `release/x.y.z`. -->
 
 ## summary
 
