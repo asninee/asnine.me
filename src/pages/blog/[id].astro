@@ -6,6 +6,7 @@ import SectionListItem from '@components/SectionListItem.astro'
 import TableOfContents from '@components/TableOfContents.astro'
 import Version from '@components/Version.astro'
 import VersionItem from '@components/VersionItem.astro'
+import ZoomImage from '@components/ZoomImage.astro'
 import Base from '@layouts/Base.astro'
 import { formatDate } from '@lib/date'
 import { getPosts } from '@lib/posts'
@@ -43,6 +44,7 @@ export const components = {
   Badge,
   SectionList,
   SectionListItem,
+  img: ZoomImage,
 }
 ---
 
