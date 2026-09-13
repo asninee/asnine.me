@@ -50,6 +50,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@12.6.2
         with:
           configPath: ./.lighthouserc.json
+          runs: ${{ github.event_name == 'pull_request' && 1 || 3 }}
           uploadArtifacts: true
 
       - name: Format Lighthouse scores

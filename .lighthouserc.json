@@ -2,8 +2,7 @@
   "ci": {
     "collect": {
       "staticDistDir": "./dist",
-      "url": ["http://localhost/"],
-      "numberOfRuns": 3
+      "url": ["http://localhost/"]
     },
     "assert": {
       "assertions": {
