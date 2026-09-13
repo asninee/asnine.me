@@ -1,12 +1,12 @@
 ---
 title: 'uses'
 published: 2024-12-29
-updated: 2025-04-19
+updated: 2026-09-13
 desc: 'one-stop shop for all the things i use.'
 ---
 
 import Image from '../../components/ZoomImage.astro'
-import vscScreenshot from '../../assets/vsc.png'
+import zedScreenshot from '../../assets/zed.png'
 import obsidianScreenshot from '../../assets/obsidian.png'
 import setupScreenshot from '../../assets/setup.png'
 
@@ -17,13 +17,18 @@ Below is a list of all the key tools, software and hardware that I use on the re
 <SectionList>
   <SectionListItem
     badge='laptop'
-    title='MacBook Pro 14-in'
-    desc='I’ve got the base config option (16/512, M1 Pro chip). This has done wonders to my productivity thanks to the perf, with battery for days (literally). I wonder why I didn’t switch to Mac earlier.'
+    title='MacBook Pro 14'
+    desc='I’ve got the base config option (16/512, M1 Pro chip). This is still the insane banger I’ve known it to be, where things very simply just work. MacOS 26 bugbears aside, I can very easily see myself keeping it until it literally dies on me, it’s that good.'
+  />
+  <SectionListItem
+    badge='linuxbox'
+    title='HP Prodesk Mini 400 G6'
+    desc='This will eventually become my homelab node, where I’m currently picking up the motions and using it as a secondary sandbox of-sorts - and oh boy is this turning me into a Linux addict. You might not think you need it, but having something like this to remotely host apps/services is quite the gamechanger.'
   />
   <SectionListItem
     badge='monitor'
-    title='MSI PRO MP275Q'
-    desc='Works at 1440p@100Hz. Gives me more than enough screen estate to tackle whatever may come my way, while having a decent-enough PPI to work well with my Mac.'
+    title='Kuycon P20'
+    desc='Uses the same underlying panel as the now-defunct Surface Studio (4.5K resolution, 3:2 aspect ratio) which gets me close enough to the Retina-like PPI I’ve been craving for. Unless I see a true Retina 3:2 offering with 120Hz, you can consider this my endgame.'
   />
   <SectionListItem
     badge='phone'
@@ -36,14 +41,24 @@ Below is a list of all the key tools, software and hardware that I use on the re
     desc='Acts as a nice companion device to my phone, keeping me in the loop while also having a very comprehensive suite of health tracking features. The "Overnight Vitals" feature has been able to pick up when I’ve fallen ill, which is like, wow.'
   />
   <SectionListItem
+    badge='e-reader'
+    title='Xteink X4'
+    desc='I’ve yearned for a pocketable e-reader for eons at this point, and when I saw that my prayers got answered by this device I jumped in head-first. Assuming you install the CrossPoint software, if you want a device that allows you to continually read on-the-go, look no further.'
+  />
+  <SectionListItem
     badge='earbuds'
-    title='Samsung Galaxy Buds 2 Pro'
-    desc='These sound amazing to the point that I’d recommend getting them over the new 3 Pros (there’s not much of an improvement sound quality wise, in addition to the fact that they look like AirPods clones).'
+    title='Samsung Galaxy Buds 3 Pro'
+    desc='I know I said I wouldn’t get these...but I scored an amazing deal that I couldn’t ignore tbh. The in-ear fit and mic quality are a lot better vs the 2 Pros, but I’m starting to question the whole wireless movement from a BIFL perspective - espec when the mic on Apple EarPods visibly clear the pack.'
+  />
+  <SectionListItem
+    badge='iems'
+    title='Truthear Pure'
+    desc='I think of these as the logical upgrade path from my beloved Hola, where with the Tang Sancai ear tips these provide a thoroughly enjoyable sound signature - I think I’ll stop digging deeper into this rabbithole...'
   />
   <SectionListItem
     badge='iems'
     title='Truthear Hola'
-    desc='For £18 (now discontinued), these were a crazy steal, where they sound closer to £80 iems. These paired together with my Mac (and lossless playback) make for an amazing combo; long may they live.'
+    desc='For £18 (now discontinued), these continue to be a crazy steal, where these now function as my backup pair to the Pure I now main.'
   />
 </SectionList>
 
@@ -52,27 +67,27 @@ Below is a list of all the key tools, software and hardware that I use on the re
 <SectionList>
   <SectionListItem
     badge='editor'
-    title='Visual Studio Code'
-    href='https://code.visualstudio.com'
-    desc='Comes with a vast ecosystem of extensions, making me able to tailor it towards the languages I use, and code with minimal friction.'
+    title='Zed'
+    href='https://zed.dev'
+    desc='With my agentic coding setup, being able to have a minimal but performant editor that quickly gets out of the way is a necessity. And so, Zed couldn’t really be a better fit for me, with it’s more-than-good-enough extension ecosystem.'
   />
   <SectionListItem
     badge='terminal'
     title='Ghostty'
-    href='https://ghostty.org/'
+    href='https://ghostty.org'
     desc='It’s blazing fast (it uses Zig under the hood), allows me to blitz through any commands/scripts that I need to run, and has a fantastic community behind it.'
   />
   <SectionListItem
     badge='browser'
-    title='Zen Browser'
-    href='https://zen-browser.app/'
-    desc='Embeds the key "wins" of Arc, such as "Spaces" and "Pinned Tabs", but spits them out in a Firefox fork. I’ve had an eye on this browser for a while since Arc went into maintenance-mode, but things have progressed along to the point that I can happily daily this now.'
+    title='Helium'
+    href='https://helium.computer'
+    desc='This takes Chromium, trims all the fat, but also has a intriguing code-patching approach which means that the dev team can be selective in what they want to incorporate (or apply a refined spin of), which lends to it’s resource-efficient and hardened nature.'
   />
   <SectionListItem
     badge='launcher'
-    title='LeaderKey'
-    href='https://github.com/mikker/LeaderKey.app'
-    desc='This is phenomenal at creating your own keybinds for rapidly lanching apps, running scripts, and opening files. I’ve wrapped my frequently used Raycast (see below) actions around this such that I can get things done in just 2 key clicks.'
+    title='Tuna'
+    href='https://tunaformac.com'
+    desc='This is a unique launcher that comes with a variety of modes such that you can; search for apps/files/actions, create your own keybinds for rapidly running said apps/actions, add extensions (ala Raycast) to extend the things that you can do.'
   />
   <SectionListItem
     badge='passwords'
@@ -88,21 +103,9 @@ Below is a list of all the key tools, software and hardware that I use on the re
   />
   <SectionListItem
     badge='misc'
-    title='Raycast'
-    href='https://www.raycast.com'
-    desc='This exposes a wide plethora of actions (thanks to the vast ecosystem of extensions), where this can open apps, or run actions relating to your installed apps or the OS itself. '
-  />
-  <SectionListItem
-    badge='misc'
     title='Swish'
     href='https://highlyopinionated.co/swish'
-    desc='A neat window-manager app that leverages trackpad gestures (after this, wanting to own a wireless mouse becomes very undesirable).'
-  />
-  <SectionListItem
-    badge='misc'
-    title='Battery'
-    href='https://github.com/actuallymentor/battery'
-    desc='A (free) battery management cli that allows for the setting of an indefinite charging limit (80% for me), without having to worry about Apple’s built-in battery optimisations messing things up.'
+    desc='A neat window-manager app that leverages trackpad gestures (after this, wanting to own a wireless mouse becomes very undesirable - this didn’t age well, but it’s one of those occasional pleasures I enjoy when I can use my mac undocked).'
   />
   <SectionListItem
     badge='misc'
@@ -120,7 +123,7 @@ Below is a list of all the key tools, software and hardware that I use on the re
     badge='misc'
     title='Alcove'
     href='https://tryalcove.com'
-    desc='An app that emulates the functionality of the Dynamic Island on iPhones, and brings it over to the Mac.'
+    desc='An app that emulates the functionality of the Dynamic Island on iPhones, and brings it over to the Mac. It’s continued to get better over time to the point that it can house calendar events, among other things, allowing me to remove other redundant apps.'
   />
   <SectionListItem
     badge='misc'
@@ -128,31 +131,22 @@ Below is a list of all the key tools, software and hardware that I use on the re
     href='https://dropoverapp.com'
     desc='An app that makes drag and drop very easy, with you being able to group items into stashes.'
   />
-  <SectionListItem
-    badge='misc'
-    title='Dato'
-    href='https://sindresorhus.com/dato'
-    desc='A menu bar calendar app that keeps you in the loop with all upcoming events, meetings, etc.'
-  />
 </SectionList>
 
 ## Screenshots
 
 <Image
-  src={vscScreenshot}
-  alt='vscode screenshot img'
-  widths={[736, 1472]}
-  sizes='(max-width: 768px) calc(100vw - 2rem), 736px'
+  src={zedScreenshot}
+  alt='zed screenshot img'
+  format='png'
 />
 <Image
   src={obsidianScreenshot}
   alt='obsidian screenshot img'
-  widths={[736, 1472]}
-  sizes='(max-width: 768px) calc(100vw - 2rem), 736px'
+  format='png'
 />
 <Image
   src={setupScreenshot}
   alt='setup screenshot img'
-  widths={[736, 1472]}
-  sizes='(max-width: 768px) calc(100vw - 2rem), 736px'
+  format='png'
 />

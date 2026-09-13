@@ -54,9 +54,7 @@ export const components = {
     <h1 class='mb-2'>{title}</h1>
     <div class='flex items-center gap-1'>
       <Badge>{dateLabel}</Badge>
-      <time class='text-sec' datetime={displayDate.toISOString()}>
-        {formatDate(displayDate, 'withYear')}
-      </time>
+      <small class='text-sec'>{formatDate(displayDate, 'withYear')}</small>
     </div>
   </header>
 

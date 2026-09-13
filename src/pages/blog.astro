@@ -28,7 +28,7 @@ const years = Object.keys(posts).toSorted((a, b) => parseInt(b) - parseInt(a))
   <h1 class='sr-only'>Blog</h1>
   {years.map(y => (
     <section class='[&:not(:first-of-type)]:mt-8'>
-      <h2 class='text-sec m-0 text-[80%] font-normal'>{y}</h2>
+      <small class='text-sec'>{y}</small>
       <ul class='mt-2'>
         {posts[y].map(p => (
           <li>
