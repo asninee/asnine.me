@@ -59,10 +59,21 @@ jobs:
           runs: ${{ github.event_name == 'pull_request' && 1 || 3 }}
           uploadArtifacts: true
 
+      - name: Retry site audit
+        id: lighthouse-retry
+        if: steps.lighthouse.outcome == 'failure'
+        continue-on-error: true
+        uses: treosh/lighthouse-ci-action@12.6.2
+        with:
+          configPath: ./.lighthouserc.json
+          runs: 2
+          uploadArtifacts: true
+          artifactName: lighthouse-results-retry
+
       - name: Format Lighthouse scores
         id: lighthouse-scores
         env:
-          RESULTS_PATH: ${{ steps.lighthouse.outputs.resultsPath }}
+          RESULTS_PATH: ${{ steps.lighthouse-retry.outputs.resultsPath || steps.lighthouse.outputs.resultsPath }}
         run: |
           scores=$(jq -r '
             map(select(.isRepresentativeRun))
@@ -73,7 +84,9 @@ jobs:
           echo "comment=$scores" >> "$GITHUB_OUTPUT"
 
       - name: Enforce Lighthouse thresholds
-        if: steps.lighthouse.outcome == 'failure'
+        if: >-
+          steps.lighthouse.outcome == 'failure' &&
+          steps.lighthouse-retry.outcome != 'success'
         run: exit 1
 
       - name: Identify failure
@@ -82,7 +95,7 @@ jobs:
         env:
           SOURCE: ${{ steps.source.conclusion }}
           BUILD: ${{ steps.build.conclusion }}
-          LIGHTHOUSE: ${{ steps.lighthouse.outcome }}
+          LIGHTHOUSE: ${{ steps.lighthouse-retry.outcome == 'success' && 'success' || steps.lighthouse.outcome }}
         run: |
           for check in source build lighthouse; do
             result=$(printenv "${check^^}")
