@@ -40,7 +40,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "oxlint": "^1.82.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.7",
     "prettier-plugin-astro": "^1.0.0",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3",
